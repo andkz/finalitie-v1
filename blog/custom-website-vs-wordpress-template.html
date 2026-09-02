@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Website vs WordPress Template · Finalitie</title>
+  <meta name="description" content="Templates cost less upfront but more long-term. Custom sites bring better ROI through speed and SEO.">
+  
+  <!-- Unified Geist Font System -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Geist', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+            heading: ['Geist', 'sans-serif'],
+            mono: ['"Geist Mono"', 'Geist', 'monospace']
+          },
+          colors: {
+            emerald: {
+              brand: '#2bb583',
+              dark: '#00472d',
+              light: '#eaf7f2'
+            },
+            surface: {
+              50: '#fafafa',
+              100: '#f8f8f9',
+              150: '#f1f1f3',
+              200: '#e4e4e7',
+              900: '#09090b',
+              950: '#030303'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --font-geist: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+    * { font-family: var(--font-geist); }
+    body { background-color: #ffffff; color: #09090b; letter-spacing: -0.01em; }
+    h1 { font-family: var(--font-geist); font-weight: 500; letter-spacing: -0.03em; line-height: 1.15; }
+    h2 { font-family: var(--font-geist); font-weight: 500; letter-spacing: -0.03em; line-height: 1.25; }
+    h3 { font-family: var(--font-geist); font-weight: 500; letter-spacing: -0.02em; }
+    
+    .btn-shadcn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 0.5rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      transition: all 0.15s ease-in-out;
+      outline: none;
+      text-decoration: none;
+      gap: 0.5rem;
+    }
+    .btn-shadcn:active { transform: scale(0.98); }
+    .btn-primary { background-color: #09090b; color: #fafafa; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 1px 2px rgba(0,0,0,0.08); }
+    .btn-primary:hover { background-color: #27272a; }
+    .btn-outline { background-color: #ffffff; color: #09090b; border: 1px solid #e4e4e7; }
+    .btn-outline:hover { background-color: #f4f4f5; }
+    .btn-white { background-color: #ffffff; color: #09090b; }
+    .btn-white:hover { background-color: #f4f4f5; }
+
+    /* Framer Exact Section Badges */
+    .badge-section {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.6875rem; /* 11px */
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      background-color: #eaf7f2;
+      border: 1px solid rgba(43, 181, 131, 0.3);
+      user-select: none;
+    }
+    .badge-section-gradient {
+      background: linear-gradient(64deg, rgb(0, 71, 45) 0%, rgb(43, 181, 131) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 600;
+    }
+
+    .badge-shadcn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      padding: 0.25rem 0.625rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      border: 1px solid #e4e4e7;
+      background-color: #fafafa;
+      color: #3f3f46;
+    }
+    .badge-brand {
+      border-color: rgba(43, 181, 131, 0.3);
+      background-color: #eaf7f2;
+      color: #00472d;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-emerald-brand selection:text-white antialiased">
+
+  <!-- Header -->
+  <header class="w-full border-b border-neutral-200/70 bg-white/90 backdrop-blur-md sticky top-0 z-40">
+    <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="../index.html" class="flex items-center gap-2 group">
+        <img src="finalitie-logo.svg" alt="Finalitie Logo" class="h-[18px] w-auto transition-transform group-hover:scale-105">
+        <span class="font-bold text-sm tracking-[0.11em] text-neutral-950 uppercase">FINALITIE</span>
+      </a>
+
+      <nav class="hidden sm:flex items-center gap-6 text-sm font-medium text-neutral-600">
+        <a href="../index.html#projects" class="hover:text-neutral-950 transition-colors">Projects</a>
+        <a href="../index.html#pricing" class="hover:text-neutral-950 transition-colors">Pricing</a>
+        <a href="../index.html#blog" class="text-neutral-950 font-semibold">Blog</a>
+        <a href="../index.html#contact" class="hover:text-neutral-950 transition-colors">Contact</a>
+      </nav>
+
+      <a href="../index.html#contact" class="btn-shadcn btn-primary h-9 px-4 text-xs">
+        Free Consultation
+      </a>
+    </div>
+  </header>
+
+  <!-- Article Hero -->
+  <article class="max-w-3xl mx-auto px-6 py-16 w-full">
+    
+    <!-- Back Link & Tags -->
+    <div class="mb-8">
+      <a href="../index.html#blog" class="inline-flex items-center gap-1.5 text-xs font-medium text-neutral-500 hover:text-neutral-950 transition-colors mb-6">
+        &larr; Back to all articles
+      </a>
+      <div class="flex items-center gap-3">
+        <div class="badge-section">
+          <span class="badge-section-gradient">Web Design</span>
+        </div>
+        <span class="text-xs text-neutral-500">Sep 6, 2025</span>
+        <span class="text-neutral-300">&bull;</span>
+        <span class="text-xs text-neutral-500 font-medium">by Kamil</span>
+      </div>
+    </div>
+
+    <!-- Main Title -->
+    <h1 class="text-3xl sm:text-4xl lg:text-[46px] font-medium text-neutral-950 mb-8 tracking-tight">
+      Custom Website vs WordPress Template
+    </h1>
+
+    <!-- Lead In -->
+    <p class="text-lg sm:text-xl text-neutral-700 font-normal leading-relaxed mb-12 pb-8 border-b border-neutral-200/80">
+      Templates cost less upfront but more long-term. Custom sites bring better ROI through speed and SEO.
+    </p>
+
+    <!-- Main Body Content (1:1 from Framer) -->
+    <div class="space-y-10 text-neutral-700 leading-relaxed font-normal text-base">
+      
+      <section>
+        <h2 class="text-2xl font-medium text-neutral-950 mb-4 tracking-tight">The Real Cost of Templates</h2>
+        <p class="mb-4">Buying a $50 template and setting it up seems cheap. But the hidden costs add up quickly:</p>
+        <ul class="list-disc pl-5 space-y-2 mb-4">
+          <li><strong>Bloated code:</strong> Templates try to do everything for everyone, loading hundreds of unnecessary scripts that slow down your website.</li>
+          <li><strong>Plugin dependencies:</strong> You need 20+ plugins for basic functionality. Plugins break with updates, create security vulnerabilities, and conflict with each other.</li>
+          <li><strong>Maintenance headaches:</strong> Constant updates, broken layouts, and slow loading require ongoing developer hours to patch.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-medium text-neutral-950 mb-4 tracking-tight">What Custom Actually Gives You</h2>
+        <p class="mb-4">A bespoke, custom website is engineered specifically for your business goals:</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-6">
+          <div class="p-5 rounded-xl bg-surface-50 border border-neutral-200/80">
+            <h4 class="font-medium text-neutral-950 text-sm mb-1.5">⚡ 100/100 PageSpeed</h4>
+            <p class="text-xs text-neutral-600">Zero bloat. Instant loading under 0.5s keeps visitors engaged and boosts conversions.</p>
+          </div>
+          <div class="p-5 rounded-xl bg-surface-50 border border-neutral-200/80">
+            <h4 class="font-medium text-neutral-950 text-sm mb-1.5">🎯 Tailored Conversion Flow</h4>
+            <p class="text-xs text-neutral-600">Layouts crafted specifically to guide your ideal clients straight to inquiry.</p>
+          </div>
+          <div class="p-5 rounded-xl bg-surface-50 border border-neutral-200/80">
+            <h4 class="font-medium text-neutral-950 text-sm mb-1.5">🔒 Unbreakable Security</h4>
+            <p class="text-xs text-neutral-600">No vulnerable third-party plugins. Zero database hack vectors.</p>
+          </div>
+          <div class="p-5 rounded-xl bg-surface-50 border border-neutral-200/80">
+            <h4 class="font-medium text-neutral-950 text-sm mb-1.5">📈 Superior Search Rankings</h4>
+            <p class="text-xs text-neutral-600">Clean semantic HTML and structured data built for top Google positions.</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-medium text-neutral-950 mb-4 tracking-tight">The ROI Calculation</h2>
+        <p class="mb-4">If a custom website costs $2,000–$3,500 and brings in just 2 additional high-ticket clients or 10 extra regular customers per year, it pays for itself in the first few months. Over 3 years, the compounding advantage in SEO and trust delivers a 10x ROI compared to a struggling template site.</p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-medium text-neutral-950 mb-4 tracking-tight">The Decision</h2>
+        <p class="mb-4">If you are treating your business as a hobby, a template might suffice. But if your website is the engine that drives your revenue, credibility, and customer acquisition, investing in a custom build is one of the highest-leverage decisions you can make.</p>
+      </section>
+
+    </div>
+
+    <!-- Article Bottom CTA Card -->
+    <div class="mt-16 p-8 sm:p-10 rounded-2xl bg-neutral-950 text-white border border-neutral-800 text-center">
+      <h3 class="text-2xl font-medium text-white mb-3 tracking-tight">Ready to Get More Customers?</h3>
+      <p class="text-sm text-neutral-400 mb-6 max-w-lg mx-auto font-normal">
+        Every day without a professional website, potential customers go somewhere else. Get found in Google, build trust instantly, and turn visitors into paying customers.
+      </p>
+      <a href="../index.html#contact" class="btn-shadcn btn-white h-10 px-6">
+        Free Consultation &rarr;
+      </a>
+    </div>
+
+  </article>
+
+  <!-- Footer -->
+  <footer class="w-full border-t border-neutral-200/70 py-10 text-xs text-neutral-500 bg-white">
+    <div class="max-w-5xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div class="flex items-center gap-2">
+          <img src="finalitie-logo.svg" alt="Finalitie Logo" class="h-4 w-auto">
+          <span class="font-bold text-xs tracking-[0.11em] text-neutral-950 uppercase">FINALITIE</span>
+        </div>
+        <span>&middot;</span>
+        <span>&copy; 2025 Finalitie. All rights reserved.</span>
+      </div>
+      <div class="flex items-center gap-6 font-medium text-neutral-600">
+        <a href="../index.html#projects" class="hover:text-neutral-950 transition-colors">Projects</a>
+        <a href="../index.html#pricing" class="hover:text-neutral-950 transition-colors">Pricing</a>
+        <a href="../index.html#blog" class="hover:text-neutral-950 transition-colors">Blog</a>
+        <a href="../index.html#contact" class="hover:text-neutral-950 transition-colors">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

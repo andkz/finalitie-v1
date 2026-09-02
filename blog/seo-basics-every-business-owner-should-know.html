@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SEO Basics Every Business Owner Should Know · Finalitie</title>
+  <meta name="description" content="Understanding basic SEO helps you rank higher in Google and get found by customers actively searching for what you offer.">
+  
+  <!-- Unified Geist Font System -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Geist', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+            heading: ['Geist', 'sans-serif'],
+            mono: ['"Geist Mono"', 'Geist', 'monospace']
+          },
+          colors: {
+            emerald: {
+              brand: '#2bb583',
+              dark: '#00472d',
+              light: '#eaf7f2'
+            },
+            surface: {
+              50: '#fafafa',
+              100: '#f8f8f9',
+              150: '#f1f1f3',
+              200: '#e4e4e7',
+              900: '#09090b',
+              950: '#030303'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --font-geist: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+    * { font-family: var(--font-geist); }
+    body { background-color: #ffffff; color: #09090b; letter-spacing: -0.01em; }
+    h1 { font-family: var(--font-geist); font-weight: 500; letter-spacing: -0.03em; line-height: 1.15; }
+    h2 { font-family: var(--font-geist); font-weight: 500; letter-spacing: -0.03em; line-height: 1.25; }
+    h3 { font-family: var(--font-geist); font-weight: 500; letter-spacing: -0.02em; }
+    
+    .btn-shadcn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 0.5rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      transition: all 0.15s ease-in-out;
+      outline: none;
+      text-decoration: none;
+      gap: 0.5rem;
+    }
+    .btn-shadcn:active { transform: scale(0.98); }
+    .btn-primary { background-color: #09090b; color: #fafafa; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 1px 2px rgba(0,0,0,0.08); }
+    .btn-primary:hover { background-color: #27272a; }
+    .btn-outline { background-color: #ffffff; color: #09090b; border: 1px solid #e4e4e7; }
+    .btn-outline:hover { background-color: #f4f4f5; }
+    .btn-white { background-color: #ffffff; color: #09090b; }
+    .btn-white:hover { background-color: #f4f4f5; }
+
+    /* Framer Exact Section Badges */
+    .badge-section {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.6875rem; /* 11px */
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      background-color: #eaf7f2;
+      border: 1px solid rgba(43, 181, 131, 0.3);
+      user-select: none;
+    }
+    .badge-section-gradient {
+      background: linear-gradient(64deg, rgb(0, 71, 45) 0%, rgb(43, 181, 131) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 600;
+    }
+
+    .badge-shadcn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      padding: 0.25rem 0.625rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      border: 1px solid #e4e4e7;
+      background-color: #fafafa;
+      color: #3f3f46;
+    }
+    .badge-brand {
+      border-color: rgba(43, 181, 131, 0.3);
+      background-color: #eaf7f2;
+      color: #00472d;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-emerald-brand selection:text-white antialiased">
+
+  <!-- Header -->
+  <header class="w-full border-b border-neutral-200/70 bg-white/90 backdrop-blur-md sticky top-0 z-40">
+    <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="../index.html" class="flex items-center gap-2 group">
+        <img src="finalitie-logo.svg" alt="Finalitie Logo" class="h-[18px] w-auto transition-transform group-hover:scale-105">
+        <span class="font-bold text-sm tracking-[0.11em] text-neutral-950 uppercase">FINALITIE</span>
+      </a>
+
+      <nav class="hidden sm:flex items-center gap-6 text-sm font-medium text-neutral-600">
+        <a href="../index.html#projects" class="hover:text-neutral-950 transition-colors">Projects</a>
+        <a href="../index.html#pricing" class="hover:text-neutral-950 transition-colors">Pricing</a>
+        <a href="../index.html#blog" class="text-neutral-950 font-semibold">Blog</a>
+        <a href="../index.html#contact" class="hover:text-neutral-950 transition-colors">Contact</a>
+      </nav>
+
+      <a href="../index.html#contact" class="btn-shadcn btn-primary h-9 px-4 text-xs">
+        Free Consultation
+      </a>
+    </div>
+  </header>
+
+  <!-- Article Hero -->
+  <article class="max-w-3xl mx-auto px-6 py-16 w-full">
+    
+    <!-- Back Link & Tags -->
+    <div class="mb-8">
+      <a href="../index.html#blog" class="inline-flex items-center gap-1.5 text-xs font-medium text-neutral-500 hover:text-neutral-950 transition-colors mb-6">
+        &larr; Back to all articles
+      </a>
+      <div class="flex items-center gap-3">
+        <div class="badge-section">
+          <span class="badge-section-gradient">SEO</span>
+        </div>
+        <span class="text-xs text-neutral-500">Feb 10, 2025</span>
+        <span class="text-neutral-300">&bull;</span>
+        <span class="text-xs text-neutral-500 font-medium">by Kamil</span>
+      </div>
+    </div>
+
+    <!-- Main Title -->
+    <h1 class="text-3xl sm:text-4xl lg:text-[46px] font-medium text-neutral-950 mb-8 tracking-tight">
+      SEO Basics Every Business Owner Should Know
+    </h1>
+
+    <!-- Lead In -->
+    <p class="text-lg sm:text-xl text-neutral-700 font-normal leading-relaxed mb-12 pb-8 border-b border-neutral-200/80">
+      Search Engine Optimization means making your website show up when people search for what you offer. Someone types "plumber in Chicago" into Google. SEO determines whether your site appears first, tenth, or not at all. Higher rankings mean more people find you. More visibility means more customers. It's not magic or tricks. Just making your site easy for search engines to understand and valuable for people searching.
+    </p>
+
+    <!-- Main Body Content (1:1 from Framer) -->
+    <div class="space-y-10 text-neutral-700 leading-relaxed font-normal text-base">
+      
+      <section>
+        <h2 class="text-2xl font-medium text-neutral-950 mb-4 tracking-tight">Why It Matters for Your Business</h2>
+        <p class="mb-4">Most customers start with a Google search. If you don't show up in results, you don't exist to them.</p>
+        <p class="mb-4">Good SEO brings customers who are actively looking for what you sell. They're ready to buy, not just browsing. These searches have high intent and convert better than any other traffic source.</p>
+        <p>Local businesses especially benefit. "Best restaurant near me" or "emergency electrician" searches happen thousands of times daily in every city. Showing up in those results brings steady customers without paying for ads.</p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-medium text-neutral-950 mb-4 tracking-tight">Keywords: What People Actually Search</h2>
+        <p class="mb-4">Keywords are the words and phrases customers type into Google.</p>
+        <p class="mb-4">Your business might call it "residential HVAC services." Customers search "fix my heating" or "AC repair near me." Using their language, not industry jargon, helps you get found.</p>
+        <p class="mb-4">Think about what problems you solve, not what services you offer. People search for solutions, not technical terms.</p>
+        <div class="p-6 rounded-xl bg-surface-50 border border-neutral-200/80 space-y-2 text-sm text-neutral-800">
+          <p class="font-medium text-neutral-950 mb-2">Finding the right keywords:</p>
+          <p>&bull; What questions do customers ask on the phone?</p>
+          <p>&bull; What problems bring people to your business?</p>
+          <p>&bull; What would you search if you needed your own services?</p>
+        </div>
+        <p class="mt-4">Use those actual phrases on your website. In headlines, descriptions, and content. Natural language, not keyword stuffing.</p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-medium text-neutral-950 mb-4 tracking-tight">Content: Give People What They're Looking For</h2>
+        <p class="mb-4">Google ranks sites that answer questions well.</p>
+        <p class="mb-4">If someone searches "how to fix a leaky faucet," they want helpful information, not just "hire a plumber" repeated 50 times.</p>
+        <p class="mb-3 font-medium text-neutral-900">Create content that actually helps:</p>
+        <ul class="list-disc pl-5 space-y-2 mb-4">
+          <li>Answer common customer questions</li>
+          <li>Explain your process</li>
+          <li>Share useful tips related to your industry</li>
+          <li>Write about problems you solve</li>
+        </ul>
+        <p>The business that provides the most helpful information usually ranks highest. Google rewards sites that serve searchers well.</p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-medium text-neutral-950 mb-4 tracking-tight">Page Speed: Fast Sites Rank Higher</h2>
+        <p class="mb-4">Slow websites frustrate users. Google knows this and ranks fast sites higher.</p>
+        <p class="mb-4">If your site takes 5 seconds to load, people leave before seeing anything. Google sees this behavior and assumes your site isn't valuable.</p>
+        <p class="mb-4">Fast sites under 2 seconds keep visitors engaged. Better user experience signals quality to Google. Rankings improve as a result.</p>
+        <p class="font-medium text-neutral-950">Speed affects both SEO and conversions. It's not optional.</p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-medium text-neutral-950 mb-4 tracking-tight">Mobile Optimization: Half Your Traffic Uses Phones</h2>
+        <p class="mb-4">Over 50% of searches happen on mobile devices. Google prioritizes sites that work well on phones.</p>
+        <p class="mb-4">If your site looks broken on mobile or requires zooming and scrolling sideways, Google ranks you lower. Mobile-friendly design is now mandatory, not optional.</p>
+        <p>Test your site on an actual phone. If you wouldn't use it, customers won't either. And Google won't rank it well.</p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-medium text-neutral-950 mb-4 tracking-tight">Local SEO: Showing Up in Your Area</h2>
+        <p class="mb-4">Local businesses need local visibility. Someone searching "dentist near me" should find dentists in their area, not across the country.</p>
+        <div class="p-6 rounded-xl bg-surface-50 border border-neutral-200/80 space-y-2 text-sm text-neutral-800 mb-4">
+          <p class="font-medium text-neutral-950 mb-2">Key local SEO factors:</p>
+          <p>&bull; Google Business Profile (formerly Google My Business)</p>
+          <p>&bull; Your business name, address, and phone number consistent everywhere online</p>
+          <p>&bull; Local keywords like "Chicago plumber" not just "plumber"</p>
+          <p>&bull; Customer reviews on Google</p>
+        </div>
+        <p>Claim and optimize your Google Business Profile. It's free and puts you on Google Maps. Local pack rankings (the map results at the top) drive massive traffic for local businesses.</p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-medium text-neutral-950 mb-4 tracking-tight">Technical SEO: The Behind-the-Scenes Stuff</h2>
+        <p class="mb-4">Some SEO happens in the code where visitors don't see it.</p>
+        <p class="mb-3 font-medium text-neutral-900">Important technical elements:</p>
+        <ul class="list-disc pl-5 space-y-1.5 mb-4 text-sm">
+          <li>Clean URLs that describe the page</li>
+          <li>Title tags and meta descriptions for each page</li>
+          <li>Header tags (H1, H2) organizing content properly</li>
+          <li>Image alt text describing photos</li>
+          <li>SSL certificate (https:// not http://)</li>
+          <li>XML sitemap telling Google what pages exist</li>
+        </ul>
+        <p>Most of this gets handled during website development. Custom sites include proper technical SEO from the start. Templates often miss these elements or implement them poorly. You don't need to understand the technical details. Just know they matter and ensure your developer handles them.</p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-medium text-neutral-950 mb-4 tracking-tight">The Bottom Line</h2>
+        <p class="mb-4">SEO brings customers actively searching for what you offer. It works 24/7 without ongoing ad spending. Results build over time and compound.</p>
+        <p class="mb-4">Basic SEO isn't complicated. Fast site, mobile-friendly, helpful content, proper technical setup. Do these things and you'll outrank competitors who don't.</p>
+        <p class="font-medium text-neutral-950">Perfect SEO isn't the goal. Good enough SEO that brings more customers than you had before - that's what matters.</p>
+      </section>
+
+    </div>
+
+    <!-- Article Bottom CTA Card -->
+    <div class="mt-16 p-8 sm:p-10 rounded-2xl bg-neutral-950 text-white border border-neutral-800 text-center">
+      <h3 class="text-2xl font-medium text-white mb-3 tracking-tight">Ready to Get More Customers?</h3>
+      <p class="text-sm text-neutral-400 mb-6 max-w-lg mx-auto font-normal">
+        Every day without a professional website, potential customers go somewhere else. Get found in Google, build trust instantly, and turn visitors into paying customers.
+      </p>
+      <a href="../index.html#contact" class="btn-shadcn btn-white h-10 px-6">
+        Free Consultation &rarr;
+      </a>
+    </div>
+
+  </article>
+
+  <!-- Footer -->
+  <footer class="w-full border-t border-neutral-200/70 py-10 text-xs text-neutral-500 bg-white">
+    <div class="max-w-5xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div class="flex items-center gap-2">
+          <img src="finalitie-logo.svg" alt="Finalitie Logo" class="h-4 w-auto">
+          <span class="font-bold text-xs tracking-[0.11em] text-neutral-950 uppercase">FINALITIE</span>
+        </div>
+        <span>&middot;</span>
+        <span>&copy; 2025 Finalitie. All rights reserved.</span>
+      </div>
+      <div class="flex items-center gap-6 font-medium text-neutral-600">
+        <a href="../index.html#projects" class="hover:text-neutral-950 transition-colors">Projects</a>
+        <a href="../index.html#pricing" class="hover:text-neutral-950 transition-colors">Pricing</a>
+        <a href="../index.html#blog" class="hover:text-neutral-950 transition-colors">Blog</a>
+        <a href="../index.html#contact" class="hover:text-neutral-950 transition-colors">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

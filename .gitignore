@@ -1,0 +1,7 @@
+﻿*.py
+raw_framer.html
+part1.html
+part2.html
+__pycache__/
+.DS_Store
+Thumbs.db

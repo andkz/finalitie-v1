@@ -1,0 +1,1380 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finalitie · Web Design and Development</title>
+  <meta name="description" content="Modern, responsive websites that help businesses grow online. Custom web design, development, and SEO-optimized solutions for maximum performance and user experience.">
+  
+  <!-- Open Graph / Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Finalitie">
+  <meta property="og:description" content="Modern, responsive websites that help businesses grow online. Custom web design, development, and SEO-optimized solutions for maximum performance and user experience.">
+  <meta property="og:image" content="https://framerusercontent.com/images/GmYx3GkXDe3lTME4KumGFhegPoA.png">
+  <link rel="icon" href="https://framerusercontent.com/images/tGUOcqDgP6XO7Dpi82pGrgbkQg.png">
+
+  <!-- Unified Geist Font System -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Geist', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+            heading: ['Geist', 'sans-serif'],
+            mono: ['"Geist Mono"', 'Geist', 'monospace']
+          },
+          letterSpacing: {
+            tighter: '-0.04em',
+            tight: '-0.03em',
+            snug: '-0.02em',
+            normal: '0',
+          },
+          colors: {
+            emerald: {
+              brand: '#2bb583',
+              dark: '#00472d',
+              light: '#eaf7f2'
+            },
+            surface: {
+              50: '#fafafa',
+              100: '#f8f8f9',
+              150: '#f1f1f3',
+              200: '#e4e4e7',
+              900: '#09090b',
+              950: '#030303'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Three.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <style>
+    /* ==================== SHADCN / GEIST DESIGN SYSTEM ==================== */
+    :root {
+      --font-geist: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-mono: 'Geist Mono', monospace;
+    }
+
+    * {
+      font-family: var(--font-geist);
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #ffffff;
+      color: #09090b;
+      font-family: var(--font-geist);
+      overflow-x: hidden;
+      letter-spacing: -0.01em;
+    }
+
+    /* Strict H1 Specifications: 56px, Medium (500), letter-spacing: -0.03em */
+    h1, .hero-heading {
+      font-family: var(--font-geist);
+      font-weight: 500;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+    }
+
+    h2 {
+      font-family: var(--font-geist);
+      font-weight: 500;
+      letter-spacing: -0.03em;
+      line-height: 1.18;
+    }
+
+    h3 {
+      font-family: var(--font-geist);
+      font-weight: 500;
+      letter-spacing: -0.025em;
+      line-height: 1.25;
+    }
+
+    h4 {
+      font-family: var(--font-geist);
+      font-weight: 500;
+      letter-spacing: -0.02em;
+    }
+
+    /* ==================== SHADCN COMPONENTS TOKENS ==================== */
+    /* Shadcn Buttons */
+    .btn-shadcn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      white-space: nowrap;
+      border-radius: 0.5rem; /* rounded-lg */
+      font-size: 0.875rem; /* 14px */
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+      outline: none;
+      cursor: pointer;
+      user-select: none;
+      text-decoration: none;
+      gap: 0.5rem;
+    }
+    .btn-shadcn:active {
+      transform: scale(0.98);
+    }
+    .btn-shadcn:focus-visible {
+      outline: 2px solid #09090b;
+      outline-offset: 2px;
+    }
+
+    .btn-primary {
+      background-color: #09090b;
+      color: #fafafa;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.08);
+    }
+    .btn-primary:hover {
+      background-color: #27272a;
+      box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.12);
+    }
+
+    .btn-outline {
+      background-color: #ffffff;
+      color: #09090b;
+      border: 1px solid #e4e4e7;
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+    }
+    .btn-outline:hover {
+      background-color: #f4f4f5;
+      border-color: #d4d4d8;
+      color: #000000;
+    }
+
+    .btn-secondary {
+      background-color: #f4f4f5;
+      color: #18181b;
+      border: 1px solid transparent;
+    }
+    .btn-secondary:hover {
+      background-color: #e4e4e7;
+    }
+
+    .btn-ghost {
+      background-color: transparent;
+      color: #52525b;
+    }
+    .btn-ghost:hover {
+      background-color: #f4f4f5;
+      color: #09090b;
+    }
+
+    .btn-white {
+      background-color: #ffffff;
+      color: #09090b;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    }
+    .btn-white:hover {
+      background-color: #f4f4f5;
+      box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.15);
+    }
+
+    /* Button Sizes */
+    .btn-sm {
+      height: 2.125rem; /* 34px */
+      padding-left: 0.875rem;
+      padding-right: 0.875rem;
+      font-size: 0.8125rem;
+    }
+    .btn-md {
+      height: 2.5rem; /* 40px */
+      padding-left: 1.125rem;
+      padding-right: 1.125rem;
+      font-size: 0.875rem;
+    }
+    .btn-lg {
+      height: 2.75rem; /* 44px */
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+      font-size: 0.9375rem;
+    }
+
+    /* Framer Exact Section Badges */
+    .badge-section {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.6875rem; /* 11px */
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      background-color: #eaf7f2;
+      border: 1px solid rgba(43, 181, 131, 0.3);
+      user-select: none;
+    }
+    .badge-section-gradient {
+      background: linear-gradient(64deg, rgb(0, 71, 45) 0%, rgb(43, 181, 131) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 600;
+    }
+
+    /* Shadcn Badges & Pills */
+    .badge-shadcn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      padding: 0.25rem 0.625rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      border: 1px solid #e4e4e7;
+      background-color: #fafafa;
+      color: #3f3f46;
+    }
+    .badge-brand {
+      border-color: rgba(43, 181, 131, 0.3);
+      background-color: #eaf7f2;
+      color: #00472d;
+    }
+
+    /* 3D Floating Motion Animations */
+    @keyframes floatSlow1 {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-12px) rotate(0.8deg); }
+    }
+    @keyframes floatSlow2 {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-10px) rotate(-0.8deg); }
+    }
+    @keyframes floatSlow3 {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-13px) rotate(0.6deg); }
+    }
+    @keyframes floatSlow4 {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-11px) rotate(-0.6deg); }
+    }
+
+    .animate-float-1 {
+      animation: floatSlow1 6s ease-in-out infinite;
+      will-change: transform;
+    }
+    .animate-float-2 {
+      animation: floatSlow2 6.8s ease-in-out infinite 0.6s;
+      will-change: transform;
+    }
+    .animate-float-3 {
+      animation: floatSlow3 6.3s ease-in-out infinite 1.2s;
+      will-change: transform;
+    }
+    .animate-float-4 {
+      animation: floatSlow4 7.2s ease-in-out infinite 1.8s;
+      will-change: transform;
+    }
+
+    /* Shadcn Cards */
+    .card-shadcn {
+      background-color: #ffffff;
+      border: 1px solid #e4e4e7;
+      border-radius: 1rem; /* 16px */
+      transition: all 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .card-shadcn-hover:hover {
+      transform: translateY(-3px);
+      border-color: #d4d4d8;
+      box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.06);
+    }
+
+    /* Shadcn Inputs */
+    .input-shadcn {
+      width: 100%;
+      height: 2.5rem;
+      border-radius: 0.5rem;
+      border: 1px solid #e4e4e7;
+      background-color: #ffffff;
+      padding: 0.5rem 0.875rem;
+      font-size: 0.875rem;
+      color: #09090b;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+      outline: none;
+    }
+    .input-shadcn:focus {
+      border-color: #09090b;
+      box-shadow: 0 0 0 1px #09090b;
+    }
+    .input-shadcn::placeholder {
+      color: #a1a1aa;
+    }
+
+    .textarea-shadcn {
+      width: 100%;
+      min-height: 6.5rem;
+      border-radius: 0.5rem;
+      border: 1px solid #e4e4e7;
+      background-color: #ffffff;
+      padding: 0.625rem 0.875rem;
+      font-size: 0.875rem;
+      color: #09090b;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+      outline: none;
+      resize: vertical;
+    }
+    .textarea-shadcn:focus {
+      border-color: #09090b;
+      box-shadow: 0 0 0 1px #09090b;
+    }
+
+    #kinetic-canvas {
+      width: 100% !important;
+      height: 100% !important;
+      cursor: grab;
+    }
+    #kinetic-canvas:active {
+      cursor: grabbing;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-emerald-brand selection:text-white antialiased">
+
+  <!-- ==================== HEADER / NAVBAR ==================== -->
+  <header class="w-full border-b border-neutral-200/70 bg-white/90 backdrop-blur-md sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-6 sm:px-10 h-16 flex items-center justify-between">
+      
+      <!-- Brand Logo (Exact from Framer) -->
+      <a href="#" class="flex items-center gap-2 group">
+        <img src="finalitie-logo.svg" alt="Finalitie Logo" class="h-[18px] w-auto transition-transform group-hover:scale-105">
+        <span class="font-bold text-sm tracking-[0.11em] text-neutral-950 uppercase">FINALITIE</span>
+      </a>
+
+      <!-- Center Nav Links (Exact from Framer) -->
+      <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-neutral-600">
+        <a href="#projects" class="hover:text-neutral-950 transition-colors">Projects</a>
+        <a href="#pricing" class="hover:text-neutral-950 transition-colors">Pricing</a>
+        <a href="#blog" class="hover:text-neutral-950 transition-colors">Blog</a>
+        <a href="#contact" class="hover:text-neutral-950 transition-colors">Contact</a>
+      </nav>
+
+      <!-- Right Action CTA (Shadcn Button) -->
+      <div class="flex items-center gap-3">
+        <a href="#contact" class="btn-shadcn btn-primary btn-sm">
+          Free Consultation
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== 1. HERO SECTION ==================== -->
+  <section class="max-w-7xl mx-auto px-6 sm:px-10 w-full pt-12 pb-16 lg:py-20">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center w-full">
+      
+      <!-- Left Hero Content -->
+      <div class="lg:col-span-6 flex flex-col items-start text-left z-10">
+        
+        <!-- Announcement Pill (1:1 from Framer) -->
+        <a href="#projects" class="badge-shadcn hover:border-neutral-300 transition-all mb-7 group cursor-pointer">
+          <span class="px-2 py-0.5 rounded-full bg-emerald-light text-emerald-dark font-semibold text-[11px] border border-emerald-brand/30">
+            Check!
+          </span>
+          <span class="font-medium text-neutral-700 group-hover:text-neutral-950">Latest Projects &rarr;</span>
+        </a>
+
+        <!-- Main Headline: 56px, Medium, -0.03em tracking -->
+        <h1 class="text-4xl sm:text-5xl lg:text-[56px] text-neutral-950 font-medium tracking-tight leading-[1.1] mb-6">
+          Web Design and Development
+        </h1>
+
+        <!-- Subtitle (1:1 from Framer) -->
+        <p class="text-base sm:text-lg text-neutral-600 font-normal leading-relaxed max-w-lg mb-8">
+          Websites built to grow your business. Stand out from competitors, rank higher in search, and convert visitors into paying customers.
+        </p>
+
+        <!-- CTA Buttons (Shadcn Style) -->
+        <div class="flex flex-wrap items-center gap-3">
+          <a href="#contact" class="btn-shadcn btn-primary btn-lg shadow-sm">
+            Free Consultation
+          </a>
+          <a href="#projects" class="btn-shadcn btn-outline btn-lg">
+            Projects
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Right Column: 3D Floating Kinetic Infinity -->
+      <div class="lg:col-span-6 flex items-center justify-center relative w-full aspect-square max-w-[560px] mx-auto overflow-visible">
+        <div class="w-full h-full relative flex items-center justify-center">
+          <canvas id="kinetic-canvas"></canvas>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== 2. WHY EVERY BUSINESS NEEDS A WEBSITE (BENEFITS) ==================== -->
+  <section class="w-full bg-surface-100 border-y border-neutral-200/70 py-24" id="benefits">
+    <div class="max-w-7xl mx-auto px-6 sm:px-10">
+      
+      <!-- Section Header (1:1 from Framer) -->
+      <div class="max-w-2xl mb-16">
+        <div class="badge-section mb-4">
+          <span class="badge-section-gradient">Benefits</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-[40px] font-medium text-neutral-950 mb-4 tracking-tight">
+          Why every business need a website?
+        </h2>
+        <p class="text-base text-neutral-600 leading-relaxed font-normal">
+          Most customers search online before buying anything. Without a professional website, you're invisible to them. Your competitors with good sites get the business while you miss out.
+        </p>
+      </div>
+
+      <!-- 6 Benefits Cards Grid (1:1 from Framer) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Card 1 -->
+        <div class="p-8 rounded-2xl bg-white border border-neutral-200/80 card-shadcn card-shadcn-hover flex flex-col justify-between min-h-[250px]">
+          <div>
+            <div class="w-8 h-8 rounded-lg bg-surface-150 flex items-center justify-center mb-6 text-neutral-900 font-mono text-xs font-medium border border-neutral-200">01</div>
+            <h3 class="text-lg font-medium text-neutral-950 mb-2.5">Get Found by More Customers</h3>
+            <p class="text-sm text-neutral-600 leading-relaxed font-normal">
+              People searching for your services right now can't find you without a website. A professional site means showing up in Google when potential customers look for what you offer
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="p-8 rounded-2xl bg-white border border-neutral-200/80 card-shadcn card-shadcn-hover flex flex-col justify-between min-h-[250px]">
+          <div>
+            <div class="w-8 h-8 rounded-lg bg-surface-150 flex items-center justify-center mb-6 text-neutral-900 font-mono text-xs font-medium border border-neutral-200">02</div>
+            <h3 class="text-lg font-medium text-neutral-950 mb-2.5">Work While You Sleep</h3>
+            <p class="text-sm text-neutral-600 leading-relaxed font-normal">
+              A website answers questions and generates leads 24/7. Potential customers can learn about your services and contact you any time, even when your business is closed.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="p-8 rounded-2xl bg-white border border-neutral-200/80 card-shadcn card-shadcn-hover flex flex-col justify-between min-h-[250px]">
+          <div>
+            <div class="w-8 h-8 rounded-lg bg-surface-150 flex items-center justify-center mb-6 text-neutral-900 font-mono text-xs font-medium border border-neutral-200">03</div>
+            <h3 class="text-lg font-medium text-neutral-950 mb-2.5">Build Trust Immediately</h3>
+            <p class="text-sm text-neutral-600 leading-relaxed font-normal">
+              Customers check your website before deciding to contact you. A professional site makes you look credible and established. No website or a poor one makes people question if you're legitimate.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="p-8 rounded-2xl bg-white border border-neutral-200/80 card-shadcn card-shadcn-hover flex flex-col justify-between min-h-[250px]">
+          <div>
+            <div class="w-8 h-8 rounded-lg bg-surface-150 flex items-center justify-center mb-6 text-neutral-900 font-mono text-xs font-medium border border-neutral-200">04</div>
+            <h3 class="text-lg font-medium text-neutral-950 mb-2.5">Stand Out From Competitors</h3>
+            <p class="text-sm text-neutral-600 leading-relaxed font-normal">
+              Generic sites make you blend in. A custom, professional website shows you're serious about your business and gives customers a reason to choose you over competitors.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="p-8 rounded-2xl bg-white border border-neutral-200/80 card-shadcn card-shadcn-hover flex flex-col justify-between min-h-[250px]">
+          <div>
+            <div class="w-8 h-8 rounded-lg bg-surface-150 flex items-center justify-center mb-6 text-neutral-900 font-mono text-xs font-medium border border-neutral-200">05</div>
+            <h3 class="text-lg font-medium text-neutral-950 mb-2.5">Own Your Online Presence</h3>
+            <p class="text-sm text-neutral-600 leading-relaxed font-normal">
+              Social media platforms can change or disappear. Your website is yours. You control what customers see, how your brand looks, and the experience they have.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="p-8 rounded-2xl bg-white border border-neutral-200/80 card-shadcn card-shadcn-hover flex flex-col justify-between min-h-[250px]">
+          <div>
+            <div class="w-8 h-8 rounded-lg bg-surface-150 flex items-center justify-center mb-6 text-neutral-900 font-mono text-xs font-medium border border-neutral-200">06</div>
+            <h3 class="text-lg font-medium text-neutral-950 mb-2.5">Get Found Before Competitors</h3>
+            <p class="text-sm text-neutral-600 leading-relaxed font-normal">
+              Proper SEO means showing up first when customers search. The higher you rank in Google, the more business comes your way. Most people never scroll past the first few results.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 3. FEATURE HIGHLIGHTS / 3D STACKING CARDS (1:1 from Framer) ==================== -->
+  <section class="max-w-7xl mx-auto px-6 sm:px-10 py-24 w-full relative">
+    <div class="space-y-16 lg:space-y-20 pb-12">
+      
+      <!-- Stacking Card 1: Unmatched Performance (Lightning) -->
+      <div class="sticky top-20 lg:top-24 rounded-[32px] bg-white border border-neutral-200/90 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.08)] p-8 sm:p-12 lg:p-16 min-h-[460px] flex items-center overflow-hidden transition-all">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-14 items-center w-full">
+          <div class="md:col-span-6 flex items-center justify-center order-2 md:order-1">
+            <img src="https://framerusercontent.com/images/iUcx9jXZOYYrgpf8zI8Iqq37n3w.png?width=1080&height=1080" alt="Lightning-Fast Performance" class="w-full max-w-[340px] lg:max-w-[400px] h-auto object-contain animate-float-1" loading="lazy">
+          </div>
+          <div class="md:col-span-6 flex flex-col items-start text-left order-1 md:order-2">
+            <div class="badge-section mb-5">
+              <span class="badge-section-gradient">Unmatched Performance</span>
+            </div>
+            <h3 class="text-3xl sm:text-4xl lg:text-[44px] font-medium text-neutral-950 mb-4 tracking-tight leading-[1.15]">
+              Lightning-Fast<br class="hidden sm:inline"> Performance
+            </h3>
+            <p class="text-base sm:text-lg text-neutral-600 leading-relaxed font-normal max-w-lg">
+              Speed determines success. Visitors decide in 3 seconds whether to stay or leave. Sites that load instantly keep audiences engaged and boost conversion rates. Fast sites rank higher and turn browsers into buyers.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stacking Card 2: Protection (Safe & Secure Shield) -->
+      <div class="sticky top-24 lg:top-28 rounded-[32px] bg-white border border-neutral-200/90 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.08)] p-8 sm:p-12 lg:p-16 min-h-[460px] flex items-center overflow-hidden transition-all">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-14 items-center w-full">
+          <div class="md:col-span-6 flex flex-col items-start text-left order-1">
+            <div class="badge-section mb-5">
+              <span class="badge-section-gradient">Protection</span>
+            </div>
+            <h3 class="text-3xl sm:text-4xl lg:text-[44px] font-medium text-neutral-950 mb-4 tracking-tight leading-[1.15]">
+              Safe & Secure
+            </h3>
+            <p class="text-base sm:text-lg text-neutral-600 leading-relaxed font-normal max-w-lg">
+              Sites stay safe from online threats and technical issues. Daily backups mean nothing ever gets lost if something breaks. Customer info and business data stay private and locked away. All the security happens automatically in the background - zero technical headaches.
+            </p>
+          </div>
+          <div class="md:col-span-6 flex items-center justify-center order-2">
+            <img src="https://framerusercontent.com/images/25CZYnxvJuKKjyoAXa1I0QbkKM.png?width=1080&height=1080" alt="Safe & Secure" class="w-full max-w-[340px] lg:max-w-[400px] h-auto object-contain animate-float-2" loading="lazy">
+          </div>
+        </div>
+      </div>
+
+      <!-- Stacking Card 3: Responsiveness (Responsive on every screen) -->
+      <div class="sticky top-28 lg:top-32 rounded-[32px] bg-white border border-neutral-200/90 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.08)] p-8 sm:p-12 lg:p-16 min-h-[460px] flex items-center overflow-hidden transition-all">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-14 items-center w-full">
+          <div class="md:col-span-6 flex items-center justify-center order-2 md:order-1">
+            <img src="https://framerusercontent.com/images/avn0nfgyk68BkjIhhwHDBbkXCE.png?width=1080&height=1080" alt="Responsive on every screen" class="w-full max-w-[340px] lg:max-w-[400px] h-auto object-contain animate-float-3" loading="lazy">
+          </div>
+          <div class="md:col-span-6 flex flex-col items-start text-left order-1 md:order-2">
+            <div class="badge-section mb-5">
+              <span class="badge-section-gradient">Responsivness</span>
+            </div>
+            <h3 class="text-3xl sm:text-4xl lg:text-[44px] font-medium text-neutral-950 mb-4 tracking-tight leading-[1.15]">
+              Responsive on<br class="hidden sm:inline"> every screen
+            </h3>
+            <p class="text-base sm:text-lg text-neutral-600 leading-relaxed font-normal max-w-lg">
+              Mobile devices dominate internet usage. Fluid layouts automatically adjust to tablets, phones, and desktops without breaking design or functionality. Seamless experiences across all platforms keep visitors engaged regardless of how they access the site.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stacking Card 4: Visually Distinct (Stand Out) -->
+      <div class="sticky top-32 lg:top-36 rounded-[32px] bg-white border border-neutral-200/90 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.08)] p-8 sm:p-12 lg:p-16 min-h-[460px] flex items-center overflow-hidden transition-all">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-14 items-center w-full">
+          <div class="md:col-span-6 flex flex-col items-start text-left order-1">
+            <div class="badge-section mb-5">
+              <span class="badge-section-gradient">Visually Distinct</span>
+            </div>
+            <h3 class="text-3xl sm:text-4xl lg:text-[44px] font-medium text-neutral-950 mb-4 tracking-tight leading-[1.15]">
+              Stand Out
+            </h3>
+            <p class="text-base sm:text-lg text-neutral-600 leading-relaxed font-normal max-w-lg">
+              Custom design reflects your unique business and brand. When your site looks different from competitors, visitors remember you. A distinctive look grabs attention and makes people want to learn more about what you offer.
+            </p>
+          </div>
+          <div class="md:col-span-6 flex items-center justify-center order-2">
+            <img src="https://framerusercontent.com/images/krJIPEKpL0xrSPuZnFPvH810dSE.png?width=1080&height=1080" alt="Stand Out" class="w-full max-w-[340px] lg:max-w-[400px] h-auto object-contain animate-float-4" loading="lazy">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== 4. SERVICES ("WHAT DO I OFFER") ==================== -->
+  <section class="max-w-7xl mx-auto px-6 sm:px-10 py-20 w-full" id="services">
+    <div class="max-w-2xl mb-16">
+      <div class="badge-section mb-4">
+        <span class="badge-section-gradient">Services</span>
+      </div>
+      <h2 class="text-3xl sm:text-4xl lg:text-[40px] font-medium text-neutral-950 mb-4 tracking-tight">
+        What do I offer
+      </h2>
+      <p class="text-base text-neutral-600 leading-relaxed font-normal">
+        Streamline your process with a scalable design system, featuring global styles and customizable components.
+      </p>
+    </div>
+
+    <!-- 4 Services Grid (1:1 from Framer) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      
+      <div class="p-8 rounded-2xl border border-neutral-200 bg-white card-shadcn card-shadcn-hover flex flex-col justify-between min-h-[270px]">
+        <div>
+          <span class="text-xs font-mono font-medium px-2 py-0.5 rounded bg-surface-150 text-neutral-700 mb-4 inline-block border border-neutral-200">Design</span>
+          <h3 class="text-xl font-medium text-neutral-950 mt-1 mb-3">Design</h3>
+          <p class="text-sm text-neutral-600 leading-relaxed font-normal">
+            Stand out from everyone else. Custom design built specifically for your business
+          </p>
+        </div>
+      </div>
+
+      <div class="p-8 rounded-2xl border border-neutral-200 bg-white card-shadcn card-shadcn-hover flex flex-col justify-between min-h-[270px]">
+        <div>
+          <span class="text-xs font-mono font-medium px-2 py-0.5 rounded bg-surface-150 text-neutral-700 mb-4 inline-block border border-neutral-200">Code</span>
+          <h3 class="text-xl font-medium text-neutral-950 mt-1 mb-3">Development</h3>
+          <p class="text-sm text-neutral-600 leading-relaxed font-normal">
+            Custom Development. A website that grows with your business and handles anything
+          </p>
+        </div>
+      </div>
+
+      <div class="p-8 rounded-2xl border border-neutral-200 bg-white card-shadcn card-shadcn-hover flex flex-col justify-between min-h-[270px]">
+        <div>
+          <span class="text-xs font-mono font-medium px-2 py-0.5 rounded bg-surface-150 text-neutral-700 mb-4 inline-block border border-neutral-200">Rank</span>
+          <h3 class="text-xl font-medium text-neutral-950 mt-1 mb-3">SEO</h3>
+          <p class="text-sm text-neutral-600 leading-relaxed font-normal">
+            Help people find you on Google when they search for what you sell. Stay visible.
+          </p>
+        </div>
+      </div>
+
+      <div class="p-8 rounded-2xl border border-neutral-200 bg-white card-shadcn card-shadcn-hover flex flex-col justify-between min-h-[270px]">
+        <div>
+          <span class="text-xs font-mono font-medium px-2 py-0.5 rounded bg-surface-150 text-neutral-700 mb-4 inline-block border border-neutral-200">Copy</span>
+          <h3 class="text-xl font-medium text-neutral-950 mt-1 mb-3">Copywriting</h3>
+          <p class="text-sm text-neutral-600 leading-relaxed font-normal">
+            Messages that speak directly to your audience and drive sales, growing your business.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== 5. PERFORMANCE & STATS (1:1 from Framer) ==================== -->
+  <section class="max-w-7xl mx-auto px-6 sm:px-10 pb-20 w-full">
+    <div class="rounded-3xl bg-neutral-950 text-white p-10 sm:p-14 flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden border border-neutral-800">
+      
+      <div class="max-w-xl z-10">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-900 border border-neutral-800 text-xs text-emerald-brand font-medium mb-4">
+          <span>⚡ Performance & Stats</span>
+        </div>
+        <h3 class="text-3xl sm:text-4xl font-medium mb-4 tracking-tight leading-tight">
+          Get The Most from your website
+        </h3>
+        <p class="text-neutral-400 text-sm sm:text-base leading-relaxed font-normal">
+          Every site scores 100/100 in Google PageSpeed Insights. Faster loading, better rankings, more clients.
+        </p>
+      </div>
+
+      <div class="flex items-center gap-5 z-10">
+        <div class="text-center p-5 rounded-2xl bg-neutral-900/90 border border-neutral-800 min-w-[120px]">
+          <span class="text-4xl sm:text-5xl font-medium text-emerald-brand font-mono">100</span>
+          <p class="text-[11px] text-neutral-400 mt-1 uppercase tracking-wider font-medium">Performance</p>
+        </div>
+        <div class="text-center p-5 rounded-2xl bg-neutral-900/90 border border-neutral-800 min-w-[120px]">
+          <span class="text-4xl sm:text-5xl font-medium text-white font-mono">0.4s</span>
+          <p class="text-[11px] text-neutral-400 mt-1 uppercase tracking-wider font-medium">Load Time</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== 6. PORTFOLIO / LATEST PROJECTS (1:1 from Framer) ==================== -->
+  <section class="max-w-7xl mx-auto px-6 sm:px-10 py-20 w-full" id="projects">
+    <div class="max-w-2xl mb-14">
+      <div class="badge-section mb-4">
+        <span class="badge-section-gradient">Portfolio</span>
+      </div>
+      <h2 class="text-3xl sm:text-4xl lg:text-[40px] font-medium text-neutral-950 mb-3 tracking-tight">
+        Latest Projects
+      </h2>
+      <p class="text-base text-neutral-600 leading-relaxed font-normal">
+        Check latest work. View Websites.
+      </p>
+    </div>
+
+    <!-- 4 Real Framer Projects Grid (Clickable Cards to External URLs) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      
+      <!-- Project 1: MWiktor (Graphic Designer) -->
+      <a href="https://mwiktor.framer.media/" target="_blank" rel="noopener noreferrer" class="group rounded-2xl border border-neutral-200 bg-white overflow-hidden card-shadcn card-shadcn-hover flex flex-col justify-between cursor-pointer block text-inherit no-underline">
+        <div class="aspect-[16/10] bg-surface-100 flex items-center justify-center relative overflow-hidden border-b border-neutral-200/70">
+          <img src="https://framerusercontent.com/images/4UcDinSzcZQyM2cEf1dzjBOE.png?width=2000&height=1333" alt="MWiktor" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out" loading="lazy">
+        </div>
+        <div class="p-7 flex items-center justify-between">
+          <div>
+            <h3 class="text-xl font-medium text-neutral-950 group-hover:text-emerald-brand transition-colors">MWiktor</h3>
+            <p class="text-xs text-neutral-500 mt-1 font-normal">Graphic Designer &middot; Dark Mode &middot; Branding</p>
+          </div>
+          <span class="btn-shadcn btn-outline btn-sm group-hover:bg-neutral-900 group-hover:text-white transition-all">
+            View Website &nearr;
+          </span>
+        </div>
+      </a>
+
+      <!-- Project 2: Fizjoeverest (Physiotherapist) -->
+      <a href="https://fizjoeverest.framer.website/" target="_blank" rel="noopener noreferrer" class="group rounded-2xl border border-neutral-200 bg-white overflow-hidden card-shadcn card-shadcn-hover flex flex-col justify-between cursor-pointer block text-inherit no-underline">
+        <div class="aspect-[16/10] bg-surface-100 flex items-center justify-center relative overflow-hidden border-b border-neutral-200/70">
+          <img src="https://framerusercontent.com/images/Mnagdfy2dcVjBE9Ydrv5lv0m8.png?width=2000&height=1724" alt="Fizjoeverest" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out" loading="lazy">
+        </div>
+        <div class="p-7 flex items-center justify-between">
+          <div>
+            <h3 class="text-xl font-medium text-neutral-950 group-hover:text-emerald-brand transition-colors">Fizjoeverest</h3>
+            <p class="text-xs text-neutral-500 mt-1 font-normal">Physiotherapist &middot; Local SEO &middot; Medical Booking</p>
+          </div>
+          <span class="btn-shadcn btn-outline btn-sm group-hover:bg-neutral-900 group-hover:text-white transition-all">
+            View Website &nearr;
+          </span>
+        </div>
+      </a>
+
+      <!-- Project 3: Anderive (Freelancer) -->
+      <a href="https://anderive.framer.website/" target="_blank" rel="noopener noreferrer" class="group rounded-2xl border border-neutral-200 bg-white overflow-hidden card-shadcn card-shadcn-hover flex flex-col justify-between cursor-pointer block text-inherit no-underline">
+        <div class="aspect-[16/10] bg-surface-100 flex items-center justify-center relative overflow-hidden border-b border-neutral-200/70">
+          <img src="https://framerusercontent.com/images/6UsZBK4TEOzYZgXu3WpPg83P64.png?width=2000&height=1428" alt="Anderive" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out" loading="lazy">
+        </div>
+        <div class="p-7 flex items-center justify-between">
+          <div>
+            <h3 class="text-xl font-medium text-neutral-950 group-hover:text-emerald-brand transition-colors">Anderive</h3>
+            <p class="text-xs text-neutral-500 mt-1 font-normal">Freelancer Portfolio &middot; High-Converting &middot; Modern</p>
+          </div>
+          <span class="btn-shadcn btn-outline btn-sm group-hover:bg-neutral-900 group-hover:text-white transition-all">
+            View Website &nearr;
+          </span>
+        </div>
+      </a>
+
+      <!-- Project 4: KursyBarberskie (Barber) -->
+      <a href="https://kursy.framer.website/" target="_blank" rel="noopener noreferrer" class="group rounded-2xl border border-neutral-200 bg-white overflow-hidden card-shadcn card-shadcn-hover flex flex-col justify-between cursor-pointer block text-inherit no-underline">
+        <div class="aspect-[16/10] bg-surface-100 flex items-center justify-center relative overflow-hidden border-b border-neutral-200/70">
+          <img src="https://framerusercontent.com/images/0FHrBY7fJd7kiWxyZilq07jGwU.png?width=2000&height=1252" alt="KursyBarberskie" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out" loading="lazy">
+        </div>
+        <div class="p-7 flex items-center justify-between">
+          <div>
+            <h3 class="text-xl font-medium text-neutral-950 group-hover:text-emerald-brand transition-colors">KursyBarberskie</h3>
+            <p class="text-xs text-neutral-500 mt-1 font-normal">Course Platform &middot; E-commerce &middot; Lead Gen</p>
+          </div>
+          <span class="btn-shadcn btn-outline btn-sm group-hover:bg-neutral-900 group-hover:text-white transition-all">
+            View Website &nearr;
+          </span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ==================== 7. TRANSPARENT PRICING (1:1 from Framer) ==================== -->
+  <section class="w-full bg-surface-100 border-t border-neutral-200/70 py-24" id="pricing">
+    <div class="max-w-7xl mx-auto px-6 sm:px-10">
+      
+      <div class="max-w-2xl mb-16 text-left">
+        <div class="badge-section mb-4">
+          <span class="badge-section-gradient">Pricing</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-[40px] font-medium text-neutral-950 mb-4 tracking-tight">
+          Transparent Pricing
+        </h2>
+        <p class="text-base text-neutral-600 leading-relaxed font-normal">
+          Clear pricing options tailored to meet your businesses needs.
+        </p>
+      </div>
+
+      <!-- Pricing Cards (Basic $2000, Advanced $3500, Pro $5000) -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+        
+        <!-- Basic Tier -->
+        <div class="p-8 sm:p-9 rounded-2xl bg-white border border-neutral-200 flex flex-col justify-between card-shadcn card-shadcn-hover">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xs font-mono font-medium px-2.5 py-1 rounded bg-surface-150 text-neutral-800 uppercase border border-neutral-200">Basic</span>
+            </div>
+            <div class="flex items-baseline gap-1 mb-6">
+              <span class="text-4xl sm:text-5xl font-medium text-neutral-950 tracking-tight">$2000</span>
+            </div>
+            <ul class="space-y-3.5 text-xs text-neutral-700 border-t border-neutral-100 pt-6">
+              <li class="flex items-center gap-2.5 font-normal">
+                <span class="text-emerald-brand font-medium">✓</span> Mobile responsive
+              </li>
+              <li class="flex items-center gap-2.5 font-normal">
+                <span class="text-emerald-brand font-medium">✓</span> Basic SEO setup
+              </li>
+              <li class="flex items-center gap-2.5 font-normal">
+                <span class="text-emerald-brand font-medium">✓</span> Contact form
+              </li>
+              <li class="flex items-center gap-2.5 font-normal">
+                <span class="text-emerald-brand font-medium">✓</span> CMS for updates
+              </li>
+              <li class="flex items-center gap-2.5 font-normal">
+                <span class="text-emerald-brand font-medium">✓</span> Blog functionality
+              </li>
+            </ul>
+          </div>
+          <a href="#contact" class="btn-shadcn btn-outline btn-md mt-8 w-full">
+            Get Your Website
+          </a>
+        </div>
+
+        <!-- Advanced Tier (Highlighted) -->
+        <div class="p-8 sm:p-9 rounded-2xl bg-neutral-950 text-white border border-neutral-800 flex flex-col justify-between shadow-xl relative card-shadcn card-shadcn-hover">
+          <div class="absolute -top-3 right-7 px-3 py-0.5 rounded-full bg-emerald-brand text-neutral-950 text-[10px] font-semibold uppercase tracking-wider shadow-sm">
+            Recommended
+          </div>
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xs font-mono font-medium px-2.5 py-1 rounded bg-neutral-900 text-neutral-300 uppercase border border-neutral-800">Advanced</span>
+            </div>
+            <div class="flex items-baseline gap-1 mb-6">
+              <span class="text-4xl sm:text-5xl font-medium text-white tracking-tight">$3500</span>
+            </div>
+            <ul class="space-y-3.5 text-xs text-neutral-300 border-t border-neutral-800 pt-6">
+              <li class="flex items-center gap-2.5 font-normal">
+                <span class="text-emerald-brand font-medium">✓</span> Advanced SEO optimization
+              </li>
+              <li class="flex items-center gap-2.5 font-normal">
+                <span class="text-emerald-brand font-medium">✓</span> Form
+              </li>
+              <li class="flex items-center gap-2.5 font-normal">
+                <span class="text-emerald-brand font-medium">✓</span> Map
+              </li>
+              <li class="flex items-center gap-2.5 font-normal">
+                <span class="text-emerald-brand font-medium">✓</span> Other functionalities
+              </li>
+              <li class="flex items-center gap-2.5 font-normal">
+                <span class="text-emerald-brand font-medium">✓</span> Animations
+              </li>
+              <li class="flex items-center gap-2.5 font-normal">
+                <span class="text-emerald-brand font-medium">✓</span> More revisions
+              </li>
+            </ul>
+          </div>
+          <a href="#contact" class="btn-shadcn btn-white btn-md mt-8 w-full">
+            Get Your Website
+          </a>
+        </div>
+
+        <!-- Pro Tier -->
+        <div class="p-8 sm:p-9 rounded-2xl bg-white border border-neutral-200 flex flex-col justify-between card-shadcn card-shadcn-hover">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xs font-mono font-medium px-2.5 py-1 rounded bg-surface-150 text-neutral-800 uppercase border border-neutral-200">Pro</span>
+            </div>
+            <div class="flex items-baseline gap-1 mb-6">
+              <span class="text-4xl sm:text-5xl font-medium text-neutral-950 tracking-tight">$5000</span>
+            </div>
+            <ul class="space-y-3.5 text-xs text-neutral-700 border-t border-neutral-100 pt-6">
+              <li class="flex items-center gap-2.5 font-semibold text-neutral-900">
+                Everything in Professional, plus:
+              </li>
+              <li class="flex items-center gap-2.5 font-normal">
+                <span class="text-emerald-brand font-medium">✓</span> Unlimited pages
+              </li>
+              <li class="flex items-center gap-2.5 font-normal">
+                <span class="text-emerald-brand font-medium">✓</span> 3D elements & complex animations
+              </li>
+            </ul>
+          </div>
+          <a href="#contact" class="btn-shadcn btn-outline btn-md mt-8 w-full">
+            Get Your Website
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 8. BLOG / LATEST ARTICLES (1:1 from Framer) ==================== -->
+  <section class="max-w-7xl mx-auto px-6 sm:px-10 py-24 w-full" id="blog">
+    <div class="max-w-2xl mb-14">
+      <div class="badge-section mb-4">
+        <span class="badge-section-gradient">Blog</span>
+      </div>
+      <h2 class="text-3xl sm:text-4xl lg:text-[40px] font-medium text-neutral-950 mb-3 tracking-tight">
+        Latest Articles
+      </h2>
+      <p class="text-base text-neutral-600 leading-relaxed font-normal">
+        Expert knowledge on web design, SEO, and digital marketing to help you grow your business online.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      
+      <!-- Article 1: SEO -->
+      <a href="blog/seo-basics-every-business-owner-should-know.html" class="group p-7 rounded-2xl bg-white border border-neutral-200 card-shadcn card-shadcn-hover flex flex-col justify-between cursor-pointer block text-inherit no-underline">
+        <div>
+          <div class="flex items-center justify-between mb-4 text-xs text-neutral-500 font-medium">
+            <span class="badge-shadcn">SEO</span>
+            <span>Feb 10, 2025</span>
+          </div>
+          <h3 class="text-xl font-medium text-neutral-950 group-hover:text-emerald-brand transition-colors mb-3 leading-snug">
+            SEO Basics Every Business Owner Should Know
+          </h3>
+          <p class="text-sm text-neutral-600 leading-relaxed font-normal">
+            Understanding basic SEO helps you rank higher in Google and get found by customers actively searching for what you offer.
+          </p>
+        </div>
+        <div class="pt-6 mt-6 border-t border-neutral-100 flex items-center justify-between text-xs text-neutral-500">
+          <span>by Kamil</span>
+          <span class="font-medium text-neutral-900 group-hover:text-emerald-brand transition-colors">Read Article &rarr;</span>
+        </div>
+      </a>
+
+      <!-- Article 2: Business Growth -->
+      <a href="blog/why-every-business-needs-a-website.html" class="group p-7 rounded-2xl bg-white border border-neutral-200 card-shadcn card-shadcn-hover flex flex-col justify-between cursor-pointer block text-inherit no-underline">
+        <div>
+          <div class="flex items-center justify-between mb-4 text-xs text-neutral-500 font-medium">
+            <span class="badge-shadcn">Business Growth</span>
+            <span>Jul 8, 2025</span>
+          </div>
+          <h3 class="text-xl font-medium text-neutral-950 group-hover:text-emerald-brand transition-colors mb-3 leading-snug">
+            Why Every Business Needs a Website
+          </h3>
+          <p class="text-sm text-neutral-600 leading-relaxed font-normal">
+            Why a professional website brings more customers and helps you beat competitors online.
+          </p>
+        </div>
+        <div class="pt-6 mt-6 border-t border-neutral-100 flex items-center justify-between text-xs text-neutral-500">
+          <span>by Kamil</span>
+          <span class="font-medium text-neutral-900 group-hover:text-emerald-brand transition-colors">Read Article &rarr;</span>
+        </div>
+      </a>
+
+      <!-- Article 3: Web Design -->
+      <a href="blog/custom-website-vs-wordpress-template.html" class="group p-7 rounded-2xl bg-white border border-neutral-200 card-shadcn card-shadcn-hover flex flex-col justify-between cursor-pointer block text-inherit no-underline">
+        <div>
+          <div class="flex items-center justify-between mb-4 text-xs text-neutral-500 font-medium">
+            <span class="badge-shadcn">Web Design</span>
+            <span>Sep 6, 2025</span>
+          </div>
+          <h3 class="text-xl font-medium text-neutral-950 group-hover:text-emerald-brand transition-colors mb-3 leading-snug">
+            Custom Website vs WordPress Template
+          </h3>
+          <p class="text-sm text-neutral-600 leading-relaxed font-normal">
+            Templates cost less upfront but more long-term. Custom sites bring better ROI through speed and SEO.
+          </p>
+        </div>
+        <div class="pt-6 mt-6 border-t border-neutral-100 flex items-center justify-between text-xs text-neutral-500">
+          <span>by Kamil</span>
+          <span class="font-medium text-neutral-900 group-hover:text-emerald-brand transition-colors">Read Article &rarr;</span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ==================== 9. FAQ SECTION (1:1 from Framer) ==================== -->
+  <section class="max-w-4xl mx-auto px-6 sm:px-10 py-24 w-full" id="faq">
+    <div class="text-center mb-16">
+      <div class="badge-section mb-4">
+        <span class="badge-section-gradient">FAQ</span>
+      </div>
+      <h2 class="text-3xl sm:text-4xl lg:text-[40px] font-medium text-neutral-950 mb-3 tracking-tight">
+        Frequently Asked Questions
+      </h2>
+      <p class="text-base text-neutral-600 font-normal">
+        Everything you need to know.
+      </p>
+    </div>
+
+    <!-- 6 Fully Clickable Accordion Cards -->
+    <div class="space-y-3.5" id="faq-accordion-group">
+      
+      <!-- FAQ 1 -->
+      <details class="faq-item group p-6 rounded-2xl border border-neutral-200 bg-white open:bg-surface-50 transition-colors cursor-pointer select-none">
+        <summary class="flex items-center justify-between font-medium text-base text-neutral-950 cursor-pointer list-none select-none w-full outline-none">
+          <span class="pr-4">Will it work on phones and tablets?</span>
+          <span class="text-base text-neutral-500 transition-transform group-open:rotate-45 font-mono flex-shrink-0">+</span>
+        </summary>
+        <p class="text-sm text-neutral-600 leading-relaxed mt-4 pt-4 border-t border-neutral-100 font-normal cursor-text select-text">
+          Every site works perfectly on all devices. Over half your customers use phones. If your site looks broken on mobile, they go to competitors immediately. Mobile performance is guaranteed.
+        </p>
+      </details>
+
+      <!-- FAQ 2 -->
+      <details class="faq-item group p-6 rounded-2xl border border-neutral-200 bg-white open:bg-surface-50 transition-colors cursor-pointer select-none">
+        <summary class="flex items-center justify-between font-medium text-base text-neutral-950 cursor-pointer list-none select-none w-full outline-none">
+          <span class="pr-4">How do I know it will bring results?</span>
+          <span class="text-base text-neutral-500 transition-transform group-open:rotate-45 font-mono flex-shrink-0">+</span>
+        </summary>
+        <p class="text-sm text-neutral-600 leading-relaxed mt-4 pt-4 border-t border-neutral-100 font-normal cursor-text select-text">
+          Professional design builds trust. Fast loading keeps visitors engaged. Good SEO gets you found. These three things working together bring more customers. Track everything with analytics to see what's working.
+        </p>
+      </details>
+
+      <!-- FAQ 3 -->
+      <details class="faq-item group p-6 rounded-2xl border border-neutral-200 bg-white open:bg-surface-50 transition-colors cursor-pointer select-none">
+        <summary class="flex items-center justify-between font-medium text-base text-neutral-950 cursor-pointer list-none select-none w-full outline-none">
+          <span class="pr-4">Can you write the content for me?</span>
+          <span class="text-base text-neutral-500 transition-transform group-open:rotate-45 font-mono flex-shrink-0">+</span>
+        </summary>
+        <p class="text-sm text-neutral-600 leading-relaxed mt-4 pt-4 border-t border-neutral-100 font-normal cursor-text select-text">
+          Yes. Strategic copywriting is included. The words get written to attract your target customers and convince them to contact you. You provide business knowledge, the copy turns that into customer conversions.
+        </p>
+      </details>
+
+      <!-- FAQ 4 -->
+      <details class="faq-item group p-6 rounded-2xl border border-neutral-200 bg-white open:bg-surface-50 transition-colors cursor-pointer select-none">
+        <summary class="flex items-center justify-between font-medium text-base text-neutral-950 cursor-pointer list-none select-none w-full outline-none">
+          <span class="pr-4">What if I need help after launch?</span>
+          <span class="text-base text-neutral-500 transition-transform group-open:rotate-45 font-mono flex-shrink-0">+</span>
+        </summary>
+        <p class="text-sm text-neutral-600 leading-relaxed mt-4 pt-4 border-t border-neutral-100 font-normal cursor-text select-text">
+          Support continues after launch. Questions get answered. Will help you start with everything.
+        </p>
+      </details>
+
+      <!-- FAQ 5 -->
+      <details class="faq-item group p-6 rounded-2xl border border-neutral-200 bg-white open:bg-surface-50 transition-colors cursor-pointer select-none">
+        <summary class="flex items-center justify-between font-medium text-base text-neutral-950 cursor-pointer list-none select-none w-full outline-none">
+          <span class="pr-4">Can you help with hosting and domain setup?</span>
+          <span class="text-base text-neutral-500 transition-transform group-open:rotate-45 font-mono flex-shrink-0">+</span>
+        </summary>
+        <p class="text-sm text-neutral-600 leading-relaxed mt-4 pt-4 border-t border-neutral-100 font-normal cursor-text select-text">
+          Yes. Guidance provided for hosting selection, domain registration, and technical setup. Everything gets configured properly so your site runs smoothly from day one.
+        </p>
+      </details>
+
+      <!-- FAQ 6 -->
+      <details class="faq-item group p-6 rounded-2xl border border-neutral-200 bg-white open:bg-surface-50 transition-colors cursor-pointer select-none">
+        <summary class="flex items-center justify-between font-medium text-base text-neutral-950 cursor-pointer list-none select-none w-full outline-none">
+          <span class="pr-4">What if my competitor already ranks higher?</span>
+          <span class="text-base text-neutral-500 transition-transform group-open:rotate-45 font-mono flex-shrink-0">+</span>
+        </summary>
+        <p class="text-sm text-neutral-600 leading-relaxed mt-4 pt-4 border-t border-neutral-100 font-normal cursor-text select-text">
+          Good SEO and better user experience can outrank competitors over time. Faster sites, better content, and proper optimization help you climb rankings. It's a marathon, not a sprint.
+        </p>
+      </details>
+
+    </div>
+
+    <!-- Don't see what you're looking for? Box -->
+    <div class="mt-8 p-7 rounded-2xl bg-surface-50 border border-neutral-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>
+        <h4 class="text-base font-medium text-neutral-950">Don't see what you're looking for?</h4>
+        <p class="text-xs text-neutral-600 mt-0.5">Reach out directly and I'll get back to you.</p>
+      </div>
+      <a href="#contact" class="btn-shadcn btn-primary btn-sm whitespace-nowrap">
+        Get in touch
+      </a>
+    </div>
+
+  </section>
+
+  <!-- ==================== 10. CONTACT FORM SECTION (1:1 from Framer) ==================== -->
+  <section class="max-w-7xl mx-auto px-6 sm:px-10 py-20 w-full" id="contact">
+    <div class="max-w-2xl mb-12">
+      <div class="badge-section mb-4">
+        <span class="badge-section-gradient">Contact</span>
+      </div>
+      <h2 class="text-3xl sm:text-4xl lg:text-[40px] font-medium text-neutral-950 mb-3 tracking-tight">
+        Have a question? Feel free to ask anything.
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+      
+      <!-- Left Channels (Chat / Call) -->
+      <div class="lg:col-span-4 space-y-4">
+        
+        <div class="p-6 rounded-2xl bg-white border border-neutral-200 card-shadcn">
+          <span class="text-xs font-mono font-medium text-neutral-500 uppercase tracking-wider block mb-2">Chat</span>
+          <a href="mailto:kamilandreasik99@gmail.com" class="text-base font-medium text-neutral-950 hover:text-emerald-brand transition-colors break-all">
+            kamilandreasik99@gmail.com
+          </a>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-white border border-neutral-200 card-shadcn">
+          <span class="text-xs font-mono font-medium text-neutral-500 uppercase tracking-wider block mb-2">Call</span>
+          <a href="tel:+48535070802" class="text-base font-medium text-neutral-950 hover:text-emerald-brand transition-colors">
+            +48 535 070 802
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Right Form (Shadcn Inputs & Textarea) -->
+      <div class="lg:col-span-8 p-8 sm:p-10 rounded-2xl bg-white border border-neutral-200 card-shadcn">
+        <form class="space-y-6" onsubmit="event.preventDefault(); alert('Thank you! Your message has been sent.');">
+          
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+              <label class="block text-xs font-medium text-neutral-700 mb-1.5">First name <span class="text-emerald-brand">*</span></label>
+              <input type="text" required placeholder="John" class="input-shadcn">
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-neutral-700 mb-1.5">Last name</label>
+              <input type="text" placeholder="Doe" class="input-shadcn">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-medium text-neutral-700 mb-1.5">Email <span class="text-emerald-brand">*</span></label>
+            <input type="email" required placeholder="john@company.com" class="input-shadcn">
+          </div>
+
+          <div>
+            <label class="block text-xs font-medium text-neutral-700 mb-1.5">Message <span class="text-emerald-brand">*</span></label>
+            <textarea required rows="4" placeholder="Tell us about your project..." class="textarea-shadcn"></textarea>
+          </div>
+
+          <button type="submit" class="btn-shadcn btn-primary btn-md w-full sm:w-auto px-8">
+            Submit &rarr;
+          </button>
+
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== 11. FINAL CTA BANNER (1:1 from Framer) ==================== -->
+  <section class="max-w-7xl mx-auto px-6 sm:px-10 py-20 text-center">
+    <div class="rounded-3xl bg-neutral-950 text-white p-12 sm:p-16 flex flex-col items-center justify-center relative overflow-hidden shadow-2xl border border-neutral-800">
+      <div class="max-w-2xl z-10">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-medium text-white mb-5 leading-tight tracking-tight">
+          Ready to Get More Customers?
+        </h2>
+        <p class="text-base text-neutral-400 mb-9 leading-relaxed font-normal">
+          Every day without a professional website, potential customers go somewhere else. Get found in Google, build trust instantly, and turn visitors into paying customers.
+        </p>
+        <div class="flex flex-wrap items-center justify-center gap-3">
+          <a href="#contact" class="btn-shadcn btn-white btn-lg">
+            Get Your Website &rarr;
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 12. FOOTER (1:1 from Framer) ==================== -->
+  <footer class="w-full border-t border-neutral-200/70 py-12 text-xs text-neutral-500 bg-white">
+    <div class="max-w-7xl mx-auto px-6 sm:px-10 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3">
+        <div class="flex items-center gap-2">
+          <img src="finalitie-logo.svg" alt="Finalitie Logo" class="h-4 w-auto">
+          <span class="font-bold text-xs tracking-[0.11em] text-neutral-950 uppercase">FINALITIE</span>
+        </div>
+        <span>&middot;</span>
+        <span>&copy; 2025 Finalitie. All rights reserved.</span>
+        <span>&middot;</span>
+        <a href="#" class="hover:text-neutral-950 transition-colors">Privacy Policy</a>
+      </div>
+      <div class="flex items-center gap-7 font-medium text-neutral-600">
+        <a href="#projects" class="hover:text-neutral-950 transition-colors">Projects</a>
+        <a href="#pricing" class="hover:text-neutral-950 transition-colors">Pricing</a>
+        <a href="#blog" class="hover:text-neutral-950 transition-colors">Blog</a>
+        <a href="#contact" class="hover:text-neutral-950 transition-colors">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== 13. KINETIC 3D INFINITY SCRIPT ==================== -->
+  <script>
+    (function initFinalitieKineticInfinity() {
+      const canvas = document.getElementById('kinetic-canvas');
+      if (!canvas) return;
+      const container = canvas.parentElement;
+
+      // 1. Scene & Perspective Camera
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(
+        36,
+        container.clientWidth / container.clientHeight,
+        0.1,
+        100
+      );
+      camera.position.set(0, 0, 7.8);
+
+      // 2. High Quality WebGL Renderer (Pure Transparent Background)
+      const renderer = new THREE.WebGLRenderer({
+        canvas: canvas,
+        antialias: true,
+        alpha: true,
+        powerPreference: 'high-performance'
+      });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer.setSize(container.clientWidth, container.clientHeight);
+      renderer.toneMapping = THREE.ACESFilmicToneMapping;
+      renderer.toneMappingExposure = 1.35;
+
+      // 3. Studio Lighting Tuned for Deep Emerald Gunmetal on Pure White
+      const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+      scene.add(ambientLight);
+
+      // Main Top Spotlight (sharp highlights on top chamfers)
+      const mainSpot = new THREE.SpotLight(0xeafff6, 8.5);
+      mainSpot.position.set(3.0, 9.5, 5.0);
+      mainSpot.angle = Math.PI / 4.2;
+      mainSpot.penumbra = 0.35;
+      scene.add(mainSpot);
+
+      // Back-Left Cool Mint Rim Light
+      const rimLight1 = new THREE.DirectionalLight(0x5eead4, 3.2);
+      rimLight1.position.set(-6, 5, -3);
+      scene.add(rimLight1);
+
+      // Back-Right Deep Forest Slate Fill
+      const rimLight2 = new THREE.DirectionalLight(0x115e59, 2.4);
+      rimLight2.position.set(5, -4, -2);
+      scene.add(rimLight2);
+
+      // 4. Kinetic Infinity Structure
+      const masterGroup = new THREE.Group();
+      scene.add(masterGroup);
+
+      function getKnotPoint(t, scale = 1.0) {
+        const phi = t * Math.PI * 2;
+        const p = 2, q = 3;
+        const r = (0.9 + 0.45 * Math.cos(q * phi)) * scale;
+        const x = r * Math.cos(p * phi) * 1.5;
+        const y = r * Math.sin(p * phi) * 1.5;
+        const z = -0.5 * Math.sin(q * phi) * 1.6 * scale;
+        return new THREE.Vector3(x, y, z);
+      }
+
+      // Deep Emerald Gunmetal Lacquered Material
+      const emeraldMaterial = new THREE.MeshPhysicalMaterial({
+        color: 0x0c221d,
+        roughness: 0.12,
+        metalness: 0.62,
+        clearcoat: 1.0,
+        clearcoatRoughness: 0.05,
+        reflectivity: 0.95
+      });
+
+      const finCount = 135;
+      const fins = [];
+      const finGeo = new THREE.BoxGeometry(0.15, 0.64, 0.045);
+
+      for (let i = 0; i < finCount; i++) {
+        const t = i / finCount;
+        const p1 = getKnotPoint(t, 1.12);
+        const p2 = getKnotPoint((t + 0.005) % 1.0, 1.12);
+
+        const pivot = new THREE.Group();
+        pivot.position.copy(p1);
+        pivot.lookAt(p2);
+
+        const mesh = new THREE.Mesh(finGeo, emeraldMaterial);
+        pivot.add(mesh);
+
+        masterGroup.add(pivot);
+        fins.push({ pivot: pivot, mesh: mesh, baseT: t });
+      }
+
+      // Initial isometric perspective
+      masterGroup.rotation.x = 0.25;
+      masterGroup.rotation.y = -0.35;
+
+      // 5. Interactive Mouse Drag & Momentum
+      let isDragging = false;
+      let previousMousePosition = { x: 0, y: 0 };
+      let mouseVelX = 0, mouseVelY = 0;
+
+      window.addEventListener('mousedown', (e) => {
+        if (e.target === canvas) {
+          isDragging = true;
+          previousMousePosition = { x: e.clientX, y: e.clientY };
+        }
+      });
+
+      window.addEventListener('mousemove', (e) => {
+        if (isDragging) {
+          const deltaX = e.clientX - previousMousePosition.x;
+          const deltaY = e.clientY - previousMousePosition.y;
+
+          mouseVelX = deltaX * 0.004;
+          mouseVelY = deltaY * 0.004;
+
+          masterGroup.rotation.y += mouseVelX;
+          masterGroup.rotation.x += mouseVelY;
+
+          previousMousePosition = { x: e.clientX, y: e.clientY };
+        }
+      });
+
+      window.addEventListener('mouseup', () => { isDragging = false; });
+
+      // Touch events for mobile
+      window.addEventListener('touchstart', (e) => {
+        if (e.touches.length > 0 && e.target === canvas) {
+          isDragging = true;
+          previousMousePosition = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+        }
+      }, { passive: true });
+
+      window.addEventListener('touchmove', (e) => {
+        if (isDragging && e.touches.length > 0) {
+          const deltaX = e.touches[0].clientX - previousMousePosition.x;
+          const deltaY = e.touches[0].clientY - previousMousePosition.y;
+
+          mouseVelX = deltaX * 0.004;
+          mouseVelY = deltaY * 0.004;
+
+          masterGroup.rotation.y += deltaX * 0.004;
+          masterGroup.rotation.x += deltaY * 0.004;
+
+          previousMousePosition = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+        }
+      }, { passive: true });
+
+      window.addEventListener('touchend', () => { isDragging = false; });
+
+      // 6. Slow-Motion Animation Loop
+      const clock = new THREE.Clock();
+
+      function renderLoop() {
+        requestAnimationFrame(renderLoop);
+        const now = performance.now();
+
+        if (!isDragging) {
+          masterGroup.rotation.y += 0.0012 + mouseVelX;
+          masterGroup.rotation.x += mouseVelY;
+          mouseVelX *= 0.95;
+          mouseVelY *= 0.95;
+        }
+
+        masterGroup.position.y = Math.sin(now * 0.0009) * 0.12;
+
+        const waveTime = now * 0.00085;
+        fins.forEach((fin, idx) => {
+          const wave = Math.sin(waveTime * 1.6 + idx * 0.09) * 0.50;
+          fin.mesh.rotation.z = wave;
+          fin.mesh.rotation.x = wave * 0.25;
+        });
+
+        renderer.render(scene, camera);
+      }
+
+      renderLoop();
+
+      // Responsive Resize
+      window.addEventListener('resize', () => {
+        const w = container.clientWidth;
+        const h = container.clientHeight;
+        camera.aspect = w / h;
+        camera.updateProjectionMatrix();
+        renderer.setSize(w, h);
+      });
+
+    })();
+
+    // Entire FAQ Card Click Handler
+    document.querySelectorAll('.faq-item').forEach((item) => {
+      item.addEventListener('click', (e) => {
+        if (e.target.closest('p') && window.getSelection().toString().length > 0) return;
+        if (!e.target.closest('summary')) {
+          item.open = !item.open;
+        }
+      });
+    });
+  </script>
+</body>
+</html>
