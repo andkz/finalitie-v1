@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="page-title">Article · Finalitie</title>
+  <meta name="description" id="page-desc" content="Read article on Finalitie blog.">
+  <link rel="icon" href="https://framerusercontent.com/images/tGUOcqDgP6XO7Dpi82pGrgbkQg.png">
+
+  <!-- Unified Geist Font System -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Geist', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+            heading: ['Geist', 'sans-serif'],
+            mono: ['"Geist Mono"', 'Geist', 'monospace']
+          },
+          letterSpacing: {
+            tighter: '-0.04em',
+            tight: '-0.03em',
+            snug: '-0.02em',
+            normal: '0',
+          },
+          colors: {
+            emerald: {
+              brand: '#2bb583',
+              dark: '#00472d',
+              light: '#eaf7f2'
+            },
+            surface: {
+              50: '#fafafa',
+              100: '#f8f8f9',
+              150: '#f1f1f3',
+              200: '#e4e4e7',
+              900: '#09090b',
+              950: '#030303'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --font-geist: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-mono: 'Geist Mono', monospace;
+    }
+    * { font-family: var(--font-geist); box-sizing: border-box; }
+    body { background-color: #ffffff; color: #09090b; overflow-x: hidden; letter-spacing: -0.01em; }
+
+    /* Framer Exact Section Badges */
+    .badge-section {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 3px 10px;
+      border-radius: 8px;
+      font-size: 12px;
+      line-height: 1.5;
+      letter-spacing: -0.01em;
+      background-color: #fafafa;
+      border: 1px solid #e5e5e5;
+      user-select: none;
+    }
+    .badge-section-gradient {
+      background: linear-gradient(64deg, rgb(0, 71, 45) 0%, rgb(43, 181, 131) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 500;
+    }
+
+    .btn-shadcn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 500;
+      transition: all 0.15s ease;
+      cursor: pointer;
+      user-select: none;
+    }
+    .btn-primary { background-color: #09090b; color: #ffffff; }
+    .btn-primary:hover { background-color: #27272a; }
+    .btn-sm { height: 2.25rem; padding-left: 0.875rem; padding-right: 0.875rem; border-radius: 0.5rem; font-size: 0.875rem; }
+    .btn-md { height: 2.625rem; padding-left: 1.125rem; padding-right: 1.125rem; border-radius: 0.5rem; font-size: 0.875rem; }
+
+    /* Article Content Typography */
+    .article-body h2 { font-size: 1.625rem; font-weight: 600; margin-top: 2.5rem; margin-bottom: 1rem; letter-spacing: -0.02em; color: #09090b; }
+    .article-body h3 { font-size: 1.25rem; font-weight: 600; margin-top: 2rem; margin-bottom: 0.75rem; letter-spacing: -0.015em; color: #18181b; }
+    .article-body p { font-size: 1.0625rem; line-height: 1.75; color: #3f3f46; margin-bottom: 1.5rem; }
+    .article-body ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.5rem; color: #3f3f46; }
+    .article-body li { margin-bottom: 0.5rem; line-height: 1.6; }
+    .article-body blockquote { border-left: 3px solid #2bb583; padding-left: 1.25rem; font-style: italic; color: #27272a; margin: 2rem 0; }
+    .article-body a { color: #2bb583; text-decoration: underline; font-weight: 500; }
+    .article-body a:hover { color: #00472d; }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-emerald-brand selection:text-white antialiased">
+
+  <!-- ==================== HEADER / NAVBAR ==================== -->
+  <header class="w-full border-b border-neutral-200/70 bg-white/90 backdrop-blur-md sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-6 sm:px-10 h-16 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2 group">
+        <img src="finalitie-logo.svg" alt="Finalitie Logo" class="h-[18px] w-auto transition-transform group-hover:scale-105">
+        <span class="font-bold text-sm tracking-[0.11em] text-neutral-950 uppercase">FINALITIE</span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-neutral-600">
+        <a href="index.html#projects" class="hover:text-neutral-950 transition-colors">Projects</a>
+        <a href="index.html#services" class="hover:text-neutral-950 transition-colors">Services</a>
+        <a href="index.html#pricing" class="hover:text-neutral-950 transition-colors">Pricing</a>
+        <a href="blog.html" class="text-neutral-950 font-semibold">Blog</a>
+        <a href="index.html#contact" class="hover:text-neutral-950 transition-colors">Contact</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="index.html#contact" class="btn-shadcn btn-primary btn-sm hidden sm:inline-flex">
+          Free Consultation
+        </a>
+        
+        <button id="mobile-menu-btn" type="button" aria-label="Toggle navigation menu" class="md:hidden p-2 rounded-lg text-neutral-700 hover:bg-neutral-100 transition-colors">
+          <svg id="hamburger-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+          <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden border-t border-neutral-200/80 bg-white/95 backdrop-blur-md px-6 py-5 shadow-lg">
+      <nav class="flex flex-col space-y-3.5 text-base font-medium text-neutral-700">
+        <a href="index.html#projects" class="mobile-nav-link hover:text-emerald-brand py-1 transition-colors">Projects</a>
+        <a href="index.html#services" class="mobile-nav-link hover:text-emerald-brand py-1 transition-colors">Services</a>
+        <a href="index.html#pricing" class="mobile-nav-link hover:text-emerald-brand py-1 transition-colors">Pricing</a>
+        <a href="blog.html" class="mobile-nav-link text-emerald-brand font-semibold py-1 transition-colors">Blog</a>
+        <a href="index.html#faq" class="mobile-nav-link hover:text-emerald-brand py-1 transition-colors">FAQ</a>
+        <a href="index.html#contact" class="mobile-nav-link hover:text-emerald-brand py-1 transition-colors">Contact</a>
+        <div class="pt-2">
+          <a href="index.html#contact" class="mobile-nav-link btn-shadcn btn-primary btn-md w-full justify-center text-center">
+            Free Consultation
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ==================== ARTICLE CONTENT ==================== -->
+  <main class="max-w-3xl mx-auto px-6 sm:px-8 py-16 w-full flex-1" id="article-main">
+    
+    <!-- Back Link & Tags -->
+    <div class="mb-8">
+      <a href="blog.html" class="inline-flex items-center gap-1.5 text-xs font-medium text-neutral-500 hover:text-neutral-950 transition-colors mb-6 group">
+        <span class="group-hover:-translate-x-0.5 transition-transform">&larr;</span> Back to all articles
+      </a>
+      <div class="flex items-center gap-3">
+        <div class="badge-section">
+          <span class="badge-section-gradient" id="post-category">Article</span>
+        </div>
+        <span class="text-xs text-neutral-500" id="post-date"></span>
+        <span class="text-neutral-300">&bull;</span>
+        <span class="text-xs text-neutral-500 font-medium" id="post-author">by Kamil</span>
+      </div>
+    </div>
+
+    <!-- Title -->
+    <h1 class="text-3xl sm:text-4xl lg:text-[44px] font-medium text-neutral-950 mb-6 tracking-tight leading-[1.15]" id="post-title">
+      Loading article...
+    </h1>
+
+    <!-- Excerpt / Subtitle -->
+    <p class="text-lg sm:text-xl text-neutral-600 font-normal leading-relaxed mb-8" id="post-excerpt">
+    </p>
+
+    <!-- Main Image -->
+    <div class="w-full h-64 sm:h-96 rounded-2xl overflow-hidden mb-12 bg-neutral-100 border border-neutral-100 shadow-sm">
+      <img id="post-image" src="" alt="Article hero" class="w-full h-full object-cover grayscale contrast-125" style="display:none;">
+    </div>
+
+    <!-- Article Body -->
+    <div class="article-body border-t border-neutral-200/80 pt-10" id="post-body">
+    </div>
+
+    <!-- Bottom author bio / callout -->
+    <div class="mt-16 p-8 rounded-2xl bg-surface-50 border border-neutral-200/80 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-4">
+        <div class="w-12 h-12 rounded-full bg-neutral-950 flex items-center justify-center text-white font-bold text-sm">
+          FL
+        </div>
+        <div>
+          <h4 class="text-base font-medium text-neutral-950">Written by Kamil</h4>
+          <p class="text-xs text-neutral-500 mt-0.5">Founder & Web Designer at Finalitie</p>
+        </div>
+      </div>
+      <a href="index.html#contact" class="btn-shadcn btn-primary btn-sm whitespace-nowrap">
+        Work With Me &rarr;
+      </a>
+    </div>
+
+  </main>
+
+  <!-- ==================== FINAL CTA BANNER ==================== -->
+  <section class="w-full bg-[#f9f9f9] border-t border-neutral-200/50 py-16 sm:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      <div class="w-full rounded-2xl text-white p-8 sm:p-12 lg:p-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-8 relative overflow-hidden shadow-xl" style="background: linear-gradient(104deg, rgb(0, 71, 45) 0%, rgb(9, 128, 84) 100%); border-radius: 16px;">
+        <div class="max-w-2xl text-left">
+          <h2 class="text-3xl sm:text-4xl lg:text-[38px] font-semibold text-white mb-3.5 leading-tight tracking-tight">
+            Ready to Get More Customers?
+          </h2>
+          <p class="text-sm sm:text-base text-neutral-200/90 leading-relaxed font-normal max-w-xl">
+            Every day without a professional website, potential customers go somewhere else. Get found in Google, build trust instantly, and turn visitors into paying customers.
+          </p>
+        </div>
+        <div class="shrink-0 flex items-center justify-end">
+          <a href="index.html#contact" class="inline-flex items-center justify-center px-7 py-3.5 rounded-lg bg-white text-neutral-950 font-medium text-sm sm:text-base shadow-sm hover:bg-neutral-100 hover:shadow transition-all whitespace-nowrap">
+            Get Your Website
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="w-full border-t border-neutral-200/70 py-12 text-xs text-neutral-500 bg-white">
+    <div class="max-w-7xl mx-auto px-6 sm:px-10 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3">
+        <div class="flex items-center gap-2">
+          <img src="finalitie-logo.svg" alt="Finalitie Logo" class="h-4 w-auto">
+          <span class="font-bold text-xs tracking-[0.11em] text-neutral-950 uppercase">FINALITIE</span>
+        </div>
+        <span>&middot;</span>
+        <span>&copy; 2025 Finalitie. All rights reserved.</span>
+      </div>
+      <div class="flex items-center gap-6">
+        <a href="index.html#projects" class="hover:text-neutral-950 transition-colors">Projects</a>
+        <a href="index.html#pricing" class="hover:text-neutral-950 transition-colors">Pricing</a>
+        <a href="index.html#contact" class="hover:text-neutral-950 transition-colors">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="sanity-client.js"></script>
+  <script>
+    // Mobile Navigation Menu Toggle Handler
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const hamburgerIcon = document.getElementById('hamburger-icon');
+    const closeIcon = document.getElementById('close-icon');
+
+    if (mobileMenuBtn && mobileMenu) {
+      mobileMenuBtn.addEventListener('click', () => {
+        const isHidden = mobileMenu.classList.contains('hidden');
+        if (isHidden) {
+          mobileMenu.classList.remove('hidden');
+          hamburgerIcon.classList.add('hidden');
+          closeIcon.classList.remove('hidden');
+        } else {
+          mobileMenu.classList.add('hidden');
+          hamburgerIcon.classList.remove('hidden');
+          closeIcon.classList.add('hidden');
+        }
+      });
+
+      document.querySelectorAll('.mobile-nav-link').forEach((link) => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+          hamburgerIcon.classList.remove('hidden');
+          closeIcon.classList.add('hidden');
+        });
+      });
+    }
+
+    // Helper to render Sanity Block Content (Portable Text) to HTML
+    function renderPortableText(blocks) {
+      if (!blocks || !Array.isArray(blocks)) {
+        return '<p>No content available.</p>';
+      }
+      return blocks.map(block => {
+        if (block._type !== 'block' || !block.children) return '';
+        const text = block.children.map(child => {
+          let t = child.text || '';
+          if (child.marks && child.marks.includes('strong')) t = `<strong>${t}</strong>`;
+          if (child.marks && child.marks.includes('em')) t = `<em>${t}</em>`;
+          return t;
+        }).join('');
+
+        if (block.style === 'h2') return `<h2>${text}</h2>`;
+        if (block.style === 'h3') return `<h3>${text}</h3>`;
+        if (block.style === 'blockquote') return `<blockquote>${text}</blockquote>`;
+        return `<p>${text}</p>`;
+      }).join('');
+    }
+
+    // Load Article Dynamically by ?slug=...
+    async function loadArticle() {
+      const params = new URLSearchParams(window.location.search);
+      const slug = params.get('slug') || 'seo-basics-every-business-owner-should-know';
+
+      const post = await window.sanityClient.getPostBySlug(slug);
+
+      if (!post) {
+        document.getElementById('post-title').textContent = 'Article Not Found';
+        document.getElementById('post-excerpt').textContent = 'The article you are looking for does not exist or has been removed.';
+        return;
+      }
+
+      document.getElementById('page-title').textContent = `${post.title} · Finalitie Blog`;
+      document.getElementById('post-title').textContent = post.title;
+      document.getElementById('post-category').textContent = post.category || 'Articles';
+      document.getElementById('post-date').textContent = formatSanityDate(post.publishedAt);
+      document.getElementById('post-author').textContent = `by ${post.author || 'Kamil'}`;
+      document.getElementById('post-excerpt').textContent = post.excerpt || '';
+
+      const imgEl = document.getElementById('post-image');
+      if (post.imageUrl) {
+        imgEl.src = post.imageUrl;
+        imgEl.style.display = 'block';
+      }
+
+      const bodyEl = document.getElementById('post-body');
+      if (post.body) {
+        bodyEl.innerHTML = renderPortableText(post.body);
+      } else {
+        // Fallback demo body
+        bodyEl.innerHTML = `
+          <h2>Understanding the Fundamentals</h2>
+          <p>${post.excerpt}</p>
+          <p>When potential customers search for services in your industry, having a fast, well-structured, and professionally designed website ensures you get found before your competitors.</p>
+          <h2>Why It Matters For Business Growth</h2>
+          <p>Search engines prioritize websites that deliver exceptional user experience, instant loading speeds, and mobile-friendly responsive designs. By aligning your digital presence with best practices, you turn ordinary visitors into loyal clients.</p>
+        `;
+      }
+    }
+
+    loadArticle();
+  </script>
+</body>
+</html>

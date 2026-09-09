@@ -209,22 +209,21 @@
     .badge-section {
       display: inline-flex;
       align-items: center;
-      gap: 0.375rem;
-      padding: 0.25rem 0.75rem;
-      border-radius: 9999px;
-      font-size: 0.6875rem; /* 11px */
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      background-color: #eaf7f2;
-      border: 1px solid rgba(43, 181, 131, 0.3);
+      gap: 0.25rem;
+      padding: 3px 10px;
+      border-radius: 8px;
+      font-size: 12px;
+      line-height: 1.5;
+      letter-spacing: -0.01em;
+      background-color: #fafafa;
+      border: 1px solid #e5e5e5;
       user-select: none;
     }
     .badge-section-gradient {
       background: linear-gradient(64deg, rgb(0, 71, 45) 0%, rgb(43, 181, 131) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      font-weight: 600;
+      font-weight: 500;
     }
 
     /* Shadcn Badges & Pills */
@@ -334,13 +333,32 @@
       box-shadow: 0 0 0 1px #09090b;
     }
 
-    #kinetic-canvas {
+    /* Kontener sceny 3D Hero */
+    .hero-3d-stage {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      min-height: 480px;
+      background-color: #ffffff; /* Czyste białe tło */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    #hero-3d-canvas {
       width: 100% !important;
       height: 100% !important;
+      display: block;
+      outline: none;
       cursor: grab;
     }
-    #kinetic-canvas:active {
+    #hero-3d-canvas:active {
       cursor: grabbing;
+    }
+    @media (max-width: 768px) {
+      .hero-3d-stage {
+        height: 420px;
+      }
     }
   </style>
 </head>
@@ -359,17 +377,45 @@
       <!-- Center Nav Links (Exact from Framer) -->
       <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-neutral-600">
         <a href="#projects" class="hover:text-neutral-950 transition-colors">Projects</a>
+        <a href="#services" class="hover:text-neutral-950 transition-colors">Services</a>
         <a href="#pricing" class="hover:text-neutral-950 transition-colors">Pricing</a>
-        <a href="#blog" class="hover:text-neutral-950 transition-colors">Blog</a>
+        <a href="blog.html" class="hover:text-neutral-950 transition-colors">Blog</a>
         <a href="#contact" class="hover:text-neutral-950 transition-colors">Contact</a>
       </nav>
 
-      <!-- Right Action CTA (Shadcn Button) -->
+      <!-- Right Action CTA & Mobile Hamburger -->
       <div class="flex items-center gap-3">
-        <a href="#contact" class="btn-shadcn btn-primary btn-sm">
+        <a href="#contact" class="btn-shadcn btn-primary btn-sm hidden sm:inline-flex">
           Free Consultation
         </a>
+        
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobile-menu-btn" type="button" aria-label="Toggle navigation menu" class="md:hidden p-2 rounded-lg text-neutral-700 hover:bg-neutral-100 transition-colors focus:outline-none focus:ring-2 focus:ring-neutral-300">
+          <svg id="hamburger-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+          <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
       </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-neutral-200/80 bg-white/95 backdrop-blur-md px-6 py-5 shadow-lg">
+      <nav class="flex flex-col space-y-3.5 text-base font-medium text-neutral-700">
+        <a href="#projects" class="mobile-nav-link hover:text-emerald-brand py-1 transition-colors">Projects</a>
+        <a href="#services" class="mobile-nav-link hover:text-emerald-brand py-1 transition-colors">Services</a>
+        <a href="#pricing" class="mobile-nav-link hover:text-emerald-brand py-1 transition-colors">Pricing</a>
+        <a href="blog.html" class="mobile-nav-link hover:text-emerald-brand py-1 transition-colors">Blog</a>
+        <a href="#faq" class="mobile-nav-link hover:text-emerald-brand py-1 transition-colors">FAQ</a>
+        <a href="#contact" class="mobile-nav-link hover:text-emerald-brand py-1 transition-colors">Contact</a>
+        <div class="pt-2">
+          <a href="#contact" class="mobile-nav-link btn-shadcn btn-primary btn-md w-full justify-center text-center">
+            Free Consultation
+          </a>
+        </div>
+      </nav>
     </div>
   </header>
 
@@ -410,10 +456,11 @@
 
       </div>
 
-      <!-- Right Column: 3D Floating Kinetic Infinity -->
+      <!-- Right Column: 3D HERO SECTION (07. DUAL-AXIS ORTHOGONAL LATTICE) -->
       <div class="lg:col-span-6 flex items-center justify-center relative w-full aspect-square max-w-[560px] mx-auto overflow-visible">
-        <div class="w-full h-full relative flex items-center justify-center">
-          <canvas id="kinetic-canvas"></canvas>
+        <!-- Kontener 3D Hero -->
+        <div class="hero-3d-stage" id="hero-3d-container">
+          <canvas id="hero-3d-canvas"></canvas>
         </div>
       </div>
 
@@ -562,7 +609,7 @@
           </div>
           <div class="md:col-span-6 flex flex-col items-start text-left order-1 md:order-2">
             <div class="badge-section mb-5">
-              <span class="badge-section-gradient">Responsivness</span>
+              <span class="badge-section-gradient">Responsiveness</span>
             </div>
             <h3 class="text-3xl sm:text-4xl lg:text-[44px] font-medium text-neutral-950 mb-4 tracking-tight leading-[1.15]">
               Responsive on<br class="hidden sm:inline"> every screen
@@ -658,30 +705,33 @@
   </section>
 
   <!-- ==================== 5. PERFORMANCE & STATS (1:1 from Framer) ==================== -->
-  <section class="max-w-7xl mx-auto px-6 sm:px-10 pb-20 w-full">
-    <div class="rounded-3xl bg-neutral-950 text-white p-10 sm:p-14 flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden border border-neutral-800">
+  <section class="max-w-7xl mx-auto px-6 sm:px-10 py-20 lg:py-24 w-full">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
       
-      <div class="max-w-xl z-10">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-900 border border-neutral-800 text-xs text-emerald-brand font-medium mb-4">
-          <span>⚡ Performance & Stats</span>
+      <!-- Left side: Content -->
+      <div class="max-w-xl">
+        <div class="badge-section mb-6">
+          <span class="badge-section-gradient">Performance & Stats</span>
         </div>
-        <h3 class="text-3xl sm:text-4xl font-medium mb-4 tracking-tight leading-tight">
-          Get The Most from your website
-        </h3>
-        <p class="text-neutral-400 text-sm sm:text-base leading-relaxed font-normal">
-          Every site scores 100/100 in Google PageSpeed Insights. Faster loading, better rankings, more clients.
+        
+        <h2 class="text-4xl sm:text-5xl lg:text-[56px] font-medium text-neutral-950 mb-6 tracking-tight leading-[1.1]">
+          Get The Most from your<br>website
+        </h2>
+        
+        <p class="text-lg sm:text-xl text-neutral-600 leading-relaxed font-normal">
+          Every site scores 100/100 in Google PageSpeed Insights.<br>
+          Faster loading, better rankings, more clients.
         </p>
       </div>
 
-      <div class="flex items-center gap-5 z-10">
-        <div class="text-center p-5 rounded-2xl bg-neutral-900/90 border border-neutral-800 min-w-[120px]">
-          <span class="text-4xl sm:text-5xl font-medium text-emerald-brand font-mono">100</span>
-          <p class="text-[11px] text-neutral-400 mt-1 uppercase tracking-wider font-medium">Performance</p>
-        </div>
-        <div class="text-center p-5 rounded-2xl bg-neutral-900/90 border border-neutral-800 min-w-[120px]">
-          <span class="text-4xl sm:text-5xl font-medium text-white font-mono">0.4s</span>
-          <p class="text-[11px] text-neutral-400 mt-1 uppercase tracking-wider font-medium">Load Time</p>
-        </div>
+      <!-- Right side: Image -->
+      <div class="relative w-full rounded-2xl border border-neutral-200/80 shadow-[0_4px_30px_rgba(0,0,0,0.03)] bg-white overflow-hidden flex items-center justify-center p-4 sm:p-0">
+        <img 
+          src="https://framerusercontent.com/images/qRaBR283kCoSzqipuTFnkNIEfPg.png?width=1573&height=1437" 
+          alt="Google PageSpeed Insights Score 100" 
+          class="w-full h-auto object-contain sm:rounded-2xl"
+          loading="lazy"
+        >
       </div>
 
     </div>
@@ -791,15 +841,15 @@
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
         
         <!-- Basic Tier -->
-        <div class="p-8 sm:p-9 rounded-2xl bg-white border border-neutral-200 flex flex-col justify-between card-shadcn card-shadcn-hover">
+        <div class="p-8 sm:p-9 rounded-2xl bg-white border border-neutral-200/80 flex flex-col justify-between card-shadcn card-shadcn-hover shadow-sm">
           <div>
-            <div class="flex items-center justify-between mb-4">
-              <span class="text-xs font-mono font-medium px-2.5 py-1 rounded bg-surface-150 text-neutral-800 uppercase border border-neutral-200">Basic</span>
+            <div class="mb-4">
+              <span class="text-xl font-medium text-neutral-950">Basic</span>
             </div>
             <div class="flex items-baseline gap-1 mb-6">
               <span class="text-4xl sm:text-5xl font-medium text-neutral-950 tracking-tight">$2000</span>
             </div>
-            <ul class="space-y-3.5 text-xs text-neutral-700 border-t border-neutral-100 pt-6">
+            <ul class="space-y-3.5 text-sm text-neutral-700 border-t border-neutral-100 pt-6">
               <li class="flex items-center gap-2.5 font-normal">
                 <span class="text-emerald-brand font-medium">✓</span> Mobile responsive
               </li>
@@ -817,61 +867,70 @@
               </li>
             </ul>
           </div>
-          <a href="#contact" class="btn-shadcn btn-outline btn-md mt-8 w-full">
+          <a href="#contact" class="w-full mt-8 py-3.5 px-6 rounded-xl bg-neutral-950 text-white font-medium text-sm text-center hover:bg-neutral-800 transition-all block shadow-sm">
             Get Your Website
           </a>
         </div>
 
-        <!-- Advanced Tier (Highlighted) -->
-        <div class="p-8 sm:p-9 rounded-2xl bg-neutral-950 text-white border border-neutral-800 flex flex-col justify-between shadow-xl relative card-shadcn card-shadcn-hover">
-          <div class="absolute -top-3 right-7 px-3 py-0.5 rounded-full bg-emerald-brand text-neutral-950 text-[10px] font-semibold uppercase tracking-wider shadow-sm">
-            Recommended
-          </div>
+        <!-- Advanced Tier (Highlighted with Green Gradient) -->
+        <div class="p-8 sm:p-9 rounded-2xl text-white border border-emerald-brand/30 flex flex-col justify-between shadow-xl relative card-shadcn card-shadcn-hover" style="background: linear-gradient(180deg, rgb(0, 71, 45) 0%, rgb(43, 181, 131) 100%);">
           <div>
-            <div class="flex items-center justify-between mb-4">
-              <span class="text-xs font-mono font-medium px-2.5 py-1 rounded bg-neutral-900 text-neutral-300 uppercase border border-neutral-800">Advanced</span>
+            <div class="mb-4">
+              <span class="text-xl font-medium text-[#a7f3d0]">Advanced</span>
             </div>
             <div class="flex items-baseline gap-1 mb-6">
               <span class="text-4xl sm:text-5xl font-medium text-white tracking-tight">$3500</span>
             </div>
-            <ul class="space-y-3.5 text-xs text-neutral-300 border-t border-neutral-800 pt-6">
+            <ul class="space-y-3.5 text-sm text-white/95 border-t border-white/20 pt-6">
               <li class="flex items-center gap-2.5 font-normal">
-                <span class="text-emerald-brand font-medium">✓</span> Advanced SEO optimization
+                <span class="text-white font-medium">✓</span> Mobile responsive
               </li>
               <li class="flex items-center gap-2.5 font-normal">
-                <span class="text-emerald-brand font-medium">✓</span> Form
+                <span class="text-white font-medium">✓</span> Advanced SEO optimization
               </li>
               <li class="flex items-center gap-2.5 font-normal">
-                <span class="text-emerald-brand font-medium">✓</span> Map
+                <span class="text-white font-medium">✓</span> Contact form
               </li>
               <li class="flex items-center gap-2.5 font-normal">
-                <span class="text-emerald-brand font-medium">✓</span> Other functionalities
+                <span class="text-white font-medium">✓</span> CMS for updates
               </li>
               <li class="flex items-center gap-2.5 font-normal">
-                <span class="text-emerald-brand font-medium">✓</span> Animations
+                <span class="text-white font-medium">✓</span> Form
               </li>
               <li class="flex items-center gap-2.5 font-normal">
-                <span class="text-emerald-brand font-medium">✓</span> More revisions
+                <span class="text-white font-medium">✓</span> Map
+              </li>
+              <li class="flex items-center gap-2.5 font-normal">
+                <span class="text-white font-medium">✓</span> Blog functionality
+              </li>
+              <li class="flex items-center gap-2.5 font-normal">
+                <span class="text-white font-medium">✓</span> Other functionalities
+              </li>
+              <li class="flex items-center gap-2.5 font-normal">
+                <span class="text-white font-medium">✓</span> Animations
+              </li>
+              <li class="flex items-center gap-2.5 font-normal">
+                <span class="text-white font-medium">✓</span> More revisions
               </li>
             </ul>
           </div>
-          <a href="#contact" class="btn-shadcn btn-white btn-md mt-8 w-full">
+          <a href="#contact" class="w-full mt-8 py-3.5 px-6 rounded-xl bg-neutral-950 text-white font-medium text-sm text-center hover:bg-black transition-all block shadow-md">
             Get Your Website
           </a>
         </div>
 
         <!-- Pro Tier -->
-        <div class="p-8 sm:p-9 rounded-2xl bg-white border border-neutral-200 flex flex-col justify-between card-shadcn card-shadcn-hover">
+        <div class="p-8 sm:p-9 rounded-2xl bg-white border border-neutral-200/80 flex flex-col justify-between card-shadcn card-shadcn-hover shadow-sm">
           <div>
-            <div class="flex items-center justify-between mb-4">
-              <span class="text-xs font-mono font-medium px-2.5 py-1 rounded bg-surface-150 text-neutral-800 uppercase border border-neutral-200">Pro</span>
+            <div class="mb-4">
+              <span class="text-xl font-medium text-neutral-950">Pro</span>
             </div>
             <div class="flex items-baseline gap-1 mb-6">
               <span class="text-4xl sm:text-5xl font-medium text-neutral-950 tracking-tight">$5000</span>
             </div>
-            <ul class="space-y-3.5 text-xs text-neutral-700 border-t border-neutral-100 pt-6">
-              <li class="flex items-center gap-2.5 font-semibold text-neutral-900">
-                Everything in Professional, plus:
+            <ul class="space-y-3.5 text-sm text-neutral-700 border-t border-neutral-100 pt-6">
+              <li class="flex items-center gap-2.5 font-normal text-neutral-800">
+                <span class="text-emerald-brand font-medium">✓</span> Everything in Professional, plus:
               </li>
               <li class="flex items-center gap-2.5 font-normal">
                 <span class="text-emerald-brand font-medium">✓</span> Unlimited pages
@@ -881,7 +940,7 @@
               </li>
             </ul>
           </div>
-          <a href="#contact" class="btn-shadcn btn-outline btn-md mt-8 w-full">
+          <a href="#contact" class="w-full mt-8 py-3.5 px-6 rounded-xl bg-neutral-950 text-white font-medium text-sm text-center hover:bg-neutral-800 transition-all block shadow-sm">
             Get Your Website
           </a>
         </div>
@@ -892,75 +951,116 @@
 
   <!-- ==================== 8. BLOG / LATEST ARTICLES (1:1 from Framer) ==================== -->
   <section class="max-w-7xl mx-auto px-6 sm:px-10 py-24 w-full" id="blog">
-    <div class="max-w-2xl mb-14">
-      <div class="badge-section mb-4">
-        <span class="badge-section-gradient">Blog</span>
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-14 gap-6">
+      <div class="max-w-2xl">
+        <div class="badge-section mb-4">
+          <span class="badge-section-gradient">Blog</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-[40px] font-medium text-neutral-950 mb-3 tracking-tight">
+          Latest Articles
+        </h2>
+        <p class="text-base text-neutral-600 leading-relaxed font-normal">
+          Expert knowledge on web design, SEO, and digital marketing to help you grow your business online.
+        </p>
       </div>
-      <h2 class="text-3xl sm:text-4xl lg:text-[40px] font-medium text-neutral-950 mb-3 tracking-tight">
-        Latest Articles
-      </h2>
-      <p class="text-base text-neutral-600 leading-relaxed font-normal">
-        Expert knowledge on web design, SEO, and digital marketing to help you grow your business online.
-      </p>
+      <div>
+        <a href="blog.html" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-neutral-200 bg-white hover:bg-neutral-50 text-sm font-medium text-neutral-900 transition-all shadow-sm group">
+          View All Articles
+          <span class="group-hover:translate-x-0.5 transition-transform">&rarr;</span>
+        </a>
+      </div>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="homepage-articles-container">
       
       <!-- Article 1: SEO -->
-      <a href="blog/seo-basics-every-business-owner-should-know.html" class="group p-7 rounded-2xl bg-white border border-neutral-200 card-shadcn card-shadcn-hover flex flex-col justify-between cursor-pointer block text-inherit no-underline">
+      <a href="blog/seo-basics-every-business-owner-should-know.html" class="group p-6 rounded-2xl bg-white border border-neutral-200 card-shadcn card-shadcn-hover flex flex-col justify-between cursor-pointer block text-inherit no-underline">
         <div>
-          <div class="flex items-center justify-between mb-4 text-xs text-neutral-500 font-medium">
-            <span class="badge-shadcn">SEO</span>
+          <!-- Thematic Monochromatic Image -->
+          <div class="w-full h-48 rounded-xl overflow-hidden mb-5 bg-neutral-100 border border-neutral-100">
+            <img 
+              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" 
+              alt="SEO Analytics & Performance" 
+              class="w-full h-full object-cover grayscale contrast-125 group-hover:scale-105 group-hover:grayscale-0 transition-all duration-500" 
+              loading="lazy"
+            >
+          </div>
+          <div class="flex items-center justify-between mb-3.5 text-xs text-neutral-500 font-medium">
+            <div class="badge-section">
+              <span class="badge-section-gradient">SEO</span>
+            </div>
             <span>Feb 10, 2025</span>
           </div>
-          <h3 class="text-xl font-medium text-neutral-950 group-hover:text-emerald-brand transition-colors mb-3 leading-snug">
+          <h3 class="text-xl font-medium text-neutral-950 group-hover:text-emerald-brand transition-colors mb-2.5 leading-snug">
             SEO Basics Every Business Owner Should Know
           </h3>
           <p class="text-sm text-neutral-600 leading-relaxed font-normal">
             Understanding basic SEO helps you rank higher in Google and get found by customers actively searching for what you offer.
           </p>
         </div>
-        <div class="pt-6 mt-6 border-t border-neutral-100 flex items-center justify-between text-xs text-neutral-500">
+        <div class="pt-5 mt-5 border-t border-neutral-100 flex items-center justify-between text-xs text-neutral-500">
           <span>by Kamil</span>
           <span class="font-medium text-neutral-900 group-hover:text-emerald-brand transition-colors">Read Article &rarr;</span>
         </div>
       </a>
 
       <!-- Article 2: Business Growth -->
-      <a href="blog/why-every-business-needs-a-website.html" class="group p-7 rounded-2xl bg-white border border-neutral-200 card-shadcn card-shadcn-hover flex flex-col justify-between cursor-pointer block text-inherit no-underline">
+      <a href="blog/why-every-business-needs-a-website.html" class="group p-6 rounded-2xl bg-white border border-neutral-200 card-shadcn card-shadcn-hover flex flex-col justify-between cursor-pointer block text-inherit no-underline">
         <div>
-          <div class="flex items-center justify-between mb-4 text-xs text-neutral-500 font-medium">
-            <span class="badge-shadcn">Business Growth</span>
+          <!-- Thematic Monochromatic Image -->
+          <div class="w-full h-48 rounded-xl overflow-hidden mb-5 bg-neutral-100 border border-neutral-100">
+            <img 
+              src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80" 
+              alt="Business Modern Architecture" 
+              class="w-full h-full object-cover grayscale contrast-125 group-hover:scale-105 group-hover:grayscale-0 transition-all duration-500" 
+              loading="lazy"
+            >
+          </div>
+          <div class="flex items-center justify-between mb-3.5 text-xs text-neutral-500 font-medium">
+            <div class="badge-section">
+              <span class="badge-section-gradient">Business Growth</span>
+            </div>
             <span>Jul 8, 2025</span>
           </div>
-          <h3 class="text-xl font-medium text-neutral-950 group-hover:text-emerald-brand transition-colors mb-3 leading-snug">
+          <h3 class="text-xl font-medium text-neutral-950 group-hover:text-emerald-brand transition-colors mb-2.5 leading-snug">
             Why Every Business Needs a Website
           </h3>
           <p class="text-sm text-neutral-600 leading-relaxed font-normal">
             Why a professional website brings more customers and helps you beat competitors online.
           </p>
         </div>
-        <div class="pt-6 mt-6 border-t border-neutral-100 flex items-center justify-between text-xs text-neutral-500">
+        <div class="pt-5 mt-5 border-t border-neutral-100 flex items-center justify-between text-xs text-neutral-500">
           <span>by Kamil</span>
           <span class="font-medium text-neutral-900 group-hover:text-emerald-brand transition-colors">Read Article &rarr;</span>
         </div>
       </a>
 
       <!-- Article 3: Web Design -->
-      <a href="blog/custom-website-vs-wordpress-template.html" class="group p-7 rounded-2xl bg-white border border-neutral-200 card-shadcn card-shadcn-hover flex flex-col justify-between cursor-pointer block text-inherit no-underline">
+      <a href="blog/custom-website-vs-wordpress-template.html" class="group p-6 rounded-2xl bg-white border border-neutral-200 card-shadcn card-shadcn-hover flex flex-col justify-between cursor-pointer block text-inherit no-underline">
         <div>
-          <div class="flex items-center justify-between mb-4 text-xs text-neutral-500 font-medium">
-            <span class="badge-shadcn">Web Design</span>
+          <!-- Thematic Monochromatic Image -->
+          <div class="w-full h-48 rounded-xl overflow-hidden mb-5 bg-neutral-100 border border-neutral-100">
+            <img 
+              src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80" 
+              alt="Web Development Code & Design" 
+              class="w-full h-full object-cover grayscale contrast-125 group-hover:scale-105 group-hover:grayscale-0 transition-all duration-500" 
+              loading="lazy"
+            >
+          </div>
+          <div class="flex items-center justify-between mb-3.5 text-xs text-neutral-500 font-medium">
+            <div class="badge-section">
+              <span class="badge-section-gradient">Web Design</span>
+            </div>
             <span>Sep 6, 2025</span>
           </div>
-          <h3 class="text-xl font-medium text-neutral-950 group-hover:text-emerald-brand transition-colors mb-3 leading-snug">
+          <h3 class="text-xl font-medium text-neutral-950 group-hover:text-emerald-brand transition-colors mb-2.5 leading-snug">
             Custom Website vs WordPress Template
           </h3>
           <p class="text-sm text-neutral-600 leading-relaxed font-normal">
             Templates cost less upfront but more long-term. Custom sites bring better ROI through speed and SEO.
           </p>
         </div>
-        <div class="pt-6 mt-6 border-t border-neutral-100 flex items-center justify-between text-xs text-neutral-500">
+        <div class="pt-5 mt-5 border-t border-neutral-100 flex items-center justify-between text-xs text-neutral-500">
           <span>by Kamil</span>
           <span class="font-medium text-neutral-900 group-hover:text-emerald-brand transition-colors">Read Article &rarr;</span>
         </div>
@@ -970,7 +1070,7 @@
   </section>
 
   <!-- ==================== 9. FAQ SECTION (1:1 from Framer) ==================== -->
-  <section class="max-w-4xl mx-auto px-6 sm:px-10 py-24 w-full" id="faq">
+  <section class="max-w-3xl mx-auto px-6 sm:px-10 py-24 w-full" id="faq">
     <div class="text-center mb-16">
       <div class="badge-section mb-4">
         <span class="badge-section-gradient">FAQ</span>
@@ -983,84 +1083,110 @@
       </p>
     </div>
 
-    <!-- 6 Fully Clickable Accordion Cards -->
-    <div class="space-y-3.5" id="faq-accordion-group">
+    <!-- Clean Framer Accordion List with Dividers -->
+    <div class="border-t border-neutral-200 divide-y divide-neutral-200" id="faq-accordion-group">
       
       <!-- FAQ 1 -->
-      <details class="faq-item group p-6 rounded-2xl border border-neutral-200 bg-white open:bg-surface-50 transition-colors cursor-pointer select-none">
-        <summary class="flex items-center justify-between font-medium text-base text-neutral-950 cursor-pointer list-none select-none w-full outline-none">
-          <span class="pr-4">Will it work on phones and tablets?</span>
-          <span class="text-base text-neutral-500 transition-transform group-open:rotate-45 font-mono flex-shrink-0">+</span>
+      <details class="faq-item group py-5 cursor-pointer select-none" open>
+        <summary class="flex items-center justify-between font-medium text-base sm:text-lg text-neutral-950 cursor-pointer list-none select-none w-full outline-none">
+          <span class="pr-6">Will it work on phones and tablets?</span>
+          <span class="w-8 h-8 rounded-lg border border-neutral-200 bg-surface-50 flex items-center justify-center text-neutral-500 group-open:rotate-180 transition-transform duration-200 flex-shrink-0">
+            <svg class="w-4 h-4 text-neutral-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </span>
         </summary>
-        <p class="text-sm text-neutral-600 leading-relaxed mt-4 pt-4 border-t border-neutral-100 font-normal cursor-text select-text">
+        <p class="text-sm sm:text-base text-neutral-600 leading-relaxed pt-3 pb-1 font-normal cursor-text select-text">
           Every site works perfectly on all devices. Over half your customers use phones. If your site looks broken on mobile, they go to competitors immediately. Mobile performance is guaranteed.
         </p>
       </details>
 
       <!-- FAQ 2 -->
-      <details class="faq-item group p-6 rounded-2xl border border-neutral-200 bg-white open:bg-surface-50 transition-colors cursor-pointer select-none">
-        <summary class="flex items-center justify-between font-medium text-base text-neutral-950 cursor-pointer list-none select-none w-full outline-none">
-          <span class="pr-4">How do I know it will bring results?</span>
-          <span class="text-base text-neutral-500 transition-transform group-open:rotate-45 font-mono flex-shrink-0">+</span>
+      <details class="faq-item group py-5 cursor-pointer select-none">
+        <summary class="flex items-center justify-between font-medium text-base sm:text-lg text-neutral-950 cursor-pointer list-none select-none w-full outline-none">
+          <span class="pr-6">How do I know it will bring results?</span>
+          <span class="w-8 h-8 rounded-lg border border-neutral-200 bg-surface-50 flex items-center justify-center text-neutral-500 group-open:rotate-180 transition-transform duration-200 flex-shrink-0">
+            <svg class="w-4 h-4 text-neutral-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </span>
         </summary>
-        <p class="text-sm text-neutral-600 leading-relaxed mt-4 pt-4 border-t border-neutral-100 font-normal cursor-text select-text">
+        <p class="text-sm sm:text-base text-neutral-600 leading-relaxed pt-3 pb-1 font-normal cursor-text select-text">
           Professional design builds trust. Fast loading keeps visitors engaged. Good SEO gets you found. These three things working together bring more customers. Track everything with analytics to see what's working.
         </p>
       </details>
 
       <!-- FAQ 3 -->
-      <details class="faq-item group p-6 rounded-2xl border border-neutral-200 bg-white open:bg-surface-50 transition-colors cursor-pointer select-none">
-        <summary class="flex items-center justify-between font-medium text-base text-neutral-950 cursor-pointer list-none select-none w-full outline-none">
-          <span class="pr-4">Can you write the content for me?</span>
-          <span class="text-base text-neutral-500 transition-transform group-open:rotate-45 font-mono flex-shrink-0">+</span>
+      <details class="faq-item group py-5 cursor-pointer select-none">
+        <summary class="flex items-center justify-between font-medium text-base sm:text-lg text-neutral-950 cursor-pointer list-none select-none w-full outline-none">
+          <span class="pr-6">Can you write the content for me?</span>
+          <span class="w-8 h-8 rounded-lg border border-neutral-200 bg-surface-50 flex items-center justify-center text-neutral-500 group-open:rotate-180 transition-transform duration-200 flex-shrink-0">
+            <svg class="w-4 h-4 text-neutral-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </span>
         </summary>
-        <p class="text-sm text-neutral-600 leading-relaxed mt-4 pt-4 border-t border-neutral-100 font-normal cursor-text select-text">
+        <p class="text-sm sm:text-base text-neutral-600 leading-relaxed pt-3 pb-1 font-normal cursor-text select-text">
           Yes. Strategic copywriting is included. The words get written to attract your target customers and convince them to contact you. You provide business knowledge, the copy turns that into customer conversions.
         </p>
       </details>
 
       <!-- FAQ 4 -->
-      <details class="faq-item group p-6 rounded-2xl border border-neutral-200 bg-white open:bg-surface-50 transition-colors cursor-pointer select-none">
-        <summary class="flex items-center justify-between font-medium text-base text-neutral-950 cursor-pointer list-none select-none w-full outline-none">
-          <span class="pr-4">What if I need help after launch?</span>
-          <span class="text-base text-neutral-500 transition-transform group-open:rotate-45 font-mono flex-shrink-0">+</span>
+      <details class="faq-item group py-5 cursor-pointer select-none">
+        <summary class="flex items-center justify-between font-medium text-base sm:text-lg text-neutral-950 cursor-pointer list-none select-none w-full outline-none">
+          <span class="pr-6">What if I need help after launch?</span>
+          <span class="w-8 h-8 rounded-lg border border-neutral-200 bg-surface-50 flex items-center justify-center text-neutral-500 group-open:rotate-180 transition-transform duration-200 flex-shrink-0">
+            <svg class="w-4 h-4 text-neutral-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </span>
         </summary>
-        <p class="text-sm text-neutral-600 leading-relaxed mt-4 pt-4 border-t border-neutral-100 font-normal cursor-text select-text">
+        <p class="text-sm sm:text-base text-neutral-600 leading-relaxed pt-3 pb-1 font-normal cursor-text select-text">
           Support continues after launch. Questions get answered. Will help you start with everything.
         </p>
       </details>
 
       <!-- FAQ 5 -->
-      <details class="faq-item group p-6 rounded-2xl border border-neutral-200 bg-white open:bg-surface-50 transition-colors cursor-pointer select-none">
-        <summary class="flex items-center justify-between font-medium text-base text-neutral-950 cursor-pointer list-none select-none w-full outline-none">
-          <span class="pr-4">Can you help with hosting and domain setup?</span>
-          <span class="text-base text-neutral-500 transition-transform group-open:rotate-45 font-mono flex-shrink-0">+</span>
+      <details class="faq-item group py-5 cursor-pointer select-none">
+        <summary class="flex items-center justify-between font-medium text-base sm:text-lg text-neutral-950 cursor-pointer list-none select-none w-full outline-none">
+          <span class="pr-6">Can you help with hosting and domain setup?</span>
+          <span class="w-8 h-8 rounded-lg border border-neutral-200 bg-surface-50 flex items-center justify-center text-neutral-500 group-open:rotate-180 transition-transform duration-200 flex-shrink-0">
+            <svg class="w-4 h-4 text-neutral-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </span>
         </summary>
-        <p class="text-sm text-neutral-600 leading-relaxed mt-4 pt-4 border-t border-neutral-100 font-normal cursor-text select-text">
+        <p class="text-sm sm:text-base text-neutral-600 leading-relaxed pt-3 pb-1 font-normal cursor-text select-text">
           Yes. Guidance provided for hosting selection, domain registration, and technical setup. Everything gets configured properly so your site runs smoothly from day one.
         </p>
       </details>
 
       <!-- FAQ 6 -->
-      <details class="faq-item group p-6 rounded-2xl border border-neutral-200 bg-white open:bg-surface-50 transition-colors cursor-pointer select-none">
-        <summary class="flex items-center justify-between font-medium text-base text-neutral-950 cursor-pointer list-none select-none w-full outline-none">
-          <span class="pr-4">What if my competitor already ranks higher?</span>
-          <span class="text-base text-neutral-500 transition-transform group-open:rotate-45 font-mono flex-shrink-0">+</span>
+      <details class="faq-item group py-5 cursor-pointer select-none">
+        <summary class="flex items-center justify-between font-medium text-base sm:text-lg text-neutral-950 cursor-pointer list-none select-none w-full outline-none">
+          <span class="pr-6">What if my competitor already ranks higher?</span>
+          <span class="w-8 h-8 rounded-lg border border-neutral-200 bg-surface-50 flex items-center justify-center text-neutral-500 group-open:rotate-180 transition-transform duration-200 flex-shrink-0">
+            <svg class="w-4 h-4 text-neutral-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </span>
         </summary>
-        <p class="text-sm text-neutral-600 leading-relaxed mt-4 pt-4 border-t border-neutral-100 font-normal cursor-text select-text">
+        <p class="text-sm sm:text-base text-neutral-600 leading-relaxed pt-3 pb-1 font-normal cursor-text select-text">
           Good SEO and better user experience can outrank competitors over time. Faster sites, better content, and proper optimization help you climb rankings. It's a marathon, not a sprint.
         </p>
       </details>
 
     </div>
 
-    <!-- Don't see what you're looking for? Box -->
-    <div class="mt-8 p-7 rounded-2xl bg-surface-50 border border-neutral-200 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <div>
-        <h4 class="text-base font-medium text-neutral-950">Don't see what you're looking for?</h4>
-        <p class="text-xs text-neutral-600 mt-0.5">Reach out directly and I'll get back to you.</p>
-      </div>
-      <a href="#contact" class="btn-shadcn btn-primary btn-sm whitespace-nowrap">
+    <!-- Centered Framer Action: Don't see what you're looking for? -->
+    <div class="mt-14 pt-10 border-t border-neutral-200/80 flex flex-col items-center text-center">
+      <h3 class="text-xl sm:text-2xl font-medium text-neutral-950 mb-2 tracking-tight">
+        Don't see what you're looking for?
+      </h3>
+      <p class="text-base text-neutral-600 mb-6 font-normal">
+        Reach out directly and I'll get back to you.
+      </p>
+      <a href="#contact" class="btn-shadcn btn-primary btn-md px-6">
         Get in touch
       </a>
     </div>
@@ -1135,18 +1261,20 @@
   </section>
 
   <!-- ==================== 11. FINAL CTA BANNER (1:1 from Framer) ==================== -->
-  <section class="max-w-7xl mx-auto px-6 sm:px-10 py-20 text-center">
-    <div class="rounded-3xl bg-neutral-950 text-white p-12 sm:p-16 flex flex-col items-center justify-center relative overflow-hidden shadow-2xl border border-neutral-800">
-      <div class="max-w-2xl z-10">
-        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-medium text-white mb-5 leading-tight tracking-tight">
-          Ready to Get More Customers?
-        </h2>
-        <p class="text-base text-neutral-400 mb-9 leading-relaxed font-normal">
-          Every day without a professional website, potential customers go somewhere else. Get found in Google, build trust instantly, and turn visitors into paying customers.
-        </p>
-        <div class="flex flex-wrap items-center justify-center gap-3">
-          <a href="#contact" class="btn-shadcn btn-white btn-lg">
-            Get Your Website &rarr;
+  <section class="w-full bg-[#f9f9f9] border-t border-neutral-200/50 py-16 sm:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      <div class="w-full rounded-2xl text-white p-8 sm:p-12 lg:p-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-8 relative overflow-hidden shadow-xl" style="background: linear-gradient(104deg, rgb(0, 71, 45) 0%, rgb(9, 128, 84) 100%); border-radius: 16px;">
+        <div class="max-w-2xl text-left">
+          <h2 class="text-3xl sm:text-4xl lg:text-[38px] font-semibold text-white mb-3.5 leading-tight tracking-tight">
+            Ready to Get More Customers?
+          </h2>
+          <p class="text-sm sm:text-base text-neutral-200/90 leading-relaxed font-normal max-w-xl">
+            Every day without a professional website, potential customers go somewhere else. Get found in Google, build trust instantly, and turn visitors into paying customers.
+          </p>
+        </div>
+        <div class="shrink-0 flex items-center justify-end">
+          <a href="#contact" class="inline-flex items-center justify-center px-7 py-3.5 rounded-lg bg-white text-neutral-950 font-medium text-sm sm:text-base shadow-sm hover:bg-neutral-100 hover:shadow transition-all whitespace-nowrap">
+            Get Your Website
           </a>
         </div>
       </div>
@@ -1175,28 +1303,30 @@
     </div>
   </footer>
 
-  <!-- ==================== 13. KINETIC 3D INFINITY SCRIPT ==================== -->
+  <!-- ==================== 13. 3D HERO SECTION: 07. DUAL-AXIS ORTHOGONAL LATTICE ==================== -->
   <script>
-    (function initFinalitieKineticInfinity() {
-      const canvas = document.getElementById('kinetic-canvas');
-      if (!canvas) return;
-      const container = canvas.parentElement;
+    (function initHero3DGrid07() {
+      const container = document.getElementById('hero-3d-container');
+      const canvas = document.getElementById('hero-3d-canvas');
+      if (!container || !canvas || typeof THREE === 'undefined') return;
 
-      // 1. Scene & Perspective Camera
+      // 1. SCENA I KAMERA
       const scene = new THREE.Scene();
+      scene.background = new THREE.Color(0xffffff);
+
       const camera = new THREE.PerspectiveCamera(
-        36,
+        40,
         container.clientWidth / container.clientHeight,
         0.1,
         100
       );
-      camera.position.set(0, 0, 7.8);
+      camera.position.set(0, 0, 5.8);
 
-      // 2. High Quality WebGL Renderer (Pure Transparent Background)
+      // 2. RENDERER
       const renderer = new THREE.WebGLRenderer({
         canvas: canvas,
         antialias: true,
-        alpha: true,
+        alpha: false,
         powerPreference: 'high-performance'
       });
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
@@ -1204,76 +1334,89 @@
       renderer.toneMapping = THREE.ACESFilmicToneMapping;
       renderer.toneMappingExposure = 1.35;
 
-      // 3. Studio Lighting Tuned for Deep Emerald Gunmetal on Pure White
-      const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+      // 3. OŚWIETLENIE STUDYJNE DLA OBSYDIAN CHROME (Ostre refleksy na krawędziach)
+      const ambientLight = new THREE.AmbientLight(0xffffff, 1.4);
       scene.add(ambientLight);
 
-      // Main Top Spotlight (sharp highlights on top chamfers)
-      const mainSpot = new THREE.SpotLight(0xeafff6, 8.5);
-      mainSpot.position.set(3.0, 9.5, 5.0);
-      mainSpot.angle = Math.PI / 4.2;
-      mainSpot.penumbra = 0.35;
-      scene.add(mainSpot);
+      // Główne światło kluczowe (Top-Front-Left)
+      const keyLight = new THREE.DirectionalLight(0xffffff, 4.0);
+      keyLight.position.set(6, 9, 7);
+      scene.add(keyLight);
 
-      // Back-Left Cool Mint Rim Light
-      const rimLight1 = new THREE.DirectionalLight(0x5eead4, 3.2);
-      rimLight1.position.set(-6, 5, -3);
-      scene.add(rimLight1);
+      // Światło wypełniające (Front-Right)
+      const fillLight = new THREE.DirectionalLight(0xdbeafe, 2.4);
+      fillLight.position.set(-7, 4, 5);
+      scene.add(fillLight);
 
-      // Back-Right Deep Forest Slate Fill
-      const rimLight2 = new THREE.DirectionalLight(0x115e59, 2.4);
-      rimLight2.position.set(5, -4, -2);
-      scene.add(rimLight2);
+      // Światło kontrujące z tyłu (Rim Light) - podświetla głębię wewnętrznych warstw
+      const rimLight = new THREE.DirectionalLight(0x2bb583, 1.6);
+      rimLight.position.set(0, -6, -5);
+      scene.add(rimLight);
 
-      // 4. Kinetic Infinity Structure
-      const masterGroup = new THREE.Group();
-      scene.add(masterGroup);
-
-      function getKnotPoint(t, scale = 1.0) {
-        const phi = t * Math.PI * 2;
-        const p = 2, q = 3;
-        const r = (0.9 + 0.45 * Math.cos(q * phi)) * scale;
-        const x = r * Math.cos(p * phi) * 1.5;
-        const y = r * Math.sin(p * phi) * 1.5;
-        const z = -0.5 * Math.sin(q * phi) * 1.6 * scale;
-        return new THREE.Vector3(x, y, z);
-      }
-
-      // Deep Emerald Gunmetal Lacquered Material
-      const emeraldMaterial = new THREE.MeshPhysicalMaterial({
-        color: 0x0c221d,
-        roughness: 0.12,
-        metalness: 0.62,
-        clearcoat: 1.0,
-        clearcoatRoughness: 0.05,
+      // 4. MATERIAŁ OBSYDIAN GUNMETAL / CHROME
+      const obsidianMaterial = new THREE.MeshPhysicalMaterial({
+        color: 0x141a24,
+        metalness: 0.88,
+        roughness: 0.22,
+        clearcoat: 0.75,
+        clearcoatRoughness: 0.08,
         reflectivity: 0.95
       });
 
-      const finCount = 135;
-      const fins = [];
-      const finGeo = new THREE.BoxGeometry(0.15, 0.64, 0.045);
+      // 5. BUDOWA PEŁNEJ KRATOWNICY 3D (ORTHOGONAL CUBIC LATTICE MATRIX 8x8x8)
+      const masterGroup = new THREE.Group();
+      scene.add(masterGroup);
 
-      for (let i = 0; i < finCount; i++) {
-        const t = i / finCount;
-        const p1 = getKnotPoint(t, 1.12);
-        const p2 = getKnotPoint((t + 0.005) % 1.0, 1.12);
+      const N = 8;                // 8 linii na każdej osi = 7x7x7 komórek sześciennych (identycznie jak na screenie)
+      const cubeSize = 2.75;      // Całkowity wymiar bryły
+      const barThickness = 0.042; // Grubość profilu belki
+      const halfSize = cubeSize / 2;
+      const step = cubeSize / (N - 1);
 
-        const pivot = new THREE.Group();
-        pivot.position.copy(p1);
-        pivot.lookAt(p2);
+      // Geometrie belek dla 3 osi (X, Y, Z)
+      const xBarGeo = new THREE.BoxGeometry(cubeSize + barThickness, barThickness, barThickness);
+      const yBarGeo = new THREE.BoxGeometry(barThickness, cubeSize + barThickness, barThickness);
+      const zBarGeo = new THREE.BoxGeometry(barThickness, barThickness, cubeSize + barThickness);
 
-        const mesh = new THREE.Mesh(finGeo, emeraldMaterial);
-        pivot.add(mesh);
-
-        masterGroup.add(pivot);
-        fins.push({ pivot: pivot, mesh: mesh, baseT: t });
+      // Belki poziome wzdłuż osi X (dla każdego poziomu Y i głębokości Z)
+      for (let iy = 0; iy < N; iy++) {
+        const y = -halfSize + iy * step;
+        for (let iz = 0; iz < N; iz++) {
+          const z = -halfSize + iz * step;
+          const bar = new THREE.Mesh(xBarGeo, obsidianMaterial);
+          bar.position.set(0, y, z);
+          masterGroup.add(bar);
+        }
       }
 
-      // Initial isometric perspective
-      masterGroup.rotation.x = 0.25;
-      masterGroup.rotation.y = -0.35;
+      // Belki pionowe wzdłuż osi Y (dla każdej szerokości X i głębokości Z)
+      for (let ix = 0; ix < N; ix++) {
+        const x = -halfSize + ix * step;
+        for (let iz = 0; iz < N; iz++) {
+          const z = -halfSize + iz * step;
+          const bar = new THREE.Mesh(yBarGeo, obsidianMaterial);
+          bar.position.set(x, 0, z);
+          masterGroup.add(bar);
+        }
+      }
 
-      // 5. Interactive Mouse Drag & Momentum
+      // Belki poziome wzdłuż osi Z (dla każdej szerokości X i poziomu Y)
+      for (let ix = 0; ix < N; ix++) {
+        const x = -halfSize + ix * step;
+        for (let iy = 0; iy < N; iy++) {
+          const y = -halfSize + iy * step;
+          const bar = new THREE.Mesh(zBarGeo, obsidianMaterial);
+          bar.position.set(x, y, 0);
+          masterGroup.add(bar);
+        }
+      }
+
+      // Kąt izometryczny dokładnie odpowiadający kadrze z referencji
+      masterGroup.rotation.x = 0.58;
+      masterGroup.rotation.y = -0.78;
+      masterGroup.rotation.z = 0.12;
+
+      // 6. INTERAKCJA MYSZĄ I DOTYKIEM (Pełny obrót 3D + bezwładność)
       let isDragging = false;
       let previousMousePosition = { x: 0, y: 0 };
       let mouseVelX = 0, mouseVelY = 0;
@@ -1290,8 +1433,8 @@
           const deltaX = e.clientX - previousMousePosition.x;
           const deltaY = e.clientY - previousMousePosition.y;
 
-          mouseVelX = deltaX * 0.004;
-          mouseVelY = deltaY * 0.004;
+          mouseVelX = deltaX * 0.005;
+          mouseVelY = deltaY * 0.005;
 
           masterGroup.rotation.y += mouseVelX;
           masterGroup.rotation.x += mouseVelY;
@@ -1302,7 +1445,6 @@
 
       window.addEventListener('mouseup', () => { isDragging = false; });
 
-      // Touch events for mobile
       window.addEventListener('touchstart', (e) => {
         if (e.touches.length > 0 && e.target === canvas) {
           isDragging = true;
@@ -1315,11 +1457,11 @@
           const deltaX = e.touches[0].clientX - previousMousePosition.x;
           const deltaY = e.touches[0].clientY - previousMousePosition.y;
 
-          mouseVelX = deltaX * 0.004;
-          mouseVelY = deltaY * 0.004;
+          mouseVelX = deltaX * 0.005;
+          mouseVelY = deltaY * 0.005;
 
-          masterGroup.rotation.y += deltaX * 0.004;
-          masterGroup.rotation.x += deltaY * 0.004;
+          masterGroup.rotation.y += deltaX * 0.005;
+          masterGroup.rotation.x += deltaY * 0.005;
 
           previousMousePosition = { x: e.touches[0].clientX, y: e.touches[0].clientY };
         }
@@ -1327,43 +1469,42 @@
 
       window.addEventListener('touchend', () => { isDragging = false; });
 
-      // 6. Slow-Motion Animation Loop
+      // 7. PĘTLA ANIMACJI (Płynna lewitacja i powolny autooobrót)
       const clock = new THREE.Clock();
 
-      function renderLoop() {
-        requestAnimationFrame(renderLoop);
-        const now = performance.now();
+      function animate() {
+        requestAnimationFrame(animate);
+        const elapsedTime = clock.getElapsedTime();
 
         if (!isDragging) {
-          masterGroup.rotation.y += 0.0012 + mouseVelX;
+          masterGroup.rotation.y += 0.0018 + mouseVelX;
           masterGroup.rotation.x += mouseVelY;
-          mouseVelX *= 0.95;
-          mouseVelY *= 0.95;
+          mouseVelX *= 0.94;
+          mouseVelY *= 0.94;
         }
 
-        masterGroup.position.y = Math.sin(now * 0.0009) * 0.12;
-
-        const waveTime = now * 0.00085;
-        fins.forEach((fin, idx) => {
-          const wave = Math.sin(waveTime * 1.6 + idx * 0.09) * 0.50;
-          fin.mesh.rotation.z = wave;
-          fin.mesh.rotation.x = wave * 0.25;
-        });
+        // Płynne lewitowanie góra-dół
+        masterGroup.position.y = Math.sin(elapsedTime * 1.1) * 0.12;
 
         renderer.render(scene, camera);
       }
 
-      renderLoop();
+      animate();
 
-      // Responsive Resize
-      window.addEventListener('resize', () => {
-        const w = container.clientWidth;
-        const h = container.clientHeight;
-        camera.aspect = w / h;
+      // 8. RESPONSYWNOŚĆ
+      function onResize() {
+        if (!container || !canvas) return;
+        const width = container.clientWidth;
+        const height = container.clientHeight;
+        camera.aspect = width / height;
         camera.updateProjectionMatrix();
-        renderer.setSize(w, h);
-      });
+        renderer.setSize(width, height);
+      }
 
+      window.addEventListener('resize', onResize);
+      if (window.ResizeObserver) {
+        new ResizeObserver(onResize).observe(container);
+      }
     })();
 
     // Entire FAQ Card Click Handler
@@ -1375,6 +1516,53 @@
         }
       });
     });
+
+    // Mobile Navigation Menu Toggle Handler
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const hamburgerIcon = document.getElementById('hamburger-icon');
+    const closeIcon = document.getElementById('close-icon');
+
+    if (mobileMenuBtn && mobileMenu) {
+      mobileMenuBtn.addEventListener('click', () => {
+        const isHidden = mobileMenu.classList.contains('hidden');
+        if (isHidden) {
+          mobileMenu.classList.remove('hidden');
+          hamburgerIcon.classList.add('hidden');
+          closeIcon.classList.remove('hidden');
+        } else {
+          mobileMenu.classList.add('hidden');
+          hamburgerIcon.classList.remove('hidden');
+          closeIcon.classList.add('hidden');
+        }
+      });
+
+      // Close menu when link is clicked
+      document.querySelectorAll('.mobile-nav-link').forEach((link) => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+          hamburgerIcon.classList.remove('hidden');
+          closeIcon.classList.add('hidden');
+        });
+      });
+    }
+  </script>
+
+  <!-- Sanity CMS Client Integration -->
+  <script src="sanity-client.js"></script>
+  <script>
+    (async function initSanityBlog() {
+      const container = document.getElementById('homepage-articles-container');
+      if (!container || !window.sanityClient || !window.sanityClient.isConfigured()) return;
+      try {
+        const posts = await window.sanityClient.getRecentPosts(3);
+        if (posts && posts.length > 0) {
+          container.innerHTML = posts.map(renderArticleCard).join('');
+        }
+      } catch (e) {
+        console.warn('Error loading Sanity posts:', e);
+      }
+    })();
   </script>
 </body>
 </html>
