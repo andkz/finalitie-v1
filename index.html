@@ -4,19 +4,30 @@
   <meta charset="UTF-8">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Finalitie · Web Design and Development</title>
-  <meta name="description" content="Modern, responsive websites that help businesses grow online. Custom web design, development, and SEO-optimized solutions for maximum performance and user experience.">
+  <title>Finalitie · Custom Web Design, Development & SEO</title>
+  <meta name="description" content="Modern, responsive websites that help businesses grow online. Custom web design, development, and SEO solutions built for performance and conversions.">
+  <link rel="canonical" href="https://andkz.github.io/finalitie-v2/">
   
-  <!-- Open Graph / Meta -->
+  <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Finalitie">
-  <meta property="og:description" content="Modern, responsive websites that help businesses grow online. Custom web design, development, and SEO-optimized solutions for maximum performance and user experience.">
-  <meta property="og:image" content="https://framerusercontent.com/images/GmYx3GkXDe3lTME4KumGFhegPoA.png">
-  <link rel="icon" href="https://framerusercontent.com/images/tGUOcqDgP6XO7Dpi82pGrgbkQg.png">
+  <meta property="og:title" content="Finalitie · Custom Web Design, Development & SEO">
+  <meta property="og:description" content="Modern, responsive websites that help businesses grow online. Custom web design, development, and SEO solutions built for performance and conversions.">
+  <meta property="og:image" content="images/GmYx3GkXDe3lTME4KumGFhegPoA.png">
+  <meta property="og:url" content="https://andkz.github.io/finalitie-v2/">
 
-  <!-- Unified Geist Font System -->
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Finalitie · Custom Web Design, Development & SEO">
+  <meta name="twitter:description" content="Modern, responsive websites that help businesses grow online. Custom web design, development, and SEO solutions built for performance and conversions.">
+  <meta name="twitter:image" content="images/GmYx3GkXDe3lTME4KumGFhegPoA.png">
+
+  <link rel="icon" href="images/tGUOcqDgP6XO7Dpi82pGrgbkQg.png">
+
+  <!-- Preconnect External CDNs for Fast Resource Delivery -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.tailwindcss.com">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   
   <!-- Tailwind CSS -->
@@ -56,9 +67,6 @@
     }
   </script>
 
-  <!-- Three.js -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-
   <style>
     /* ==================== SHADCN / GEIST DESIGN SYSTEM ==================== */
     :root {
@@ -79,9 +87,10 @@
       letter-spacing: -0.01em;
     }
 
-    /* Strict H1 Specifications: 56px, Medium (500), letter-spacing: -0.03em */
+    /* Strict Heading Hierarchy Specifications */
     h1, .hero-heading {
       font-family: var(--font-geist);
+      font-size: clamp(2.25rem, 5vw, 3.5rem);
       font-weight: 500;
       letter-spacing: -0.03em;
       line-height: 1.1;
@@ -89,6 +98,7 @@
 
     h2 {
       font-family: var(--font-geist);
+      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
       font-weight: 500;
       letter-spacing: -0.03em;
       line-height: 1.18;
@@ -96,13 +106,15 @@
 
     h3 {
       font-family: var(--font-geist);
-      font-weight: 500;
+      font-size: clamp(1.25rem, 2vw, 1.5rem);
+      font-weight: 600;
       letter-spacing: -0.025em;
       line-height: 1.25;
     }
 
     h4 {
       font-family: var(--font-geist);
+      font-size: 1.125rem;
       font-weight: 500;
       letter-spacing: -0.02em;
     }
@@ -205,25 +217,35 @@
       font-size: 0.9375rem;
     }
 
-    /* Framer Exact Section Badges */
+    /* Framer Exact Section Badges (Refined Silver Metallic Pill Aesthetic) */
     .badge-section {
       display: inline-flex;
       align-items: center;
-      gap: 0.25rem;
-      padding: 3px 10px;
-      border-radius: 8px;
+      gap: 0.35rem;
+      padding: 4px 14px;
+      border-radius: 9999px;
       font-size: 12px;
-      line-height: 1.5;
+      line-height: 1.4;
       letter-spacing: -0.01em;
-      background-color: #fafafa;
-      border: 1px solid #e5e5e5;
+      background: linear-gradient(180deg, #ffffff 0%, #f4f4f6 100%);
+      border: 1px solid #e2e2e6;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03), inset 0 1px 0 rgba(255, 255, 255, 0.95);
       user-select: none;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
     }
+    .badge-section:hover {
+      border-color: #d1d1d6;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05), inset 0 1px 0 rgba(255, 255, 255, 1);
+    }
+    .badge-section-solid,
     .badge-section-gradient {
-      background: linear-gradient(64deg, rgb(0, 71, 45) 0%, rgb(43, 181, 131) 100%);
+      color: #27272a;
+      background: linear-gradient(135deg, #18181b 0%, #4b5563 35%, #94a3b8 65%, #18181b 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      font-weight: 500;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      display: inline-block;
     }
 
     /* Shadcn Badges & Pills */
@@ -333,44 +355,55 @@
       box-shadow: 0 0 0 1px #09090b;
     }
 
-    /* Kontener sceny 3D Hero */
-    .hero-3d-stage {
+    /* Kontener sceny 3D Hero - Srebrne schody bez jakichkolwiek obramowań, idealnie na linii dividera */
+    .hero-stairs-stage {
       position: relative;
       width: 100%;
-      height: 100%;
-      min-height: 480px;
-      background-color: #ffffff; /* Czyste białe tło */
+      background: transparent;
       display: flex;
-      align-items: center;
+      align-items: flex-end;
       justify-content: center;
-      overflow: hidden;
+      overflow: visible;
+      user-select: none;
     }
-    #hero-3d-canvas {
-      width: 100% !important;
-      height: 100% !important;
+    #hero-silver-video,
+    #hero-fallback-img {
+      width: 100%;
+      height: 100%;
+      max-width: 600px;
+      object-fit: contain;
+      object-position: bottom center;
       display: block;
-      outline: none;
-      cursor: grab;
-    }
-    #hero-3d-canvas:active {
-      cursor: grabbing;
+      /* Eliminacja obramowania / ramki / tła: tło #fafafa staje się czystym #ffffff i mnoży się z bielą */
+      filter: brightness(1.025) contrast(1.025);
+      mix-blend-mode: multiply;
+      pointer-events: none;
+      /* Przesunięcie 4.6% niweluje dolny margines wewnątrz klatki 3D, kładąc schody bezpośrednio na linii dividera (0px) */
+      transform: translateY(4.6%);
+      -webkit-mask-image: radial-gradient(ellipse 94% 94% at 50% 50%, #000 78%, transparent 100%);
+      mask-image: radial-gradient(ellipse 94% 94% at 50% 50%, #000 78%, transparent 100%);
     }
     @media (max-width: 768px) {
-      .hero-3d-stage {
-        height: 420px;
+      #hero-silver-video,
+      #hero-fallback-img {
+        transform: translateY(2%);
+        max-width: 440px;
       }
     }
   </style>
 </head>
 <body class="min-h-screen flex flex-col justify-between selection:bg-emerald-brand selection:text-white antialiased">
 
+  <!-- Accessibility Skip Link -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-neutral-900 focus:text-white focus:rounded-md focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-emerald-500">Skip to main content</a>
+
   <!-- ==================== HEADER / NAVBAR ==================== -->
   <header class="w-full border-b border-neutral-200/70 bg-white/90 backdrop-blur-md sticky top-0 z-40">
     <div class="max-w-7xl mx-auto px-6 sm:px-10 h-16 flex items-center justify-between">
       
       <!-- Brand Logo (Exact from Framer) -->
-      <a href="#" class="flex items-center gap-2 group">
-        <img src="finalitie-logo.svg" alt="Finalitie Logo" class="h-[18px] w-auto transition-transform group-hover:scale-105">
+      <a href="index.html" class="flex items-center gap-2 group">
+        <img src="finalitie-logo.svg" alt="Finalitie - Web design and development studio" width="8" height="18" class="h-[18px] w-auto">
         <span class="font-bold text-sm tracking-[0.11em] text-neutral-950 uppercase">FINALITIE</span>
       </a>
 
@@ -419,19 +452,27 @@
     </div>
   </header>
 
+  <!-- Main landmark for accessibility -->
+  <main id="main-content">
+
   <!-- ==================== 1. HERO SECTION ==================== -->
-  <section class="max-w-7xl mx-auto px-6 sm:px-10 w-full pt-12 pb-16 lg:py-20">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center w-full">
+  <section class="max-w-7xl mx-auto px-6 sm:px-10 w-full pt-8 pb-0 lg:pt-14 lg:pb-0 overflow-visible">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-end w-full">
       
       <!-- Left Hero Content -->
-      <div class="lg:col-span-6 flex flex-col items-start text-left z-10">
+      <div class="lg:col-span-6 flex flex-col items-start text-left z-10 pb-12 lg:pb-24 pt-4">
         
-        <!-- Announcement Pill (1:1 from Framer) -->
-        <a href="#projects" class="badge-shadcn hover:border-neutral-300 transition-all mb-7 group cursor-pointer">
-          <span class="px-2 py-0.5 rounded-full bg-emerald-light text-emerald-dark font-semibold text-[11px] border border-emerald-brand/30">
-            Check!
+        <!-- Announcement Pill (Silver Metallic Theme) -->
+        <a href="#projects" class="inline-flex items-center gap-2.5 p-1 pr-3.5 rounded-full bg-gradient-to-b from-white to-[#f8f8fa] border border-[#e2e2e5] hover:border-[#d1d1d6] hover:shadow-sm transition-all mb-7 group cursor-pointer shadow-[0_1px_2px_rgba(0,0,0,0.02)] no-underline">
+          <span class="px-2.5 py-0.5 rounded-full bg-gradient-to-r from-zinc-200 via-neutral-100 to-zinc-200 border border-zinc-300 text-[11px] font-semibold text-zinc-800 select-none flex items-center justify-center leading-tight shadow-[inset_0_1px_0_rgba(255,255,255,0.8)]">
+            <span class="bg-gradient-to-r from-zinc-900 via-zinc-600 to-zinc-900 bg-clip-text text-transparent">Check!</span>
           </span>
-          <span class="font-medium text-neutral-700 group-hover:text-neutral-950">Latest Projects &rarr;</span>
+          <span class="text-[12px] font-medium text-[#404040] group-hover:text-neutral-950 transition-colors leading-none">
+            Latest Projects
+          </span>
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" class="text-[#737373] group-hover:text-neutral-950 group-hover:translate-x-0.5 transition-all" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2.5 6h7M6.5 2.5l3.5 3.5-3.5 3.5"/>
+          </svg>
         </a>
 
         <!-- Main Headline: 56px, Medium, -0.03em tracking -->
@@ -456,11 +497,39 @@
 
       </div>
 
-      <!-- Right Column: 3D HERO SECTION (07. DUAL-AXIS ORTHOGONAL LATTICE) -->
-      <div class="lg:col-span-6 flex items-center justify-center relative w-full aspect-square max-w-[560px] mx-auto overflow-visible">
-        <!-- Kontener 3D Hero -->
-        <div class="hero-3d-stage" id="hero-3d-container">
-          <canvas id="hero-3d-canvas"></canvas>
+      <!-- Right Column: 3D HERO SECTION (SILVER METALLIC STAIRS - 0px SPACE TO DIVIDER) -->
+      <div class="lg:col-span-6 flex items-end justify-center lg:justify-end relative w-full overflow-visible pointer-events-auto select-none mb-0 pb-0">
+        <!-- Kontener 3D Hero bez obramowania, schodki rozwijają się raz i zostają -->
+        <div class="hero-stairs-stage relative w-full aspect-square max-w-[580px] flex items-end justify-center overflow-visible mb-0 pb-0" id="hero-stairs-container">
+          
+          <!-- Natychmiastowy lokalny podgląd statyczny klatki początkowej (Zero-void guarantee) -->
+          <img 
+            id="hero-fallback-img" 
+            src="images/hero-silver-stairs-initial.png" 
+            alt="Finalitie 3D silver metallic stairs architecture" 
+            width="2400" 
+            height="2400"
+            fetchpriority="high"
+            loading="eager"
+            decoding="async"
+            class="absolute inset-0 w-full h-full object-contain pointer-events-none transition-opacity duration-500 ease-out z-10"
+            onerror="this.src='images/hero-silver-stairs-unfolded.png'"
+          />
+
+          <!-- Wideo 3D: rozwija się 1 raz i zatrzymuje na finalnej klatce (brak loop) -->
+          <video 
+            id="hero-silver-video"
+            poster="images/hero-silver-stairs-initial.png"
+            autoplay 
+            muted 
+            playsinline 
+            preload="auto"
+            class="relative z-20 w-full h-full object-contain pointer-events-none transition-opacity duration-500 ease-out opacity-0"
+          >
+            <source src="images/hero-silver-stairs.mp4" type="video/mp4" media="(min-width: 768px)">
+            <source src="images/hero-silver-stairs-mobile.mp4" type="video/mp4">
+            <source src="images/hero-silver-stairs.mp4" type="video/mp4">
+          </video>
         </div>
       </div>
 
@@ -490,8 +559,13 @@
         <!-- Card 1 -->
         <div class="p-8 rounded-2xl bg-white border border-neutral-200/80 card-shadcn card-shadcn-hover flex flex-col justify-between min-h-[250px]">
           <div>
-            <div class="w-8 h-8 rounded-lg bg-surface-150 flex items-center justify-center mb-6 text-neutral-900 font-mono text-xs font-medium border border-neutral-200">01</div>
-            <h3 class="text-lg font-medium text-neutral-950 mb-2.5">Get Found by More Customers</h3>
+            <div class="w-6 h-6 mb-6 text-[#00472d] flex items-center justify-center">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00472d" stroke-width="1.5" stroke-miterlimit="10">
+                <circle cx="9.14" cy="9.14" r="7.64"/>
+                <line x1="22.5" y1="22.5" x2="14.39" y2="14.39"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-neutral-950 mb-2.5 tracking-tight">Get Found by More Customers</h3>
             <p class="text-sm text-neutral-600 leading-relaxed font-normal">
               People searching for your services right now can't find you without a website. A professional site means showing up in Google when potential customers look for what you offer
             </p>
@@ -501,8 +575,13 @@
         <!-- Card 2 -->
         <div class="p-8 rounded-2xl bg-white border border-neutral-200/80 card-shadcn card-shadcn-hover flex flex-col justify-between min-h-[250px]">
           <div>
-            <div class="w-8 h-8 rounded-lg bg-surface-150 flex items-center justify-center mb-6 text-neutral-900 font-mono text-xs font-medium border border-neutral-200">02</div>
-            <h3 class="text-lg font-medium text-neutral-950 mb-2.5">Work While You Sleep</h3>
+            <div class="w-6 h-6 mb-6 text-[#00472d] flex items-center justify-center">
+              <svg width="24" height="24" viewBox="0 0 16 16" fill="#00472d">
+                <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z"/>
+                <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-neutral-950 mb-2.5 tracking-tight">Work While You Sleep</h3>
             <p class="text-sm text-neutral-600 leading-relaxed font-normal">
               A website answers questions and generates leads 24/7. Potential customers can learn about your services and contact you any time, even when your business is closed.
             </p>
@@ -512,8 +591,12 @@
         <!-- Card 3 -->
         <div class="p-8 rounded-2xl bg-white border border-neutral-200/80 card-shadcn card-shadcn-hover flex flex-col justify-between min-h-[250px]">
           <div>
-            <div class="w-8 h-8 rounded-lg bg-surface-150 flex items-center justify-center mb-6 text-neutral-900 font-mono text-xs font-medium border border-neutral-200">03</div>
-            <h3 class="text-lg font-medium text-neutral-950 mb-2.5">Build Trust Immediately</h3>
+            <div class="w-6 h-6 mb-6 text-[#00472d] flex items-center justify-center">
+              <svg width="22" height="26" viewBox="0 0 22 26" fill="#00472d">
+                <path d="M 11 26 C 10.863 26 10.725 25.973 10.599 25.918 C 4.8 23.415 0 20.714 0 13 L 0 4.063 C 0 3.722 0.241 3.416 0.603 3.3 L 10.687 0.05 C 10.889 -0.017 11.111 -0.017 11.313 0.05 L 21.397 3.3 C 21.759 3.416 22 3.722 22 4.063 L 22 13 C 22 20.714 17.2 23.415 11.401 25.918 C 11.276 25.972 11.139 26 11 26 Z M 1.833 4.633 L 1.833 13 C 1.833 19.061 4.92 21.608 11 24.282 C 17.08 21.608 20.167 19.061 20.167 13 L 20.167 4.633 L 11 1.678 Z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-neutral-950 mb-2.5 tracking-tight">Build Trust Immediately</h3>
             <p class="text-sm text-neutral-600 leading-relaxed font-normal">
               Customers check your website before deciding to contact you. A professional site makes you look credible and established. No website or a poor one makes people question if you're legitimate.
             </p>
@@ -523,8 +606,19 @@
         <!-- Card 4 -->
         <div class="p-8 rounded-2xl bg-white border border-neutral-200/80 card-shadcn card-shadcn-hover flex flex-col justify-between min-h-[250px]">
           <div>
-            <div class="w-8 h-8 rounded-lg bg-surface-150 flex items-center justify-center mb-6 text-neutral-900 font-mono text-xs font-medium border border-neutral-200">04</div>
-            <h3 class="text-lg font-medium text-neutral-950 mb-2.5">Stand Out From Competitors</h3>
+            <div class="w-6 h-6 mb-6 text-[#00472d] flex items-center justify-center">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00472d" stroke-width="1.5" stroke-miterlimit="10">
+                <path d="M16.78,23.5a2.88,2.88,0,0,1,2.87-2.87h0a2.87,2.87,0,0,1,2.87,2.87"/>
+                <circle cx="19.65" cy="16.8" r="1.91"/>
+                <path d="M9.13,23.5A2.88,2.88,0,0,1,12,20.63h0a2.88,2.88,0,0,1,2.87,2.87"/>
+                <circle cx="12" cy="16.8" r="1.91"/>
+                <path d="M1.48,23.5a2.87,2.87,0,0,1,2.87-2.87h0A2.88,2.88,0,0,1,7.22,23.5"/>
+                <circle cx="4.35" cy="16.8" r="1.91"/>
+                <polyline points="4.35 11.06 10.09 5.33 12.96 8.2 19.65 1.5"/>
+                <polyline points="15.83 1.5 19.65 1.5 19.65 5.33"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-neutral-950 mb-2.5 tracking-tight">Stand Out From Competitors</h3>
             <p class="text-sm text-neutral-600 leading-relaxed font-normal">
               Generic sites make you blend in. A custom, professional website shows you're serious about your business and gives customers a reason to choose you over competitors.
             </p>
@@ -534,8 +628,15 @@
         <!-- Card 5 -->
         <div class="p-8 rounded-2xl bg-white border border-neutral-200/80 card-shadcn card-shadcn-hover flex flex-col justify-between min-h-[250px]">
           <div>
-            <div class="w-8 h-8 rounded-lg bg-surface-150 flex items-center justify-center mb-6 text-neutral-900 font-mono text-xs font-medium border border-neutral-200">05</div>
-            <h3 class="text-lg font-medium text-neutral-950 mb-2.5">Own Your Online Presence</h3>
+            <div class="w-6 h-6 mb-6 text-[#00472d] flex items-center justify-center">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00472d" stroke-width="1.5" stroke-miterlimit="10">
+                <rect x="5.32" y="10.09" width="13.36" height="12.41"/>
+                <path d="M12,1.5h0a4.77,4.77,0,0,1,4.77,4.77v3.82a0,0,0,0,1,0,0H7.23a0,0,0,0,1,0,0V6.27A4.77,4.77,0,0,1,12,1.5Z"/>
+                <circle cx="12" cy="14.86" r="0.95"/>
+                <line x1="12" y1="19.64" x2="12" y2="15.82"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-neutral-950 mb-2.5 tracking-tight">Own Your Online Presence</h3>
             <p class="text-sm text-neutral-600 leading-relaxed font-normal">
               Social media platforms can change or disappear. Your website is yours. You control what customers see, how your brand looks, and the experience they have.
             </p>
@@ -545,8 +646,13 @@
         <!-- Card 6 -->
         <div class="p-8 rounded-2xl bg-white border border-neutral-200/80 card-shadcn card-shadcn-hover flex flex-col justify-between min-h-[250px]">
           <div>
-            <div class="w-8 h-8 rounded-lg bg-surface-150 flex items-center justify-center mb-6 text-neutral-900 font-mono text-xs font-medium border border-neutral-200">06</div>
-            <h3 class="text-lg font-medium text-neutral-950 mb-2.5">Get Found Before Competitors</h3>
+            <div class="w-6 h-6 mb-6 text-[#00472d] flex items-center justify-center">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00472d" stroke-width="1.5" stroke-miterlimit="10">
+                <path d="M19.64,9.14C19.64,15.82,12,22.5,12,22.5S4.36,15.82,4.36,9.14a7.64,7.64,0,0,1,15.28,0Z"/>
+                <circle cx="12" cy="9.14" r="2.86"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-neutral-950 mb-2.5 tracking-tight">Get Found Before Competitors</h3>
             <p class="text-sm text-neutral-600 leading-relaxed font-normal">
               Proper SEO means showing up first when customers search. The higher you rank in Google, the more business comes your way. Most people never scroll past the first few results.
             </p>
@@ -565,7 +671,7 @@
       <div class="sticky top-20 lg:top-24 rounded-[32px] bg-white border border-neutral-200/90 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.08)] p-8 sm:p-12 lg:p-16 min-h-[460px] flex items-center overflow-hidden transition-all">
         <div class="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-14 items-center w-full">
           <div class="md:col-span-6 flex items-center justify-center order-2 md:order-1">
-            <img src="https://framerusercontent.com/images/iUcx9jXZOYYrgpf8zI8Iqq37n3w.png?width=1080&height=1080" alt="Lightning-Fast Performance" class="w-full max-w-[340px] lg:max-w-[400px] h-auto object-contain animate-float-1" loading="lazy">
+            <img src="images/iUcx9jXZOYYrgpf8zI8Iqq37n3w.png" alt="Lightning-Fast Performance" width="1080" height="1080" decoding="async" class="w-full max-w-[340px] lg:max-w-[400px] h-auto object-contain animate-float-1" loading="lazy">
           </div>
           <div class="md:col-span-6 flex flex-col items-start text-left order-1 md:order-2">
             <div class="badge-section mb-5">
@@ -596,7 +702,7 @@
             </p>
           </div>
           <div class="md:col-span-6 flex items-center justify-center order-2">
-            <img src="https://framerusercontent.com/images/25CZYnxvJuKKjyoAXa1I0QbkKM.png?width=1080&height=1080" alt="Safe & Secure" class="w-full max-w-[340px] lg:max-w-[400px] h-auto object-contain animate-float-2" loading="lazy">
+            <img src="images/25CZYnxvJuKKjyoAXa1I0QbkKM.png" alt="Safe & Secure" width="1080" height="1080" decoding="async" class="w-full max-w-[340px] lg:max-w-[400px] h-auto object-contain animate-float-2" loading="lazy">
           </div>
         </div>
       </div>
@@ -605,7 +711,7 @@
       <div class="sticky top-28 lg:top-32 rounded-[32px] bg-white border border-neutral-200/90 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.08)] p-8 sm:p-12 lg:p-16 min-h-[460px] flex items-center overflow-hidden transition-all">
         <div class="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-14 items-center w-full">
           <div class="md:col-span-6 flex items-center justify-center order-2 md:order-1">
-            <img src="https://framerusercontent.com/images/avn0nfgyk68BkjIhhwHDBbkXCE.png?width=1080&height=1080" alt="Responsive on every screen" class="w-full max-w-[340px] lg:max-w-[400px] h-auto object-contain animate-float-3" loading="lazy">
+            <img src="images/avn0nfgyk68BkjIhhwHDBbkXCE.png" alt="Responsive on every screen" width="1080" height="1080" decoding="async" class="w-full max-w-[340px] lg:max-w-[400px] h-auto object-contain animate-float-3" loading="lazy">
           </div>
           <div class="md:col-span-6 flex flex-col items-start text-left order-1 md:order-2">
             <div class="badge-section mb-5">
@@ -615,7 +721,7 @@
               Responsive on<br class="hidden sm:inline"> every screen
             </h3>
             <p class="text-base sm:text-lg text-neutral-600 leading-relaxed font-normal max-w-lg">
-              Mobile devices dominate internet usage. Fluid layouts automatically adjust to tablets, phones, and desktops without breaking design or functionality. Seamless experiences across all platforms keep visitors engaged regardless of how they access the site.
+              Mobile devices dominate internet usage. Fluid layouts automatically adjust to tablets, phones, and desktops without breaking design or functionality. Consistent layouts across phones, tablets, and desktops keep visitors engaged regardless of device.
             </p>
           </div>
         </div>
@@ -636,7 +742,7 @@
             </p>
           </div>
           <div class="md:col-span-6 flex items-center justify-center order-2">
-            <img src="https://framerusercontent.com/images/krJIPEKpL0xrSPuZnFPvH810dSE.png?width=1080&height=1080" alt="Stand Out" class="w-full max-w-[340px] lg:max-w-[400px] h-auto object-contain animate-float-4" loading="lazy">
+            <img src="images/krJIPEKpL0xrSPuZnFPvH810dSE.png" alt="Stand Out" width="1080" height="1080" decoding="async" class="w-full max-w-[340px] lg:max-w-[400px] h-auto object-contain animate-float-4" loading="lazy">
           </div>
         </div>
       </div>
@@ -651,50 +757,66 @@
         <span class="badge-section-gradient">Services</span>
       </div>
       <h2 class="text-3xl sm:text-4xl lg:text-[40px] font-medium text-neutral-950 mb-4 tracking-tight">
-        What do I offer
+        What We Offer
       </h2>
       <p class="text-base text-neutral-600 leading-relaxed font-normal">
-        Streamline your process with a scalable design system, featuring global styles and customizable components.
+        Build and grow your business with dedicated design and engineering, combining robust typography, structured layouts, and reliable modern code.
       </p>
     </div>
 
     <!-- 4 Services Grid (1:1 from Framer) -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
       
-      <div class="p-8 rounded-2xl border border-neutral-200 bg-white card-shadcn card-shadcn-hover flex flex-col justify-between min-h-[270px]">
+      <div class="p-8 rounded-2xl border border-neutral-200/80 bg-white card-shadcn card-shadcn-hover flex flex-col justify-between min-h-[270px]">
         <div>
-          <span class="text-xs font-mono font-medium px-2 py-0.5 rounded bg-surface-150 text-neutral-700 mb-4 inline-block border border-neutral-200">Design</span>
-          <h3 class="text-xl font-medium text-neutral-950 mt-1 mb-3">Design</h3>
+          <div class="w-7 h-7 mb-5 text-[#00472d] flex items-center justify-center">
+            <svg width="26" height="27" viewBox="0 0 26 26.813" fill="#00472d">
+              <path d="M 25.369 0.626 C 24.59 -0.15 23.343 -0.212 22.49 0.482 L 14.919 6.611 L 2.116 6.611 C 0.949 6.611 0 7.551 0 8.707 L 0 21.347 C 0 22.503 0.949 23.444 2.116 23.444 L 8.131 23.444 L 8.131 25.242 L 6.798 25.242 C 6.36 25.242 6.005 25.593 6.005 26.027 C 6.005 26.461 6.36 26.813 6.798 26.813 L 15.279 26.813 C 15.717 26.813 16.072 26.461 16.072 26.027 C 16.072 25.593 15.717 25.242 15.279 25.242 L 13.946 25.242 L 13.946 23.444 L 19.961 23.444 C 21.127 23.444 22.077 22.503 22.077 21.347 L 22.077 7.651 L 25.514 3.477 C 26.214 2.632 26.151 1.397 25.369 0.626 Z M 14.409 9.754 C 14.433 9.281 14.651 8.856 15.023 8.556 L 16.341 7.488 L 18.447 9.575 L 17.367 10.886 C 17.065 11.252 16.636 11.467 16.159 11.49 C 15.681 11.514 15.233 11.343 14.895 11.008 C 14.557 10.673 14.384 10.228 14.409 9.754 Z M 13.772 14.822 C 13.421 15.17 12.836 15.331 12.034 15.299 C 11.426 15.275 10.905 15.317 10.464 15.396 C 10.543 14.958 10.586 14.442 10.561 13.84 C 10.529 13.045 10.691 12.465 11.042 12.117 C 11.407 11.756 11.892 11.557 12.407 11.557 C 12.923 11.557 13.408 11.756 13.772 12.117 C 14.525 12.863 14.525 14.076 13.772 14.822 Z M 12.361 25.242 L 9.716 25.242 L 9.716 23.444 L 12.361 23.444 Z M 20.492 21.347 C 20.492 21.637 20.253 21.873 19.961 21.873 L 2.116 21.873 C 1.823 21.873 1.585 21.637 1.585 21.347 L 1.585 20.677 L 20.492 20.677 Z M 20.492 19.106 L 1.585 19.106 L 1.585 8.707 C 1.585 8.417 1.823 8.182 2.116 8.182 L 13.286 8.182 C 13.014 8.63 12.853 9.142 12.826 9.674 C 12.82 9.787 12.82 9.899 12.826 10.011 C 12.687 9.994 12.547 9.986 12.407 9.986 C 11.468 9.986 10.585 10.348 9.921 11.006 C 9.244 11.677 8.927 12.651 8.978 13.903 C 9.045 15.568 8.488 16.237 8.444 16.286 C 8.148 16.594 8.152 17.082 8.457 17.384 C 8.606 17.532 8.807 17.614 9.018 17.614 C 9.222 17.614 9.418 17.536 9.565 17.397 C 9.615 17.354 10.289 16.802 11.97 16.868 C 13.233 16.919 14.216 16.604 14.893 15.933 C 15.684 15.149 16.018 14.082 15.896 13.058 C 15.956 13.061 16.016 13.063 16.076 13.063 C 16.13 13.063 16.184 13.062 16.238 13.059 C 17.154 13.014 18.013 12.584 18.595 11.88 L 20.492 9.576 L 20.492 19.106 Z M 9.578 17.384 C 9.578 17.384 9.574 17.388 9.566 17.396 C 9.57 17.392 9.574 17.388 9.578 17.384 Z M 8.457 16.273 L 8.445 16.285 C 8.453 16.277 8.457 16.273 8.457 16.273 Z M 24.286 2.484 L 19.454 8.351 L 17.575 6.489 L 23.493 1.699 C 23.717 1.517 24.043 1.533 24.248 1.737 C 24.453 1.939 24.469 2.262 24.286 2.484 Z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-neutral-950 mb-2.5 tracking-tight">Design</h3>
           <p class="text-sm text-neutral-600 leading-relaxed font-normal">
             Stand out from everyone else. Custom design built specifically for your business
           </p>
         </div>
       </div>
 
-      <div class="p-8 rounded-2xl border border-neutral-200 bg-white card-shadcn card-shadcn-hover flex flex-col justify-between min-h-[270px]">
+      <div class="p-8 rounded-2xl border border-neutral-200/80 bg-white card-shadcn card-shadcn-hover flex flex-col justify-between min-h-[270px]">
         <div>
-          <span class="text-xs font-mono font-medium px-2 py-0.5 rounded bg-surface-150 text-neutral-700 mb-4 inline-block border border-neutral-200">Code</span>
-          <h3 class="text-xl font-medium text-neutral-950 mt-1 mb-3">Development</h3>
+          <div class="w-7 h-7 mb-5 text-[#00472d] flex items-center justify-center">
+            <svg width="26" height="20" viewBox="0 0 26 19.5" fill="#00472d">
+              <path d="M 0.346 10.632 L 5.073 15.496 C 5.37 15.812 5.81 15.939 6.223 15.827 C 6.636 15.716 6.959 15.384 7.067 14.959 C 7.175 14.534 7.052 14.082 6.745 13.776 L 2.853 9.772 L 6.745 5.768 C 7.052 5.462 7.175 5.01 7.067 4.585 C 6.959 4.16 6.636 3.828 6.223 3.717 C 5.81 3.605 5.37 3.732 5.073 4.048 L 0.346 8.912 C -0.115 9.387 -0.115 10.157 0.346 10.632 Z M 20.927 4.048 C 20.63 3.732 20.19 3.605 19.777 3.717 C 19.364 3.828 19.041 4.16 18.933 4.585 C 18.825 5.01 18.948 5.462 19.255 5.768 L 23.147 9.772 L 19.255 13.776 C 18.948 14.082 18.825 14.534 18.933 14.959 C 19.041 15.384 19.364 15.716 19.777 15.827 C 20.19 15.939 20.63 15.812 20.927 15.496 L 25.654 10.632 C 26.115 10.157 26.115 9.387 25.654 8.912 Z M 14.228 0.927 L 9.501 17.951 C 9.321 18.596 9.684 19.269 10.311 19.454 C 10.417 19.484 10.526 19.499 10.636 19.5 C 11.164 19.5 11.627 19.139 11.772 18.617 L 16.499 1.593 C 16.634 1.17 16.532 0.705 16.235 0.381 C 15.938 0.057 15.492 -0.073 15.074 0.04 C 14.655 0.154 14.331 0.494 14.228 0.927 Z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-neutral-950 mb-2.5 tracking-tight">Development</h3>
           <p class="text-sm text-neutral-600 leading-relaxed font-normal">
             Custom Development. A website that grows with your business and handles anything
           </p>
         </div>
       </div>
 
-      <div class="p-8 rounded-2xl border border-neutral-200 bg-white card-shadcn card-shadcn-hover flex flex-col justify-between min-h-[270px]">
+      <div class="p-8 rounded-2xl border border-neutral-200/80 bg-white card-shadcn card-shadcn-hover flex flex-col justify-between min-h-[270px]">
         <div>
-          <span class="text-xs font-mono font-medium px-2 py-0.5 rounded bg-surface-150 text-neutral-700 mb-4 inline-block border border-neutral-200">Rank</span>
-          <h3 class="text-xl font-medium text-neutral-950 mt-1 mb-3">SEO</h3>
+          <div class="w-7 h-7 mb-5 text-[#00472d] flex items-center justify-center">
+            <svg width="26" height="26" viewBox="0 0 26 26" fill="#00472d">
+              <path d="M 24.984 6.026 C 25.545 6.026 26 5.571 26 5.01 L 26 1.016 C 26 0.463 25.55 0 24.984 0 L 20.99 0 C 20.429 0 19.974 0.455 19.974 1.016 C 19.974 1.577 20.429 2.031 20.99 2.031 L 22.532 2.031 L 19.957 4.606 C 17.924 1.773 14.662 0 11.003 0 C 4.922 0 0 4.921 0 11.003 C 0 17.083 4.921 22.005 11.003 22.005 C 13.6 22.005 16.06 21.11 18.032 19.468 L 24.266 25.703 C 24.663 26.099 25.306 26.099 25.702 25.703 C 26.099 25.306 26.099 24.663 25.702 24.266 L 19.468 18.031 C 22.271 14.667 22.701 10.11 21.013 6.424 L 23.969 3.468 L 23.969 5.01 C 23.969 5.571 24.423 6.026 24.984 6.026 Z M 11.003 2.031 C 14.129 2.031 16.886 3.639 18.493 6.071 L 13 11.564 L 9.723 8.287 C 9.327 7.891 8.684 7.891 8.287 8.287 L 2.554 14.02 C 0.469 8.2 4.805 2.031 11.003 2.031 Z M 11.003 19.974 C 7.876 19.974 5.119 18.366 3.512 15.934 L 9.005 10.441 L 12.282 13.718 C 12.678 14.115 13.322 14.115 13.718 13.718 L 19.451 7.985 C 21.536 13.805 17.201 19.974 11.003 19.974 Z M 11.003 19.974"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-neutral-950 mb-2.5 tracking-tight">SEO</h3>
           <p class="text-sm text-neutral-600 leading-relaxed font-normal">
             Help people find you on Google when they search for what you sell. Stay visible.
           </p>
         </div>
       </div>
 
-      <div class="p-8 rounded-2xl border border-neutral-200 bg-white card-shadcn card-shadcn-hover flex flex-col justify-between min-h-[270px]">
+      <div class="p-8 rounded-2xl border border-neutral-200/80 bg-white card-shadcn card-shadcn-hover flex flex-col justify-between min-h-[270px]">
         <div>
-          <span class="text-xs font-mono font-medium px-2 py-0.5 rounded bg-surface-150 text-neutral-700 mb-4 inline-block border border-neutral-200">Copy</span>
-          <h3 class="text-xl font-medium text-neutral-950 mt-1 mb-3">Copywriting</h3>
+          <div class="w-7 h-7 mb-5 text-[#00472d] flex items-center justify-center">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="#00472d">
+              <path d="M 14.531 24 L 5.625 24 C 2.523 24 0 21.477 0 18.375 L 0 5.625 C 0 2.523 2.523 0 5.625 0 L 18.375 0 C 21.477 0 24 2.523 24 5.625 L 24 14.602 C 24 15.119 23.58 15.539 23.063 15.539 C 22.545 15.539 22.125 15.119 22.125 14.602 L 22.125 5.625 C 22.125 3.557 20.443 1.875 18.375 1.875 L 5.625 1.875 C 3.557 1.875 1.875 3.557 1.875 5.625 L 1.875 18.375 C 1.875 20.443 3.557 22.125 5.625 22.125 L 14.531 22.125 C 15.049 22.125 15.469 22.545 15.469 23.062 C 15.469 23.58 15.049 24 14.531 24 Z M 19.313 5.906 C 19.313 5.388 18.893 4.969 18.375 4.969 L 9.797 4.969 C 9.279 4.969 8.859 5.388 8.859 5.906 C 8.859 6.424 9.279 6.844 9.797 6.844 L 18.375 6.844 C 18.893 6.844 19.313 6.424 19.313 5.906 Z M 19.313 9.656 C 19.313 9.138 18.893 8.719 18.375 8.719 L 5.625 8.719 C 5.107 8.719 4.688 9.138 4.688 9.656 C 4.688 10.174 5.107 10.594 5.625 10.594 L 18.375 10.594 C 18.893 10.594 19.313 10.174 19.313 9.656 Z M 9.938 13.406 C 9.938 12.888 9.518 12.469 9 12.469 L 5.625 12.469 C 5.107 12.469 4.688 12.888 4.688 13.406 C 4.688 13.924 5.107 14.344 5.625 14.344 L 9 14.344 C 9.518 14.344 9.938 13.924 9.938 13.406 Z M 4.688 5.812 C 4.688 6.46 5.212 6.984 5.859 6.984 C 6.507 6.984 7.031 6.46 7.031 5.812 C 7.031 5.165 6.507 4.641 5.859 4.641 C 5.212 4.641 4.688 5.165 4.688 5.812 Z M 22.998 22.998 C 24.332 21.664 24.332 19.493 22.998 18.158 L 19.711 14.872 C 18.762 13.922 17.563 13.281 16.246 13.018 L 13.59 12.487 C 13.283 12.425 12.965 12.522 12.743 12.743 C 12.522 12.965 12.426 13.283 12.487 13.59 L 13.018 16.246 C 13.281 17.563 13.922 18.762 14.872 19.711 L 18.158 22.998 C 18.805 23.644 19.664 24 20.578 24 C 21.492 24 22.351 23.644 22.998 22.998 Z M 15.879 14.856 C 16.832 15.047 17.698 15.511 18.386 16.198 L 21.672 19.484 C 22.275 20.087 22.275 21.069 21.672 21.672 C 21.38 21.964 20.991 22.125 20.578 22.125 C 20.165 22.125 19.776 21.964 19.484 21.672 L 16.198 18.386 C 15.511 17.698 15.047 16.832 14.857 15.879 L 14.601 14.601 Z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-neutral-950 mb-2.5 tracking-tight">Copywriting</h3>
           <p class="text-sm text-neutral-600 leading-relaxed font-normal">
             Messages that speak directly to your audience and drive sales, growing your business.
           </p>
@@ -727,8 +849,11 @@
       <!-- Right side: Image -->
       <div class="relative w-full rounded-2xl border border-neutral-200/80 shadow-[0_4px_30px_rgba(0,0,0,0.03)] bg-white overflow-hidden flex items-center justify-center p-4 sm:p-0">
         <img 
-          src="https://framerusercontent.com/images/qRaBR283kCoSzqipuTFnkNIEfPg.png?width=1573&height=1437" 
-          alt="Google PageSpeed Insights Score 100" 
+          src="images/qRaBR283kCoSzqipuTFnkNIEfPg.png" 
+          alt="Google PageSpeed Insights Score 100 performance audit benchmark" 
+          width="1573"
+          height="1437"
+          decoding="async"
           class="w-full h-auto object-contain sm:rounded-2xl"
           loading="lazy"
         >
@@ -755,66 +880,82 @@
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       
       <!-- Project 1: MWiktor (Graphic Designer) -->
-      <a href="https://mwiktor.framer.media/" target="_blank" rel="noopener noreferrer" class="group rounded-2xl border border-neutral-200 bg-white overflow-hidden card-shadcn card-shadcn-hover flex flex-col justify-between cursor-pointer block text-inherit no-underline">
+      <a href="https://mwiktor.framer.media/" target="_blank" rel="noopener noreferrer" class="group rounded-2xl border border-neutral-200/80 bg-white overflow-hidden card-shadcn card-shadcn-hover flex flex-col justify-between cursor-pointer block text-inherit no-underline">
         <div class="aspect-[16/10] bg-surface-100 flex items-center justify-center relative overflow-hidden border-b border-neutral-200/70">
-          <img src="https://framerusercontent.com/images/4UcDinSzcZQyM2cEf1dzjBOE.png?width=2000&height=1333" alt="MWiktor" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out" loading="lazy">
+          <img src="images/4UcDinSzcZQyM2cEf1dzjBOE.png" alt="MWiktor graphic design website portfolio" width="2000" height="1333" decoding="async" class="w-full h-full object-cover object-center" loading="lazy">
         </div>
-        <div class="p-7 flex items-center justify-between">
+        <div class="p-7 flex flex-col justify-between flex-grow">
           <div>
-            <h3 class="text-xl font-medium text-neutral-950 group-hover:text-emerald-brand transition-colors">MWiktor</h3>
-            <p class="text-xs text-neutral-500 mt-1 font-normal">Graphic Designer &middot; Dark Mode &middot; Branding</p>
+            <h3 class="text-xl font-semibold text-neutral-950 group-hover:text-emerald-brand transition-colors">MWiktor</h3>
+            <p class="text-sm text-neutral-600 mt-2 font-normal leading-relaxed">
+              Professional dark mode website for graphic designer with smooth gradient accents and bold, modern typography.
+            </p>
           </div>
-          <span class="btn-shadcn btn-outline btn-sm group-hover:bg-neutral-900 group-hover:text-white transition-all">
-            View Website &nearr;
-          </span>
+          <div class="mt-6 flex items-center justify-between">
+            <span class="btn-shadcn btn-outline btn-sm group-hover:bg-neutral-950 group-hover:text-white transition-all">
+              View Website &nearr;
+            </span>
+          </div>
         </div>
       </a>
 
       <!-- Project 2: Fizjoeverest (Physiotherapist) -->
-      <a href="https://fizjoeverest.framer.website/" target="_blank" rel="noopener noreferrer" class="group rounded-2xl border border-neutral-200 bg-white overflow-hidden card-shadcn card-shadcn-hover flex flex-col justify-between cursor-pointer block text-inherit no-underline">
+      <a href="https://fizjoeverest.framer.website/" target="_blank" rel="noopener noreferrer" class="group rounded-2xl border border-neutral-200/80 bg-white overflow-hidden card-shadcn card-shadcn-hover flex flex-col justify-between cursor-pointer block text-inherit no-underline">
         <div class="aspect-[16/10] bg-surface-100 flex items-center justify-center relative overflow-hidden border-b border-neutral-200/70">
-          <img src="https://framerusercontent.com/images/Mnagdfy2dcVjBE9Ydrv5lv0m8.png?width=2000&height=1724" alt="Fizjoeverest" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out" loading="lazy">
+          <img src="images/Mnagdfy2dcVjBE9Ydrv5lv0m8.png" alt="Fizjoeverest physiotherapist clinic website" width="2000" height="1724" decoding="async" class="w-full h-full object-cover object-center" loading="lazy">
         </div>
-        <div class="p-7 flex items-center justify-between">
+        <div class="p-7 flex flex-col justify-between flex-grow">
           <div>
-            <h3 class="text-xl font-medium text-neutral-950 group-hover:text-emerald-brand transition-colors">Fizjoeverest</h3>
-            <p class="text-xs text-neutral-500 mt-1 font-normal">Physiotherapist &middot; Local SEO &middot; Medical Booking</p>
+            <h3 class="text-xl font-semibold text-neutral-950 group-hover:text-emerald-brand transition-colors">Fizjoeverest</h3>
+            <p class="text-sm text-neutral-600 mt-2 font-normal leading-relaxed">
+              Professional site that attracts local patients through Google search and builds trust with clear service information.
+            </p>
           </div>
-          <span class="btn-shadcn btn-outline btn-sm group-hover:bg-neutral-900 group-hover:text-white transition-all">
-            View Website &nearr;
-          </span>
+          <div class="mt-6 flex items-center justify-between">
+            <span class="btn-shadcn btn-outline btn-sm group-hover:bg-neutral-950 group-hover:text-white transition-all">
+              View Website &nearr;
+            </span>
+          </div>
         </div>
       </a>
 
       <!-- Project 3: Anderive (Freelancer) -->
-      <a href="https://anderive.framer.website/" target="_blank" rel="noopener noreferrer" class="group rounded-2xl border border-neutral-200 bg-white overflow-hidden card-shadcn card-shadcn-hover flex flex-col justify-between cursor-pointer block text-inherit no-underline">
+      <a href="https://anderive.framer.website/" target="_blank" rel="noopener noreferrer" class="group rounded-2xl border border-neutral-200/80 bg-white overflow-hidden card-shadcn card-shadcn-hover flex flex-col justify-between cursor-pointer block text-inherit no-underline">
         <div class="aspect-[16/10] bg-surface-100 flex items-center justify-center relative overflow-hidden border-b border-neutral-200/70">
-          <img src="https://framerusercontent.com/images/6UsZBK4TEOzYZgXu3WpPg83P64.png?width=2000&height=1428" alt="Anderive" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out" loading="lazy">
+          <img src="images/6UsZBK4TEOzYZgXu3WpPg83P64.png" alt="Anderive freelancer personal portfolio website" width="2000" height="1428" decoding="async" class="w-full h-full object-cover object-center" loading="lazy">
         </div>
-        <div class="p-7 flex items-center justify-between">
+        <div class="p-7 flex flex-col justify-between flex-grow">
           <div>
-            <h3 class="text-xl font-medium text-neutral-950 group-hover:text-emerald-brand transition-colors">Anderive</h3>
-            <p class="text-xs text-neutral-500 mt-1 font-normal">Freelancer Portfolio &middot; High-Converting &middot; Modern</p>
+            <h3 class="text-xl font-semibold text-neutral-950 group-hover:text-emerald-brand transition-colors">Anderive</h3>
+            <p class="text-sm text-neutral-600 mt-2 font-normal leading-relaxed">
+              Portfolio website showcasing work and expertise, helping win higher-paying clients through professional presentation.
+            </p>
           </div>
-          <span class="btn-shadcn btn-outline btn-sm group-hover:bg-neutral-900 group-hover:text-white transition-all">
-            View Website &nearr;
-          </span>
+          <div class="mt-6 flex items-center justify-between">
+            <span class="btn-shadcn btn-outline btn-sm group-hover:bg-neutral-950 group-hover:text-white transition-all">
+              View Website &nearr;
+            </span>
+          </div>
         </div>
       </a>
 
       <!-- Project 4: KursyBarberskie (Barber) -->
-      <a href="https://kursy.framer.website/" target="_blank" rel="noopener noreferrer" class="group rounded-2xl border border-neutral-200 bg-white overflow-hidden card-shadcn card-shadcn-hover flex flex-col justify-between cursor-pointer block text-inherit no-underline">
+      <a href="https://kursy.framer.website/" target="_blank" rel="noopener noreferrer" class="group rounded-2xl border border-neutral-200/80 bg-white overflow-hidden card-shadcn card-shadcn-hover flex flex-col justify-between cursor-pointer block text-inherit no-underline">
         <div class="aspect-[16/10] bg-surface-100 flex items-center justify-center relative overflow-hidden border-b border-neutral-200/70">
-          <img src="https://framerusercontent.com/images/0FHrBY7fJd7kiWxyZilq07jGwU.png?width=2000&height=1252" alt="KursyBarberskie" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out" loading="lazy">
+          <img src="images/0FHrBY7fJd7kiWxyZilq07jGwU.png" alt="KursyBarberskie barber training academy platform" width="2000" height="1252" decoding="async" class="w-full h-full object-cover object-center" loading="lazy">
         </div>
-        <div class="p-7 flex items-center justify-between">
+        <div class="p-7 flex flex-col justify-between flex-grow">
           <div>
-            <h3 class="text-xl font-medium text-neutral-950 group-hover:text-emerald-brand transition-colors">KursyBarberskie</h3>
-            <p class="text-xs text-neutral-500 mt-1 font-normal">Course Platform &middot; E-commerce &middot; Lead Gen</p>
+            <h3 class="text-xl font-semibold text-neutral-950 group-hover:text-emerald-brand transition-colors">KursyBarberskie</h3>
+            <p class="text-sm text-neutral-600 mt-2 font-normal leading-relaxed">
+              Course platform that turns website visitors into enrolled students and brings in more revenue.
+            </p>
           </div>
-          <span class="btn-shadcn btn-outline btn-sm group-hover:bg-neutral-900 group-hover:text-white transition-all">
-            View Website &nearr;
-          </span>
+          <div class="mt-6 flex items-center justify-between">
+            <span class="btn-shadcn btn-outline btn-sm group-hover:bg-neutral-950 group-hover:text-white transition-all">
+              View Website &nearr;
+            </span>
+          </div>
         </div>
       </a>
 
@@ -972,86 +1113,25 @@
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="homepage-articles-container">
-      
-      <!-- Article 1: SEO -->
-      <a href="blog/seo-basics-every-business-owner-should-know.html" class="group p-6 rounded-2xl bg-white border border-neutral-200 card-shadcn card-shadcn-hover flex flex-col justify-between cursor-pointer block text-inherit no-underline">
-        <div>
-          <!-- Thematic Monochromatic Image -->
-          <div class="w-full h-48 rounded-xl overflow-hidden mb-5 bg-neutral-100 border border-neutral-100">
-            <img 
-              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" 
-              alt="SEO Analytics & Performance" 
-              class="w-full h-full object-cover grayscale contrast-125 group-hover:scale-105 group-hover:grayscale-0 transition-all duration-500" 
-              loading="lazy"
-            >
-          </div>
-          <div class="flex items-center justify-between mb-3.5 text-xs text-neutral-500 font-medium">
-            <div class="badge-section">
-              <span class="badge-section-gradient">SEO</span>
-            </div>
-            <span>Feb 10, 2025</span>
-          </div>
-          <h3 class="text-xl font-medium text-neutral-950 group-hover:text-emerald-brand transition-colors mb-2.5 leading-snug">
-            SEO Basics Every Business Owner Should Know
-          </h3>
-          <p class="text-sm text-neutral-600 leading-relaxed font-normal">
-            Understanding basic SEO helps you rank higher in Google and get found by customers actively searching for what you offer.
-          </p>
-        </div>
-        <div class="pt-5 mt-5 border-t border-neutral-100 flex items-center justify-between text-xs text-neutral-500">
-          <span>by Kamil</span>
-          <span class="font-medium text-neutral-900 group-hover:text-emerald-brand transition-colors">Read Article &rarr;</span>
-        </div>
-      </a>
-
-      <!-- Article 2: Business Growth -->
-      <a href="blog/why-every-business-needs-a-website.html" class="group p-6 rounded-2xl bg-white border border-neutral-200 card-shadcn card-shadcn-hover flex flex-col justify-between cursor-pointer block text-inherit no-underline">
-        <div>
-          <!-- Thematic Monochromatic Image -->
-          <div class="w-full h-48 rounded-xl overflow-hidden mb-5 bg-neutral-100 border border-neutral-100">
-            <img 
-              src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80" 
-              alt="Business Modern Architecture" 
-              class="w-full h-full object-cover grayscale contrast-125 group-hover:scale-105 group-hover:grayscale-0 transition-all duration-500" 
-              loading="lazy"
-            >
-          </div>
-          <div class="flex items-center justify-between mb-3.5 text-xs text-neutral-500 font-medium">
-            <div class="badge-section">
-              <span class="badge-section-gradient">Business Growth</span>
-            </div>
-            <span>Jul 8, 2025</span>
-          </div>
-          <h3 class="text-xl font-medium text-neutral-950 group-hover:text-emerald-brand transition-colors mb-2.5 leading-snug">
-            Why Every Business Needs a Website
-          </h3>
-          <p class="text-sm text-neutral-600 leading-relaxed font-normal">
-            Why a professional website brings more customers and helps you beat competitors online.
-          </p>
-        </div>
-        <div class="pt-5 mt-5 border-t border-neutral-100 flex items-center justify-between text-xs text-neutral-500">
-          <span>by Kamil</span>
-          <span class="font-medium text-neutral-900 group-hover:text-emerald-brand transition-colors">Read Article &rarr;</span>
-        </div>
-      </a>
-
-      <!-- Article 3: Web Design -->
+      <!-- Article: Custom Website vs WordPress Template -->
       <a href="blog/custom-website-vs-wordpress-template.html" class="group p-6 rounded-2xl bg-white border border-neutral-200 card-shadcn card-shadcn-hover flex flex-col justify-between cursor-pointer block text-inherit no-underline">
         <div>
-          <!-- Thematic Monochromatic Image -->
           <div class="w-full h-48 rounded-xl overflow-hidden mb-5 bg-neutral-100 border border-neutral-100">
             <img 
-              src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80" 
-              alt="Web Development Code & Design" 
-              class="w-full h-full object-cover grayscale contrast-125 group-hover:scale-105 group-hover:grayscale-0 transition-all duration-500" 
+              src="images/UX8TVZdzOAePEbH2W2z2Znd3tA.jpg" 
+              alt="Custom Website vs WordPress Template" 
+              width="1000" 
+              height="667" 
+              decoding="async"
+              class="w-full h-full object-cover grayscale contrast-125 transition-all duration-300" 
               loading="lazy"
             >
           </div>
           <div class="flex items-center justify-between mb-3.5 text-xs text-neutral-500 font-medium">
             <div class="badge-section">
-              <span class="badge-section-gradient">Web Design</span>
+              <span class="badge-section-solid font-semibold">Web Design</span>
             </div>
-            <span>Sep 6, 2025</span>
+            <span>Sep 6, 2026</span>
           </div>
           <h3 class="text-xl font-medium text-neutral-950 group-hover:text-emerald-brand transition-colors mb-2.5 leading-snug">
             Custom Website vs WordPress Template
@@ -1066,6 +1146,71 @@
         </div>
       </a>
 
+      <!-- Article: Why Every Business Needs a Website -->
+      <a href="blog/why-every-business-needs-a-website.html" class="group p-6 rounded-2xl bg-white border border-neutral-200 card-shadcn card-shadcn-hover flex flex-col justify-between cursor-pointer block text-inherit no-underline">
+        <div>
+          <div class="w-full h-48 rounded-xl overflow-hidden mb-5 bg-neutral-100 border border-neutral-100">
+            <img 
+              src="images/lJz1YNuOJsmllMOCqSPKGDQOtA.jpg" 
+              alt="Why Every Business Needs a Website" 
+              width="1000" 
+              height="667" 
+              decoding="async"
+              class="w-full h-full object-cover grayscale contrast-125 transition-all duration-300" 
+              loading="lazy"
+            >
+          </div>
+          <div class="flex items-center justify-between mb-3.5 text-xs text-neutral-500 font-medium">
+            <div class="badge-section">
+              <span class="badge-section-solid font-semibold">Business Growth</span>
+            </div>
+            <span>Jul 8, 2026</span>
+          </div>
+          <h3 class="text-xl font-medium text-neutral-950 group-hover:text-emerald-brand transition-colors mb-2.5 leading-snug">
+            Why Every Business Needs a Website
+          </h3>
+          <p class="text-sm text-neutral-600 leading-relaxed font-normal">
+            Why a professional website brings more customers and helps you beat competitors online.
+          </p>
+        </div>
+        <div class="pt-5 mt-5 border-t border-neutral-100 flex items-center justify-between text-xs text-neutral-500">
+          <span>by Kamil</span>
+          <span class="font-medium text-neutral-900 group-hover:text-emerald-brand transition-colors">Read Article &rarr;</span>
+        </div>
+      </a>
+
+      <!-- Article: SEO Basics Every Business Owner Should Know -->
+      <a href="blog/seo-basics-every-business-owner-should-know.html" class="group p-6 rounded-2xl bg-white border border-neutral-200 card-shadcn card-shadcn-hover flex flex-col justify-between cursor-pointer block text-inherit no-underline">
+        <div>
+          <div class="w-full h-48 rounded-xl overflow-hidden mb-5 bg-neutral-100 border border-neutral-100">
+            <img 
+              src="images/JCCcDDTMhZn6T2xZAW5O8nRLM.jpg" 
+              alt="SEO Basics Every Business Owner Should Know" 
+              width="1000" 
+              height="667" 
+              decoding="async"
+              class="w-full h-full object-cover grayscale contrast-125 transition-all duration-300" 
+              loading="lazy"
+            >
+          </div>
+          <div class="flex items-center justify-between mb-3.5 text-xs text-neutral-500 font-medium">
+            <div class="badge-section">
+              <span class="badge-section-solid font-semibold">SEO</span>
+            </div>
+            <span>Feb 10, 2026</span>
+          </div>
+          <h3 class="text-xl font-medium text-neutral-950 group-hover:text-emerald-brand transition-colors mb-2.5 leading-snug">
+            SEO Basics Every Business Owner Should Know
+          </h3>
+          <p class="text-sm text-neutral-600 leading-relaxed font-normal">
+            Understanding basic SEO helps you rank higher in Google and get found by customers actively searching for what you offer.
+          </p>
+        </div>
+        <div class="pt-5 mt-5 border-t border-neutral-100 flex items-center justify-between text-xs text-neutral-500">
+          <span>by Kamil</span>
+          <span class="font-medium text-neutral-900 group-hover:text-emerald-brand transition-colors">Read Article &rarr;</span>
+        </div>
+      </a>
     </div>
   </section>
 
@@ -1227,35 +1372,41 @@
 
       <!-- Right Form (Shadcn Inputs & Textarea) -->
       <div class="lg:col-span-8 p-8 sm:p-10 rounded-2xl bg-white border border-neutral-200 card-shadcn">
-        <form id="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="space-y-6">
+        <form id="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="space-y-6" novalidate>
           <!-- Hidden inputs for Netlify Form detection & bot prevention -->
           <input type="hidden" name="form-name" value="contact" />
           <p class="hidden" style="display: none;">
-            <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
+            <label>Don’t fill this out if you're human: <input name="bot-field" aria-label="Bot check field" tabindex="-1" /></label>
           </p>
           
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
             <div>
               <label for="first-name" class="block text-xs font-medium text-neutral-700 mb-1.5">First name <span class="text-emerald-brand">*</span></label>
-              <input type="text" id="first-name" name="first_name" required placeholder="John" class="input-shadcn">
+              <input type="text" id="first-name" name="first_name" required maxlength="100" autocomplete="given-name" spellcheck="false" placeholder="John" aria-label="First name" aria-required="true" enterkeyhint="next" class="input-shadcn">
+              <span id="first-name-error" class="hidden text-xs text-red-600 mt-1 font-medium" role="alert">Please enter your first name.</span>
             </div>
             <div>
               <label for="last-name" class="block text-xs font-medium text-neutral-700 mb-1.5">Last name</label>
-              <input type="text" id="last-name" name="last_name" placeholder="Doe" class="input-shadcn">
+              <input type="text" id="last-name" name="last_name" maxlength="100" autocomplete="family-name" spellcheck="false" placeholder="Doe" aria-label="Last name" enterkeyhint="next" class="input-shadcn">
             </div>
           </div>
 
           <div>
             <label for="email" class="block text-xs font-medium text-neutral-700 mb-1.5">Email <span class="text-emerald-brand">*</span></label>
-            <input type="email" id="email" name="email" required placeholder="john@company.com" class="input-shadcn">
+            <input type="email" id="email" name="email" required maxlength="254" autocomplete="email" spellcheck="false" placeholder="john@company.com" aria-label="Email address" aria-required="true" enterkeyhint="next" class="input-shadcn">
+            <span id="email-error" class="hidden text-xs text-red-600 mt-1 font-medium" role="alert">Please enter a valid email address.</span>
           </div>
 
           <div>
-            <label for="message" class="block text-xs font-medium text-neutral-700 mb-1.5">Message <span class="text-emerald-brand">*</span></label>
-            <textarea id="message" name="message" required rows="4" placeholder="Tell us about your project..." class="textarea-shadcn"></textarea>
+            <div class="flex items-center justify-between mb-1.5">
+              <label for="message" class="block text-xs font-medium text-neutral-700">Message <span class="text-emerald-brand">*</span></label>
+              <span id="char-count" class="text-[11px] text-neutral-400 font-mono" aria-live="polite">0 / 5000</span>
+            </div>
+            <textarea id="message" name="message" required maxlength="5000" rows="4" placeholder="Tell us about your project, goals, or timeline..." aria-label="Message details" aria-required="true" enterkeyhint="send" class="textarea-shadcn"></textarea>
+            <span id="message-error" class="hidden text-xs text-red-600 mt-1 font-medium" role="alert">Please provide details about your project.</span>
           </div>
 
-          <div id="form-feedback" class="hidden"></div>
+          <div id="form-feedback" class="hidden" role="status" aria-live="polite" aria-atomic="true"></div>
 
           <button id="form-submit-btn" type="submit" class="btn-shadcn btn-primary btn-md w-full sm:w-auto px-8 flex items-center justify-center gap-2">
             <span>Submit</span> &rarr;
@@ -1270,17 +1421,17 @@
   <!-- ==================== 11. FINAL CTA BANNER (1:1 from Framer) ==================== -->
   <section class="w-full bg-[#f9f9f9] border-t border-neutral-200/50 py-16 sm:py-24">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-      <div class="w-full rounded-2xl text-white p-8 sm:p-12 lg:p-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-8 relative overflow-hidden shadow-xl" style="background: linear-gradient(104deg, rgb(0, 71, 45) 0%, rgb(9, 128, 84) 100%); border-radius: 16px;">
-        <div class="max-w-2xl text-left">
+      <div class="w-full rounded-2xl text-white p-8 sm:p-12 lg:p-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-8 relative overflow-hidden shadow-xl" style="background: linear-gradient(104deg, rgb(0, 71, 45) 0%, rgb(9, 128, 84) 100%); border-radius: 16px; color: #ffffff;">
+        <div class="max-w-2xl text-left text-white" style="color: #ffffff;">
           <h2 class="text-3xl sm:text-4xl lg:text-[38px] font-semibold text-white mb-3.5 leading-tight tracking-tight">
             Ready to Get More Customers?
           </h2>
-          <p class="text-sm sm:text-base text-neutral-200/90 leading-relaxed font-normal max-w-xl">
+          <p class="text-sm sm:text-base text-neutral-200 leading-relaxed font-normal max-w-xl">
             Every day without a professional website, potential customers go somewhere else. Get found in Google, build trust instantly, and turn visitors into paying customers.
           </p>
         </div>
-        <div class="shrink-0 flex items-center justify-end">
-          <a href="#contact" class="inline-flex items-center justify-center px-7 py-3.5 rounded-lg bg-white text-neutral-950 font-medium text-sm sm:text-base shadow-sm hover:bg-neutral-100 hover:shadow transition-all whitespace-nowrap">
+        <div class="shrink-0 flex items-center justify-end text-white" style="color: #ffffff;">
+          <a href="#contact" class="inline-flex items-center justify-center px-7 py-3.5 rounded-lg bg-white text-neutral-950 font-medium text-sm sm:text-base shadow-sm hover:bg-neutral-100 hover:shadow transition-all whitespace-nowrap" style="background-color: #ffffff; color: #09090b;">
             Get Your Website
           </a>
         </div>
@@ -1288,18 +1439,20 @@
     </div>
   </section>
 
+  </main>
+
   <!-- ==================== 12. FOOTER (1:1 from Framer) ==================== -->
   <footer class="w-full border-t border-neutral-200/70 py-12 text-xs text-neutral-500 bg-white">
     <div class="max-w-7xl mx-auto px-6 sm:px-10 flex flex-col sm:flex-row items-center justify-between gap-6">
       <div class="flex items-center gap-3">
         <div class="flex items-center gap-2">
-          <img src="finalitie-logo.svg" alt="Finalitie Logo" class="h-4 w-auto">
+          <img src="finalitie-logo.svg" alt="Finalitie - Web design and development studio" width="8" height="18" loading="lazy" class="h-4 w-auto">
           <span class="font-bold text-xs tracking-[0.11em] text-neutral-950 uppercase">FINALITIE</span>
         </div>
         <span>&middot;</span>
-        <span>&copy; 2025 Finalitie. All rights reserved.</span>
+        <span>&copy; 2026 Finalitie. All rights reserved.</span>
         <span>&middot;</span>
-        <a href="#" class="hover:text-neutral-950 transition-colors">Privacy Policy</a>
+        <a href="privacy-policy.html" class="hover:text-neutral-950 transition-colors">Privacy Policy</a>
       </div>
       <div class="flex items-center gap-7 font-medium text-neutral-600">
         <a href="#projects" class="hover:text-neutral-950 transition-colors">Projects</a>
@@ -1310,211 +1463,48 @@
     </div>
   </footer>
 
-  <!-- ==================== 13. 3D HERO SECTION: 07. DUAL-AXIS ORTHOGONAL LATTICE ==================== -->
+  <!-- ==================== 13. 3D HERO SECTION: SILVER METALLIC STAIRS ARCHITECTURE ==================== -->
   <script>
-    (function initHero3DGrid07() {
-      const container = document.getElementById('hero-3d-container');
-      const canvas = document.getElementById('hero-3d-canvas');
-      if (!container || !canvas || typeof THREE === 'undefined') return;
+    (function initHeroSilverStairs() {
+      const video = document.getElementById('hero-silver-video');
+      const fallback = document.getElementById('hero-fallback-img');
+      if (!video) return;
 
-      // 1. SCENA I KAMERA
-      const scene = new THREE.Scene();
-      scene.background = new THREE.Color(0xffffff);
-
-      const camera = new THREE.PerspectiveCamera(
-        40,
-        container.clientWidth / container.clientHeight,
-        0.1,
-        100
-      );
-      camera.position.set(0, 0, 5.8);
-
-      // 2. RENDERER
-      const renderer = new THREE.WebGLRenderer({
-        canvas: canvas,
-        antialias: true,
-        alpha: false,
-        powerPreference: 'high-performance'
-      });
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-      renderer.setSize(container.clientWidth, container.clientHeight);
-      renderer.toneMapping = THREE.ACESFilmicToneMapping;
-      renderer.toneMappingExposure = 1.35;
-
-      // 3. OŚWIETLENIE STUDYJNE DLA OBSYDIAN CHROME (Ostre refleksy na krawędziach)
-      const ambientLight = new THREE.AmbientLight(0xffffff, 1.4);
-      scene.add(ambientLight);
-
-      // Główne światło kluczowe (Top-Front-Left)
-      const keyLight = new THREE.DirectionalLight(0xffffff, 4.0);
-      keyLight.position.set(6, 9, 7);
-      scene.add(keyLight);
-
-      // Światło wypełniające (Front-Right)
-      const fillLight = new THREE.DirectionalLight(0xdbeafe, 2.4);
-      fillLight.position.set(-7, 4, 5);
-      scene.add(fillLight);
-
-      // Światło kontrujące z tyłu (Rim Light) - podświetla głębię wewnętrznych warstw
-      const rimLight = new THREE.DirectionalLight(0x2bb583, 1.6);
-      rimLight.position.set(0, -6, -5);
-      scene.add(rimLight);
-
-      // 4. MATERIAŁ OBSYDIAN GUNMETAL / CHROME
-      const obsidianMaterial = new THREE.MeshPhysicalMaterial({
-        color: 0x141a24,
-        metalness: 0.88,
-        roughness: 0.22,
-        clearcoat: 0.75,
-        clearcoatRoughness: 0.08,
-        reflectivity: 0.95
-      });
-
-      // 5. BUDOWA PEŁNEJ KRATOWNICY 3D (ORTHOGONAL CUBIC LATTICE MATRIX 8x8x8)
-      const masterGroup = new THREE.Group();
-      scene.add(masterGroup);
-
-      const N = 8;                // 8 linii na każdej osi = 7x7x7 komórek sześciennych (identycznie jak na screenie)
-      const cubeSize = 2.75;      // Całkowity wymiar bryły
-      const barThickness = 0.042; // Grubość profilu belki
-      const halfSize = cubeSize / 2;
-      const step = cubeSize / (N - 1);
-
-      // Geometrie belek dla 3 osi (X, Y, Z)
-      const xBarGeo = new THREE.BoxGeometry(cubeSize + barThickness, barThickness, barThickness);
-      const yBarGeo = new THREE.BoxGeometry(barThickness, cubeSize + barThickness, barThickness);
-      const zBarGeo = new THREE.BoxGeometry(barThickness, barThickness, cubeSize + barThickness);
-
-      // Belki poziome wzdłuż osi X (dla każdego poziomu Y i głębokości Z)
-      for (let iy = 0; iy < N; iy++) {
-        const y = -halfSize + iy * step;
-        for (let iz = 0; iz < N; iz++) {
-          const z = -halfSize + iz * step;
-          const bar = new THREE.Mesh(xBarGeo, obsidianMaterial);
-          bar.position.set(0, y, z);
-          masterGroup.add(bar);
+      function revealVideo() {
+        video.classList.remove('opacity-0');
+        video.classList.add('opacity-100');
+        if (fallback) {
+          setTimeout(() => {
+            fallback.style.opacity = '0';
+          }, 300);
         }
       }
 
-      // Belki pionowe wzdłuż osi Y (dla każdej szerokości X i głębokości Z)
-      for (let ix = 0; ix < N; ix++) {
-        const x = -halfSize + ix * step;
-        for (let iz = 0; iz < N; iz++) {
-          const z = -halfSize + iz * step;
-          const bar = new THREE.Mesh(yBarGeo, obsidianMaterial);
-          bar.position.set(x, 0, z);
-          masterGroup.add(bar);
-        }
-      }
+      video.addEventListener('playing', revealVideo, { once: true });
+      video.addEventListener('canplay', revealVideo, { once: true });
+      video.addEventListener('loadeddata', revealVideo, { once: true });
 
-      // Belki poziome wzdłuż osi Z (dla każdej szerokości X i poziomu Y)
-      for (let ix = 0; ix < N; ix++) {
-        const x = -halfSize + ix * step;
-        for (let iy = 0; iy < N; iy++) {
-          const y = -halfSize + iy * step;
-          const bar = new THREE.Mesh(zBarGeo, obsidianMaterial);
-          bar.position.set(x, y, 0);
-          masterGroup.add(bar);
-        }
-      }
+      // Gdy schodki się rozwiną (koniec wideo), zatrzymaj na stałe na ostatniej klatce
+      video.addEventListener('ended', function() {
+        video.pause();
+      }, { once: true });
 
-      // Kąt izometryczny dokładnie odpowiadający kadrze z referencji
-      masterGroup.rotation.x = 0.58;
-      masterGroup.rotation.y = -0.78;
-      masterGroup.rotation.z = 0.12;
-
-      // 6. INTERAKCJA MYSZĄ I DOTYKIEM (Pełny obrót 3D + bezwładność)
-      let isDragging = false;
-      let previousMousePosition = { x: 0, y: 0 };
-      let mouseVelX = 0, mouseVelY = 0;
-
-      window.addEventListener('mousedown', (e) => {
-        if (e.target === canvas) {
-          isDragging = true;
-          previousMousePosition = { x: e.clientX, y: e.clientY };
-        }
-      });
-
-      window.addEventListener('mousemove', (e) => {
-        if (isDragging) {
-          const deltaX = e.clientX - previousMousePosition.x;
-          const deltaY = e.clientY - previousMousePosition.y;
-
-          mouseVelX = deltaX * 0.005;
-          mouseVelY = deltaY * 0.005;
-
-          masterGroup.rotation.y += mouseVelX;
-          masterGroup.rotation.x += mouseVelY;
-
-          previousMousePosition = { x: e.clientX, y: e.clientY };
-        }
-      });
-
-      window.addEventListener('mouseup', () => { isDragging = false; });
-
-      window.addEventListener('touchstart', (e) => {
-        if (e.touches.length > 0 && e.target === canvas) {
-          isDragging = true;
-          previousMousePosition = { x: e.touches[0].clientX, y: e.touches[0].clientY };
-        }
-      }, { passive: true });
-
-      window.addEventListener('touchmove', (e) => {
-        if (isDragging && e.touches.length > 0) {
-          const deltaX = e.touches[0].clientX - previousMousePosition.x;
-          const deltaY = e.touches[0].clientY - previousMousePosition.y;
-
-          mouseVelX = deltaX * 0.005;
-          mouseVelY = deltaY * 0.005;
-
-          masterGroup.rotation.y += deltaX * 0.005;
-          masterGroup.rotation.x += deltaY * 0.005;
-
-          previousMousePosition = { x: e.touches[0].clientX, y: e.touches[0].clientY };
-        }
-      }, { passive: true });
-
-      window.addEventListener('touchend', () => { isDragging = false; });
-
-      // 7. PĘTLA ANIMACJI (Płynna lewitacja i powolny autooobrót)
-      const clock = new THREE.Clock();
-
-      function animate() {
-        requestAnimationFrame(animate);
-        const elapsedTime = clock.getElapsedTime();
-
-        if (!isDragging) {
-          masterGroup.rotation.y += 0.0018 + mouseVelX;
-          masterGroup.rotation.x += mouseVelY;
-          mouseVelX *= 0.94;
-          mouseVelY *= 0.94;
-        }
-
-        // Płynne lewitowanie góra-dół
-        masterGroup.position.y = Math.sin(elapsedTime * 1.1) * 0.12;
-
-        renderer.render(scene, camera);
-      }
-
-      animate();
-
-      // 8. RESPONSYWNOŚĆ
-      function onResize() {
-        if (!container || !canvas) return;
-        const width = container.clientWidth;
-        const height = container.clientHeight;
-        camera.aspect = width / height;
-        camera.updateProjectionMatrix();
-        renderer.setSize(width, height);
-      }
-
-      window.addEventListener('resize', onResize);
-      if (window.ResizeObserver) {
-        new ResizeObserver(onResize).observe(container);
+      // Auto-play guard
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.then(() => {
+          revealVideo();
+        }).catch(() => {
+          // Fallback z rozwiniętymi schodkami w razie blokady autoplay
+          if (fallback) {
+            fallback.src = 'images/hero-silver-stairs-unfolded.png';
+          }
+        });
       }
     })();
-
-    // Entire FAQ Card Click Handler
+  </script>
+  <script>
+  // Entire FAQ Card Click Handler
     document.querySelectorAll('.faq-item').forEach((item) => {
       item.addEventListener('click', (e) => {
         if (e.target.closest('p') && window.getSelection().toString().length > 0) return;
@@ -1554,31 +1544,107 @@
       });
     }
 
-    // Netlify Contact Form AJAX Handler
+    // Live Character Counter for Contact Form
+    const messageInput = document.getElementById('message');
+    const charCountDisplay = document.getElementById('char-count');
+    if (messageInput && charCountDisplay) {
+      messageInput.addEventListener('input', () => {
+        charCountDisplay.textContent = `${messageInput.value.length} / 5000`;
+      });
+    }
+
+    // Netlify Contact Form AJAX Handler with Defensive Validation & Resilience
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
+      const firstNameInput = document.getElementById('first-name');
+      const emailInput = document.getElementById('email');
+      const firstNameError = document.getElementById('first-name-error');
+      const emailError = document.getElementById('email-error');
+      const messageError = document.getElementById('message-error');
+
+      function clearValidationErrors() {
+        if (firstNameError) firstNameError.classList.add('hidden');
+        if (emailError) emailError.classList.add('hidden');
+        if (messageError) messageError.classList.add('hidden');
+        if (firstNameInput) firstNameInput.removeAttribute('aria-invalid');
+        if (emailInput) emailInput.removeAttribute('aria-invalid');
+        if (messageInput) messageInput.removeAttribute('aria-invalid');
+      }
+
       contactForm.addEventListener('submit', function (e) {
         e.preventDefault();
+        clearValidationErrors();
+
         const submitBtn = document.getElementById('form-submit-btn');
         const feedback = document.getElementById('form-feedback');
         const originalText = submitBtn.innerHTML;
 
+        // 1. Client-Side Field Validation
+        let hasError = false;
+        const firstNameVal = firstNameInput ? firstNameInput.value.trim() : '';
+        const emailVal = emailInput ? emailInput.value.trim() : '';
+        const messageVal = messageInput ? messageInput.value.trim() : '';
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!firstNameVal) {
+          if (firstNameError) firstNameError.classList.remove('hidden');
+          if (firstNameInput) {
+            firstNameInput.setAttribute('aria-invalid', 'true');
+            if (!hasError) firstNameInput.focus();
+          }
+          hasError = true;
+        }
+
+        if (!emailVal || !emailPattern.test(emailVal)) {
+          if (emailError) emailError.classList.remove('hidden');
+          if (emailInput) {
+            emailInput.setAttribute('aria-invalid', 'true');
+            if (!hasError) emailInput.focus();
+          }
+          hasError = true;
+        }
+
+        if (!messageVal) {
+          if (messageError) messageError.classList.remove('hidden');
+          if (messageInput) {
+            messageInput.setAttribute('aria-invalid', 'true');
+            if (!hasError) messageInput.focus();
+          }
+          hasError = true;
+        }
+
+        if (hasError) return;
+
+        // 2. Offline Connectivity Check
+        if (typeof navigator !== 'undefined' && !navigator.onLine) {
+          if (feedback) {
+            feedback.className = 'block text-sm font-medium text-amber-800 bg-amber-50 border border-amber-200 rounded-lg p-3.5 mt-2';
+            feedback.innerHTML = 'You appear to be offline. Please verify your connection or email us directly at <a href="mailto:kamilandreasik99@gmail.com" class="underline font-semibold">kamilandreasik99@gmail.com</a>.';
+          }
+          return;
+        }
+
+        // 3. Double-Submission Prevention & Loading State
         submitBtn.disabled = true;
-        submitBtn.innerHTML = '<span>Sending...</span>';
+        submitBtn.innerHTML = '<span>Submitting...</span>';
         if (feedback) {
           feedback.className = 'hidden';
         }
 
         const formData = new FormData(contactForm);
+        const controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
+        const timeoutId = controller ? setTimeout(() => controller.abort(), 12000) : null;
 
         fetch('/', {
           method: 'POST',
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: new URLSearchParams(formData).toString()
+          body: new URLSearchParams(formData).toString(),
+          signal: controller ? controller.signal : undefined
         })
         .then((response) => {
           if (response.ok) {
             contactForm.reset();
+            if (charCountDisplay) charCountDisplay.textContent = '0 / 5000';
             if (feedback) {
               feedback.className = 'block text-sm font-medium text-emerald-800 bg-emerald-50 border border-emerald-200 rounded-lg p-3.5 mt-2';
               feedback.innerHTML = '✓ Thank you! Your message has been sent successfully.';
@@ -1593,13 +1659,16 @@
           }
         })
         .catch((error) => {
-          console.error(error);
+          console.error('Contact form submission error:', error);
           if (feedback) {
             feedback.className = 'block text-sm font-medium text-red-800 bg-red-50 border border-red-200 rounded-lg p-3.5 mt-2';
-            feedback.innerHTML = '✕ Something went wrong. Please try again or email us directly.';
+            feedback.innerHTML = '✕ Something went wrong with the submission. Your drafted message was preserved — please try again or email <a href="mailto:kamilandreasik99@gmail.com" class="underline">kamilandreasik99@gmail.com</a> directly.';
           }
           submitBtn.disabled = false;
           submitBtn.innerHTML = originalText;
+        })
+        .finally(() => {
+          if (timeoutId) clearTimeout(timeoutId);
         });
       });
     }

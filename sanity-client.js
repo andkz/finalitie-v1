@@ -2,17 +2,18 @@
  * Finalitie · Sanity CMS Client Integration
  * -------------------------------------------------------------
  * Easy, zero-dependency Sanity integration using native fetch and GROQ.
- * Enter your projectId below to connect your live Sanity Studio.
+ * Hardened for production: XSS escaping, AbortController timeouts,
+ * zero external CDN dependencies, and resilient offline fallbacks.
  */
 
 const SANITY_CONFIG = {
-  projectId: 'ljymyve8', // Twoje Project ID z Sanity
+  projectId: 'ljymyve8',
   dataset: 'production',
   apiVersion: '2023-05-03',
   useCdn: true,
 };
 
-// Fallback articles displayed when projectId is not yet configured or offline
+// Fallback articles with 100% local assets
 const FALLBACK_POSTS = [
   {
     _id: 'fallback-1',
@@ -22,7 +23,7 @@ const FALLBACK_POSTS = [
     category: 'SEO',
     author: 'Kamil',
     excerpt: 'Understanding basic SEO helps you rank higher in Google and get found by customers actively searching for what you offer.',
-    imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
+    imageUrl: 'images/JCCcDDTMhZn6T2xZAW5O8nRLM.jpg',
     url: 'blog/seo-basics-every-business-owner-should-know.html'
   },
   {
@@ -33,7 +34,7 @@ const FALLBACK_POSTS = [
     category: 'Business Growth',
     author: 'Kamil',
     excerpt: 'Why a professional website brings more customers and helps you beat competitors online.',
-    imageUrl: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80',
+    imageUrl: 'images/lJz1YNuOJsmllMOCqSPKGDQOtA.jpg',
     url: 'blog/why-every-business-needs-a-website.html'
   },
   {
@@ -44,7 +45,7 @@ const FALLBACK_POSTS = [
     category: 'Web Design',
     author: 'Kamil',
     excerpt: 'Templates cost less upfront but more long-term. Custom sites bring better ROI through speed and SEO.',
-    imageUrl: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80',
+    imageUrl: 'images/UX8TVZdzOAePEbH2W2z2Znd3tA.jpg',
     url: 'blog/custom-website-vs-wordpress-template.html'
   }
 ];
@@ -64,12 +65,18 @@ class SanityClient {
     return `https://${this.config.projectId}.${cdnHost}/v${this.config.apiVersion}/data/query/${this.config.dataset}?query=${encoded}`;
   }
 
-  async fetch(query) {
-    if (!this.isConfigured()) {
+  async fetch(query, timeoutMs = 5000) {
+    if (!this.isConfigured() || (typeof navigator !== 'undefined' && !navigator.onLine)) {
       return null;
     }
+
+    const controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
+    const timeoutId = controller ? setTimeout(() => controller.abort(), timeoutMs) : null;
+
     try {
-      const response = await fetch(this.getEndpoint(query));
+      const response = await fetch(this.getEndpoint(query), {
+        signal: controller ? controller.signal : undefined
+      });
       if (!response.ok) {
         console.warn('Sanity API response not OK:', response.status, response.statusText);
         return null;
@@ -77,8 +84,10 @@ class SanityClient {
       const data = await response.json();
       return data.result;
     } catch (err) {
-      console.warn('Sanity fetch error (using fallback):', err);
+      console.warn('Sanity fetch error or timeout (using local fallback):', err.message || err);
       return null;
+    } finally {
+      if (timeoutId) clearTimeout(timeoutId);
     }
   }
 
@@ -100,7 +109,7 @@ class SanityClient {
     if (result && result.length > 0) {
       return result.map(p => ({
         ...p,
-        url: `post.html?slug=${p.slug}`
+        url: `post.html?slug=${encodeURIComponent(p.slug || '')}`
       }));
     }
     return FALLBACK_POSTS.slice(0, limit);
@@ -112,7 +121,8 @@ class SanityClient {
   async getAllPosts(category = 'all') {
     let filter = '_type == "post"';
     if (category && category !== 'all') {
-      filter += ` && category == "${category}"`;
+      const sanitizedCat = category.replace(/[^a-zA-Z0-9 _-]/g, '');
+      filter += ` && category == "${sanitizedCat}"`;
     }
     const query = `*[${filter}] | order(publishedAt desc) {
       _id,
@@ -128,7 +138,7 @@ class SanityClient {
     if (result && result.length > 0) {
       return result.map(p => ({
         ...p,
-        url: `post.html?slug=${p.slug}`
+        url: `post.html?slug=${encodeURIComponent(p.slug || '')}`
       }));
     }
     if (category === 'all') {
@@ -141,7 +151,8 @@ class SanityClient {
    * Fetch single post by slug for reader page
    */
   async getPostBySlug(slug) {
-    const query = `*[_type == "post" && slug.current == "${slug}"][0] {
+    const cleanSlug = (slug || '').replace(/[^a-zA-Z0-9_-]/g, '');
+    const query = `*[_type == "post" && slug.current == "${cleanSlug}"][0] {
       _id,
       title,
       "slug": slug.current,
@@ -154,50 +165,74 @@ class SanityClient {
     }`;
     const result = await this.fetch(query);
     if (result) return result;
-    return FALLBACK_POSTS.find(p => p.slug === slug) || null;
+    return FALLBACK_POSTS.find(p => p.slug === cleanSlug) || null;
   }
 }
 
 // Global instance
 window.sanityClient = new SanityClient();
 
-// Helper to format date
-function formatSanityDate(dateStr) {
-  if (!dateStr) return '';
-  const d = new Date(dateStr);
-  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-  return `${months[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`;
+// Security: Robust HTML entity escaping for XSS prevention
+function escapeHTML(str) {
+  if (str === null || str === undefined) return '';
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
 }
 
-// Helper to render an article card in HTML
+// Helper to format date with internationalized Intl API
+function formatSanityDate(dateStr) {
+  if (!dateStr) return '';
+  try {
+    const d = new Date(dateStr);
+    if (isNaN(d.getTime())) return '';
+    return new Intl.DateTimeFormat('en-US', {
+      month: 'short',
+      day: 'numeric',
+      year: 'numeric'
+    }).format(d);
+  } catch (e) {
+    return '';
+  }
+}
+
+// Helper to render an article card with security sanitization and local image fallback
 function renderArticleCard(post) {
   const dateFormatted = formatSanityDate(post.publishedAt);
-  const targetUrl = post.url || `post.html?slug=${post.slug}`;
-  const category = post.category || 'General';
-  const author = post.author || 'Kamil';
+  const targetUrl = escapeHTML(post.url || `post.html?slug=${encodeURIComponent(post.slug || '')}`);
+  const category = escapeHTML(post.category || 'General');
+  const author = escapeHTML(post.author || 'Kamil');
+  const title = escapeHTML(post.title || 'Untitled Post');
+  const excerpt = escapeHTML(post.excerpt || '');
+  const imageUrl = escapeHTML(post.imageUrl || 'images/UX8TVZdzOAePEbH2W2z2Znd3tA.jpg');
 
   return `
     <a href="${targetUrl}" class="article-card group p-6 rounded-2xl bg-white border border-neutral-200 card-shadcn card-shadcn-hover flex flex-col justify-between cursor-pointer block text-inherit no-underline" data-category="${category}">
       <div>
         <div class="w-full h-48 rounded-xl overflow-hidden mb-5 bg-neutral-100 border border-neutral-100">
           <img 
-            src="${post.imageUrl || 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80'}" 
-            alt="${post.title}" 
-            class="w-full h-full object-cover grayscale contrast-125 group-hover:scale-105 group-hover:grayscale-0 transition-all duration-500" 
+            src="${imageUrl}" 
+            alt="${title}" 
+            width="800"
+            height="450"
+            class="w-full h-full object-cover grayscale contrast-125 transition-all duration-300" 
             loading="lazy"
           >
         </div>
         <div class="flex items-center justify-between mb-3.5 text-xs text-neutral-500 font-medium">
           <div class="badge-section">
-            <span class="badge-section-gradient">${category}</span>
+            <span class="badge-section-solid text-emerald-800 font-semibold">${category}</span>
           </div>
           <span>${dateFormatted}</span>
         </div>
         <h3 class="text-xl font-medium text-neutral-950 group-hover:text-emerald-brand transition-colors mb-2.5 leading-snug">
-          ${post.title}
+          ${title}
         </h3>
         <p class="text-sm text-neutral-600 leading-relaxed font-normal line-clamp-3">
-          ${post.excerpt || ''}
+          ${excerpt}
         </p>
       </div>
       <div class="pt-5 mt-5 border-t border-neutral-100 flex items-center justify-between text-xs text-neutral-500">

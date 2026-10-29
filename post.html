@@ -3,13 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title id="page-title">Article · Finalitie</title>
-  <meta name="description" id="page-desc" content="Read article on Finalitie blog.">
-  <link rel="icon" href="https://framerusercontent.com/images/tGUOcqDgP6XO7Dpi82pGrgbkQg.png">
+  <title id="page-title">Articles & Insights · Finalitie</title>
+  <meta name="description" id="page-desc" content="In-depth insights on web design, modern development, and digital growth from Finalitie.">
+  <link rel="canonical" href="https://andkz.github.io/finalitie-v2/post.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" id="og-title" content="Articles & Insights · Finalitie">
+  <meta property="og:description" id="og-desc" content="In-depth insights on web design, modern development, and digital growth from Finalitie.">
+  <meta property="og:image" id="og-image" content="images/GmYx3GkXDe3lTME4KumGFhegPoA.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" id="twitter-title" content="Articles & Insights · Finalitie">
+  <meta name="twitter:description" id="twitter-desc" content="In-depth insights on web design, modern development, and digital growth from Finalitie.">
+  <meta name="twitter:image" id="twitter-image" content="images/GmYx3GkXDe3lTME4KumGFhegPoA.png">
+
+  <link rel="icon" href="images/tGUOcqDgP6XO7Dpi82pGrgbkQg.png">
 
   <!-- Unified Geist Font System -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.tailwindcss.com">
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   
   <!-- Tailwind CSS -->
@@ -55,27 +70,40 @@
       --font-mono: 'Geist Mono', monospace;
     }
     * { font-family: var(--font-geist); box-sizing: border-box; }
-    body { background-color: #ffffff; color: #09090b; overflow-x: hidden; letter-spacing: -0.01em; }
+    body { background-color: #ffffff; color: #09090b; overflow-x: hidden; letter-spacing: -0.01em; font-size: 1rem; line-height: 1.6; }
+    h1 { font-family: var(--font-geist); font-size: clamp(2.25rem, 5vw, 3.25rem); font-weight: 500; letter-spacing: -0.03em; line-height: 1.15; }
+    h2 { font-family: var(--font-geist); font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 500; letter-spacing: -0.025em; line-height: 1.2; }
+    h3 { font-family: var(--font-geist); font-size: clamp(1.15rem, 2vw, 1.35rem); font-weight: 600; letter-spacing: -0.02em; line-height: 1.25; }
 
-    /* Framer Exact Section Badges */
+    /* Framer Exact Section Badges (Refined Silver Metallic Pill Aesthetic) */
     .badge-section {
       display: inline-flex;
       align-items: center;
-      gap: 0.25rem;
-      padding: 3px 10px;
-      border-radius: 8px;
+      gap: 0.35rem;
+      padding: 4px 14px;
+      border-radius: 9999px;
       font-size: 12px;
-      line-height: 1.5;
+      line-height: 1.4;
       letter-spacing: -0.01em;
-      background-color: #fafafa;
-      border: 1px solid #e5e5e5;
+      background: linear-gradient(180deg, #ffffff 0%, #f4f4f6 100%);
+      border: 1px solid #e2e2e6;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03), inset 0 1px 0 rgba(255, 255, 255, 0.95);
       user-select: none;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
     }
+    .badge-section:hover {
+      border-color: #d1d1d6;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05), inset 0 1px 0 rgba(255, 255, 255, 1);
+    }
+    .badge-section-solid,
     .badge-section-gradient {
-      background: linear-gradient(64deg, rgb(0, 71, 45) 0%, rgb(43, 181, 131) 100%);
+      color: #27272a;
+      background: linear-gradient(135deg, #18181b 0%, #4b5563 35%, #94a3b8 65%, #18181b 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      font-weight: 500;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      display: inline-block;
     }
 
     .btn-shadcn {
@@ -95,7 +123,7 @@
     /* Article Content Typography */
     .article-body h2 { font-size: 1.625rem; font-weight: 600; margin-top: 2.5rem; margin-bottom: 1rem; letter-spacing: -0.02em; color: #09090b; }
     .article-body h3 { font-size: 1.25rem; font-weight: 600; margin-top: 2rem; margin-bottom: 0.75rem; letter-spacing: -0.015em; color: #18181b; }
-    .article-body p { font-size: 1.0625rem; line-height: 1.75; color: #3f3f46; margin-bottom: 1.5rem; }
+    .article-body p { font-size: 1.0625rem; line-height: 1.75; color: #3f3f46; margin-bottom: 1.5rem; overflow-wrap: break-word; }
     .article-body ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.5rem; color: #3f3f46; }
     .article-body li { margin-bottom: 0.5rem; line-height: 1.6; }
     .article-body blockquote { border-left: 3px solid #2bb583; padding-left: 1.25rem; font-style: italic; color: #27272a; margin: 2rem 0; }
@@ -105,11 +133,14 @@
 </head>
 <body class="min-h-screen flex flex-col justify-between selection:bg-emerald-brand selection:text-white antialiased">
 
+  <!-- Accessibility Skip Link -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-neutral-900 focus:text-white focus:rounded-md focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-emerald-500">Skip to main content</a>
+
   <!-- ==================== HEADER / NAVBAR ==================== -->
   <header class="w-full border-b border-neutral-200/70 bg-white/90 backdrop-blur-md sticky top-0 z-40">
     <div class="max-w-7xl mx-auto px-6 sm:px-10 h-16 flex items-center justify-between">
       <a href="index.html" class="flex items-center gap-2 group">
-        <img src="finalitie-logo.svg" alt="Finalitie Logo" class="h-[18px] w-auto transition-transform group-hover:scale-105">
+        <img src="finalitie-logo.svg" alt="Finalitie - Web design and development studio" width="8" height="18" class="h-[18px] w-auto">
         <span class="font-bold text-sm tracking-[0.11em] text-neutral-950 uppercase">FINALITIE</span>
       </a>
 
@@ -155,7 +186,7 @@
   </header>
 
   <!-- ==================== ARTICLE CONTENT ==================== -->
-  <main class="max-w-3xl mx-auto px-6 sm:px-8 py-16 w-full flex-1" id="article-main">
+  <main class="max-w-3xl mx-auto px-6 sm:px-8 py-16 w-full flex-1" id="main-content">
     
     <!-- Back Link & Tags -->
     <div class="mb-8">
@@ -183,7 +214,7 @@
 
     <!-- Main Image -->
     <div class="w-full h-64 sm:h-96 rounded-2xl overflow-hidden mb-12 bg-neutral-100 border border-neutral-100 shadow-sm">
-      <img id="post-image" src="" alt="Article hero" class="w-full h-full object-cover grayscale contrast-125" style="display:none;">
+      <img id="post-image" src="images/UX8TVZdzOAePEbH2W2z2Znd3tA.jpg" alt="Article hero" width="1000" height="667" class="w-full h-full object-cover grayscale contrast-125" loading="lazy">
     </div>
 
     <!-- Article Body -->
@@ -197,7 +228,7 @@
           FL
         </div>
         <div>
-          <h4 class="text-base font-medium text-neutral-950">Written by Kamil</h4>
+          <p class="text-base font-semibold text-neutral-950">Written by Kamil</p>
           <p class="text-xs text-neutral-500 mt-0.5">Founder & Web Designer at Finalitie</p>
         </div>
       </div>
@@ -211,17 +242,17 @@
   <!-- ==================== FINAL CTA BANNER ==================== -->
   <section class="w-full bg-[#f9f9f9] border-t border-neutral-200/50 py-16 sm:py-24">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-      <div class="w-full rounded-2xl text-white p-8 sm:p-12 lg:p-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-8 relative overflow-hidden shadow-xl" style="background: linear-gradient(104deg, rgb(0, 71, 45) 0%, rgb(9, 128, 84) 100%); border-radius: 16px;">
-        <div class="max-w-2xl text-left">
+      <div class="w-full rounded-2xl text-white p-8 sm:p-12 lg:p-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-8 relative overflow-hidden shadow-xl" style="background: linear-gradient(104deg, rgb(0, 71, 45) 0%, rgb(9, 128, 84) 100%); border-radius: 16px; color: #ffffff;">
+        <div class="max-w-2xl text-left text-white" style="color: #ffffff;">
           <h2 class="text-3xl sm:text-4xl lg:text-[38px] font-semibold text-white mb-3.5 leading-tight tracking-tight">
             Ready to Get More Customers?
           </h2>
-          <p class="text-sm sm:text-base text-neutral-200/90 leading-relaxed font-normal max-w-xl">
+          <p class="text-sm sm:text-base text-neutral-200 leading-relaxed font-normal max-w-xl">
             Every day without a professional website, potential customers go somewhere else. Get found in Google, build trust instantly, and turn visitors into paying customers.
           </p>
         </div>
-        <div class="shrink-0 flex items-center justify-end">
-          <a href="index.html#contact" class="inline-flex items-center justify-center px-7 py-3.5 rounded-lg bg-white text-neutral-950 font-medium text-sm sm:text-base shadow-sm hover:bg-neutral-100 hover:shadow transition-all whitespace-nowrap">
+        <div class="shrink-0 flex items-center justify-end text-white" style="color: #ffffff;">
+          <a href="index.html#contact" class="inline-flex items-center justify-center px-7 py-3.5 rounded-lg bg-white text-neutral-950 font-medium text-sm sm:text-base shadow-sm hover:bg-neutral-100 hover:shadow transition-all whitespace-nowrap" style="background-color: #ffffff; color: #09090b;">
             Get Your Website
           </a>
         </div>
@@ -234,11 +265,13 @@
     <div class="max-w-7xl mx-auto px-6 sm:px-10 flex flex-col sm:flex-row items-center justify-between gap-6">
       <div class="flex items-center gap-3">
         <div class="flex items-center gap-2">
-          <img src="finalitie-logo.svg" alt="Finalitie Logo" class="h-4 w-auto">
+          <img src="finalitie-logo.svg" alt="Finalitie - Web design and development studio" width="8" height="18" loading="lazy" class="h-4 w-auto">
           <span class="font-bold text-xs tracking-[0.11em] text-neutral-950 uppercase">FINALITIE</span>
         </div>
         <span>&middot;</span>
-        <span>&copy; 2025 Finalitie. All rights reserved.</span>
+        <span>&copy; 2026 Finalitie. All rights reserved.</span>
+        <span>&middot;</span>
+        <a href="privacy-policy.html" class="hover:text-neutral-950 transition-colors">Privacy Policy</a>
       </div>
       <div class="flex items-center gap-6">
         <a href="index.html#projects" class="hover:text-neutral-950 transition-colors">Projects</a>
@@ -279,7 +312,18 @@
       });
     }
 
-    // Helper to render Sanity Block Content (Portable Text) to HTML
+    // XSS Sanitizer helper
+    function sanitize(str) {
+      if (str === null || str === undefined) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    // Helper to render Sanity Block Content (Portable Text) to HTML safely
     function renderPortableText(blocks) {
       if (!blocks || !Array.isArray(blocks)) {
         return '<p>No content available.</p>';
@@ -287,7 +331,7 @@
       return blocks.map(block => {
         if (block._type !== 'block' || !block.children) return '';
         const text = block.children.map(child => {
-          let t = child.text || '';
+          let t = sanitize(child.text || '');
           if (child.marks && child.marks.includes('strong')) t = `<strong>${t}</strong>`;
           if (child.marks && child.marks.includes('em')) t = `<em>${t}</em>`;
           return t;
@@ -303,7 +347,8 @@
     // Load Article Dynamically by ?slug=...
     async function loadArticle() {
       const params = new URLSearchParams(window.location.search);
-      const slug = params.get('slug') || 'seo-basics-every-business-owner-should-know';
+      const rawSlug = params.get('slug') || 'seo-basics-every-business-owner-should-know';
+      const slug = rawSlug.replace(/[^a-zA-Z0-9_-]/g, '');
 
       const post = await window.sanityClient.getPostBySlug(slug);
 
@@ -313,27 +358,29 @@
         return;
       }
 
-      document.getElementById('page-title').textContent = `${post.title} · Finalitie Blog`;
-      document.getElementById('post-title').textContent = post.title;
+      const safeTitle = post.title || 'Article';
+      document.getElementById('page-title').textContent = `${safeTitle} · Finalitie Blog`;
+      document.getElementById('post-title').textContent = safeTitle;
       document.getElementById('post-category').textContent = post.category || 'Articles';
       document.getElementById('post-date').textContent = formatSanityDate(post.publishedAt);
       document.getElementById('post-author').textContent = `by ${post.author || 'Kamil'}`;
       document.getElementById('post-excerpt').textContent = post.excerpt || '';
 
       const imgEl = document.getElementById('post-image');
-      if (post.imageUrl) {
-        imgEl.src = post.imageUrl;
-        imgEl.style.display = 'block';
-      }
+      const safeImg = post.imageUrl || 'images/UX8TVZdzOAePEbH2W2z2Znd3tA.jpg';
+      imgEl.src = safeImg;
+      imgEl.alt = safeTitle;
+      imgEl.style.display = 'block';
 
       const bodyEl = document.getElementById('post-body');
       if (post.body) {
         bodyEl.innerHTML = renderPortableText(post.body);
       } else {
         // Fallback demo body
+        const safeExcerpt = sanitize(post.excerpt || '');
         bodyEl.innerHTML = `
           <h2>Understanding the Fundamentals</h2>
-          <p>${post.excerpt}</p>
+          <p>${safeExcerpt}</p>
           <p>When potential customers search for services in your industry, having a fast, well-structured, and professionally designed website ensures you get found before your competitors.</p>
           <h2>Why It Matters For Business Growth</h2>
           <p>Search engines prioritize websites that deliver exceptional user experience, instant loading speeds, and mobile-friendly responsive designs. By aligning your digital presence with best practices, you turn ordinary visitors into loyal clients.</p>

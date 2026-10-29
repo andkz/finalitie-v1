@@ -1,0 +1,17 @@
+# Finalitie
+
+> Modern, high-performance web design, development, and SEO studio.
+
+## Core Services
+- Custom Web Design & Development
+- Search Engine Optimization (SEO) & Performance Tuning
+- Three.js & Interactive 3D Web Experiences
+- Conversion Rate Optimization (CRO)
+
+## Main Pages
+- [Homepage](https://andkz.github.io/finalitie-v2/): Overview of services, portfolio, client testimonials, and consultation booking.
+- [Blog](https://andkz.github.io/finalitie-v2/blog.html): Technical and strategic insights into modern web design, performance benchmarks, and business growth.
+- [Custom Website vs WordPress Template](https://andkz.github.io/finalitie-v2/blog/custom-website-vs-wordpress-template.html): Analysis of long-term ROI, speed, security, and scalability.
+- [SEO Basics Every Business Owner Should Know](https://andkz.github.io/finalitie-v2/blog/seo-basics-every-business-owner-should-know.html): Practical search visibility strategies.
+- [Why Every Business Needs a Website](https://andkz.github.io/finalitie-v2/blog/why-every-business-needs-a-website.html): Digital presence and client acquisition fundamentals.
+- [Privacy Policy](https://andkz.github.io/finalitie-v2/privacy-policy.html): Privacy and data processing terms.

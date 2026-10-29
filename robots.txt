@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://finalitie.com/sitemap.xml
+Sitemap: https://andkz.github.io/finalitie-v2/sitemap.xml

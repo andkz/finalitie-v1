@@ -1,0 +1,38 @@
+[
+  {
+    "id": "mwiktor",
+    "title": "MWiktor",
+    "category": "Graphic Designer",
+    "tag": "Portfolio",
+    "description": "Professional dark mode website for graphic designer with smooth gradient accents and bold, modern typography.",
+    "image": "https://framerusercontent.com/images/4UcDinSzcZQyM2cEf1dzjBOE.png?width=2000&height=1333",
+    "link": "#"
+  },
+  {
+    "id": "apex",
+    "title": "Apex Fitness",
+    "category": "Gym & Personal Training",
+    "tag": "Fitness",
+    "description": "High-conversion fitness platform with membership signups, class scheduling, and bold energetic visuals.",
+    "image": "https://framerusercontent.com/images/Mnagdfy2dcVjBE9Ydrv5lv0m8.png?width=2000&height=1724",
+    "link": "#"
+  },
+  {
+    "id": "serenity",
+    "title": "Serenity Spa",
+    "category": "Wellness & Aesthetics",
+    "tag": "Wellness",
+    "description": "Minimalist luxury aesthetic for premier spa clinic featuring custom booking workflows and serene art direction.",
+    "image": "https://framerusercontent.com/images/6UsZBK4TEOzYZgXu3WpPg83P64.png?width=2000&height=1428",
+    "link": "#"
+  },
+  {
+    "id": "nexora",
+    "title": "Nexora Tech",
+    "category": "SaaS Platform",
+    "tag": "Technology",
+    "description": "Cutting-edge product landing page for AI automation SaaS with interactive component demos and sleek dark theme.",
+    "image": "https://framerusercontent.com/images/0FHrBY7fJd7kiWxyZilq07jGwU.png?width=2000&height=1252",
+    "link": "#"
+  }
+]

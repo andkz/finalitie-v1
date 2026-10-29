@@ -1,7 +1,25 @@
-﻿*.py
+*.py
 raw_framer.html
 part1.html
 part2.html
 __pycache__/
 .DS_Store
 Thumbs.db
+
+# Temp analysis scripts
+check_*.js
+find_*.js
+inspect_*.js
+fetch_*.js
+download_assets.js
+read_mp4_dim.js
+apply_hero_update.js
+audit_report.xml
+audit_skill_output.txt
+update_blog_articles.js
+update_other_pages.js
+trove_sec.html
+live_finalitie.html
+
+# Local Netlify folder
+.netlify

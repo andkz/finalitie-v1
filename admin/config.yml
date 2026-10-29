@@ -1,0 +1,26 @@
+backend:
+  name: github
+  repo: andkz/finalitie-v1
+  branch: main
+  api_root: https://api.github.com
+
+locale: 'pl'
+
+media_folder: "images"
+public_folder: "/images"
+
+collections:
+  - name: "blog"
+    label: "Artykuły Blogowe"
+    label_singular: "Artykuł"
+    folder: "content/blog"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Tytuł artykułu", name: "title", widget: "string" }
+      - { label: "Data publikacji", name: "pubDate", widget: "date", format: "YYYY-MM-DD" }
+      - { label: "Kategoria", name: "category", widget: "select", options: ["Web Design", "SEO", "Business Growth", "Performance"], default: "Web Design" }
+      - { label: "Autor", name: "author", widget: "string", default: "Kamil" }
+      - { label: "Krótki opis (zajawka)", name: "description", widget: "text" }
+      - { label: "Zdjęcie wyróżniające", name: "image", widget: "image", default: "/images/JCCcDDTMhZn6T2xZAW5O8nRLM.jpg" }
+      - { label: "Treść artykułu", name: "body", widget: "markdown" }
