@@ -81,6 +81,7 @@
     .btn-primary { background-color: #09090b; color: #fafafa; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 1px 2px rgba(0,0,0,0.08); }
     .btn-primary:hover { background-color: #27272a; }
 
+        /* Framer Exact Section Badges - Unified Silver Metallic Capsule Aesthetic */
     .badge-section {
       display: inline-flex;
       align-items: center;
@@ -89,21 +90,28 @@
       border-radius: 9999px;
       font-size: 12px;
       line-height: 1.4;
+      font-weight: 600;
       letter-spacing: -0.01em;
-      background: linear-gradient(180deg, #ffffff 0%, #f4f4f6 100%);
-      border: 1px solid #e2e2e6;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03), inset 0 1px 0 rgba(255, 255, 255, 0.95);
+      background: linear-gradient(180deg, #ffffff 0%, #fafafa 45%, #f4f4f5 100%) !important;
+      border: 1px solid rgba(228, 228, 231, 0.95) !important;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), inset 0 1px 0 rgba(255, 255, 255, 1) !important;
+      color: #09090b !important;
       user-select: none;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .badge-section:hover {
+      border-color: #d4d4d8 !important;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05), inset 0 1px 0 rgba(255, 255, 255, 1) !important;
+      background: linear-gradient(180deg, #ffffff 0%, #f4f4f5 45%, #ececee 100%) !important;
     }
     .badge-section-solid,
     .badge-section-gradient {
-      color: #27272a;
-      background: linear-gradient(135deg, #18181b 0%, #4b5563 35%, #94a3b8 65%, #18181b 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-weight: 600;
-      letter-spacing: -0.01em;
-      display: inline-block;
+      color: #09090b !important;
+      font-weight: 600 !important;
+      letter-spacing: -0.01em !important;
+      display: inline-block !important;
+      background: none !important;
+      -webkit-text-fill-color: #09090b !important;
     }
   </style>
 </head>

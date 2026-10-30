@@ -74,341 +74,38 @@
     h2 { font-family: var(--font-geist); font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 500; letter-spacing: -0.025em; line-height: 1.2; }
     h3 { font-family: var(--font-geist); font-size: clamp(1.15rem, 2vw, 1.35rem); font-weight: 600; letter-spacing: -0.02em; line-height: 1.25; }
 
-    /* Framer Exact Section Badges (Clean Solid Graphite - Zero Glow / Light Center) */
+        /* Framer Exact Section Badges - Unified Silver Metallic Capsule Aesthetic */
     .badge-section {
       display: inline-flex;
       align-items: center;
       gap: 0.35rem;
-      padding: 4px 13px;
+      padding: 4px 14px;
       border-radius: 9999px;
       font-size: 12px;
       line-height: 1.4;
+      font-weight: 600;
       letter-spacing: -0.01em;
-      background-color: #f4f4f5;
-      border: 1px solid #e4e4e7;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+      background: linear-gradient(180deg, #ffffff 0%, #fafafa 45%, #f4f4f5 100%) !important;
+      border: 1px solid rgba(228, 228, 231, 0.95) !important;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), inset 0 1px 0 rgba(255, 255, 255, 1) !important;
+      color: #09090b !important;
       user-select: none;
-      transition: all 0.2s ease;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .badge-section:hover {
-      border-color: #d4d4d8;
-      background-color: #ebebef;
+      border-color: #d4d4d8 !important;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05), inset 0 1px 0 rgba(255, 255, 255, 1) !important;
+      background: linear-gradient(180deg, #ffffff 0%, #f4f4f5 45%, #ececee 100%) !important;
     }
     .badge-section-solid,
     .badge-section-gradient {
-      color: #18181b;
-      font-weight: 600;
-      letter-spacing: -0.01em;
-      display: inline-block;
-      background: none;
-      -webkit-text-fill-color: initial;
-    }
-
-    .card-shadcn { transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1); }
-    .card-shadcn-hover:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 14px 34px -8px rgba(0, 0, 0, 0.08);
-      border-color: #d4d4d8;
-    }
-    .btn-shadcn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 500;
-      transition: all 0.15s ease;
-      cursor: pointer;
-      user-select: none;
-    }
-    .btn-primary { background-color: #09090b; color: #ffffff; }
-    .btn-primary:hover { background-color: #27272a; }
-    .btn-sm { height: 2.25rem; padding-left: 0.875rem; padding-right: 0.875rem; border-radius: 0.5rem; font-size: 0.875rem; }
-    .btn-md { height: 2.625rem; padding-left: 1.125rem; padding-right: 1.125rem; border-radius: 0.5rem; font-size: 0.875rem; }
-  </style>
-</head>
-<body class="min-h-screen flex flex-col justify-between selection:bg-emerald-brand selection:text-white antialiased">
-
-  <!-- Accessibility Skip Link -->
-  <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-neutral-900 focus:text-white focus:rounded-md focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-emerald-500">Skip to main content</a>
-
-  <!-- ==================== HEADER / NAVBAR ==================== -->
-  <header class="w-full border-b border-neutral-200/70 bg-white/90 backdrop-blur-md sticky top-0 z-40">
-    <div class="max-w-7xl mx-auto px-6 sm:px-10 h-16 flex items-center justify-between">
-      <a href="index.html" class="flex items-center gap-2 group">
-        <img src="finalitie-logo.svg" alt="Finalitie - Web design and development studio" width="8" height="18" class="h-[18px] w-auto">
-        <span class="font-bold text-sm tracking-[0.11em] text-neutral-950 uppercase">FINALITIE</span>
-      </a>
-
-      <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-neutral-600">
-        <a href="index.html#projects" class="hover:text-neutral-950 transition-colors">Projects</a>
-        <a href="index.html#services" class="hover:text-neutral-950 transition-colors">Services</a>
-        <a href="index.html#pricing" class="hover:text-neutral-950 transition-colors">Pricing</a>
-        <a href="blog.html" class="text-neutral-950 font-semibold">Blog</a>
-        <a href="index.html#contact" class="hover:text-neutral-950 transition-colors">Contact</a>
-      </nav>
-
-      <div class="flex items-center gap-3">
-        <a href="index.html#contact" class="btn-shadcn btn-primary btn-sm hidden sm:inline-flex">
-          Free Consultation
-        </a>
-        
-        <button id="mobile-menu-btn" type="button" aria-label="Toggle navigation menu" class="md:hidden p-2 rounded-lg text-neutral-700 hover:bg-neutral-100 transition-colors">
-          <svg id="hamburger-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
-          <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-          </svg>
-        </button>
-      </div>
-    </div>
-
-    <div id="mobile-menu" class="hidden md:hidden border-t border-neutral-200/80 bg-white/95 backdrop-blur-md px-6 py-5 shadow-lg">
-      <nav class="flex flex-col space-y-3.5 text-base font-medium text-neutral-700">
-        <a href="index.html#projects" class="mobile-nav-link hover:text-emerald-brand py-1 transition-colors">Projects</a>
-        <a href="index.html#services" class="mobile-nav-link hover:text-emerald-brand py-1 transition-colors">Services</a>
-        <a href="index.html#pricing" class="mobile-nav-link hover:text-emerald-brand py-1 transition-colors">Pricing</a>
-        <a href="blog.html" class="mobile-nav-link text-emerald-brand font-semibold py-1 transition-colors">Blog</a>
-        <a href="index.html#faq" class="mobile-nav-link hover:text-emerald-brand py-1 transition-colors">FAQ</a>
-        <a href="index.html#contact" class="mobile-nav-link hover:text-emerald-brand py-1 transition-colors">Contact</a>
-        <div class="pt-2">
-          <a href="index.html#contact" class="mobile-nav-link btn-shadcn btn-primary btn-md w-full justify-center text-center">
-            Free Consultation
-          </a>
-        </div>
-      </nav>
-    </div>
-  </header>
-
-  <!-- Main landmark for accessibility -->
-  <main id="main-content">
-
-  <!-- ==================== BLOG HERO ==================== -->
-  <section class="max-w-7xl mx-auto px-6 sm:px-10 pt-16 pb-12 w-full">
-    <div class="max-w-3xl">
-      <div class="badge-section mb-5">
-        <span class="badge-section-gradient">Articles & Knowledge</span>
-      </div>
-      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-medium text-neutral-950 tracking-tight leading-[1.1] mb-5">
-        Insights on Web Design, SEO & Digital Growth
-      </h1>
-      <p class="text-lg text-neutral-600 leading-relaxed font-normal">
-        In-depth guides, practical case studies, and actionable advice to help businesses build high-converting websites and attract more paying clients.
-      </p>
-    </div>
-
-    <!-- Category Filter Pills -->
-    <div class="flex flex-wrap items-center gap-2 pt-10 border-b border-neutral-200/70 pb-6">
-      <button class="category-pill px-4 py-1.5 rounded-lg bg-neutral-950 text-white text-xs font-medium transition-colors" data-cat="all">All Articles</button>
-      <button class="category-pill px-4 py-1.5 rounded-lg bg-surface-50 hover:bg-neutral-100 text-neutral-700 text-xs font-medium border border-neutral-200 transition-colors" data-cat="SEO">SEO</button>
-      <button class="category-pill px-4 py-1.5 rounded-lg bg-surface-50 hover:bg-neutral-100 text-neutral-700 text-xs font-medium border border-neutral-200 transition-colors" data-cat="Business Growth">Business Growth</button>
-      <button class="category-pill px-4 py-1.5 rounded-lg bg-surface-50 hover:bg-neutral-100 text-neutral-700 text-xs font-medium border border-neutral-200 transition-colors" data-cat="Web Design">Web Design</button>
-    </div>
-  </section>
-
-  <!-- ==================== ARTICLES GRID ==================== -->
-  <section class="max-w-7xl mx-auto px-6 sm:px-10 pb-24 w-full flex-1">
-    <h2 class="sr-only">All Articles</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="articles-container">
-      <!-- Article: some new articale doesnt matter  -->
-      <a href="blog/some-new-articale-doesnt-matter.html" class="article-card group p-6 rounded-2xl bg-white border border-neutral-200 card-shadcn card-shadcn-hover flex flex-col justify-between cursor-pointer block text-inherit no-underline" data-category="Web Design">
-        <div>
-          <div class="w-full h-48 rounded-xl overflow-hidden mb-5 bg-neutral-100 border border-neutral-100">
-            <img 
-              src="images/hero-silver-stairs-blocks.png" 
-              alt="some new articale doesnt matter " 
-              width="1000" 
-              height="667" 
-              decoding="async"
-              class="w-full h-full object-cover grayscale contrast-125 transition-all duration-300" 
-              loading="lazy"
-            >
-          </div>
-          <div class="flex items-center justify-between mb-3.5 text-xs text-neutral-500 font-medium">
-            <div class="badge-section">
-              <span class="badge-section-solid font-semibold">Web Design</span>
-            </div>
-            <span>Oct 30, 2026</span>
-          </div>
-          <h3 class="text-xl font-medium text-neutral-950 group-hover:text-emerald-brand transition-colors mb-2.5 leading-snug">
-            some new articale doesnt matter 
-          </h3>
-          <p class="text-sm text-neutral-600 leading-relaxed font-normal">
-            asdasdasdasdasd
-          </p>
-        </div>
-        <div class="pt-5 mt-5 border-t border-neutral-100 flex items-center justify-between text-xs text-neutral-500">
-          <span>by Kamil</span>
-          <span class="font-medium text-neutral-900 group-hover:text-emerald-brand transition-colors">Read Article &rarr;</span>
-        </div>
-      </a>
-
-      <!-- Article: Custom Website vs WordPress Template -->
-      <a href="blog/custom-website-vs-wordpress-template.html" class="article-card group p-6 rounded-2xl bg-white border border-neutral-200 card-shadcn card-shadcn-hover flex flex-col justify-between cursor-pointer block text-inherit no-underline" data-category="Web Design">
-        <div>
-          <div class="w-full h-48 rounded-xl overflow-hidden mb-5 bg-neutral-100 border border-neutral-100">
-            <img 
-              src="images/UX8TVZdzOAePEbH2W2z2Znd3tA.jpg" 
-              alt="Custom Website vs WordPress Template" 
-              width="1000" 
-              height="667" 
-              decoding="async"
-              class="w-full h-full object-cover grayscale contrast-125 transition-all duration-300" 
-              loading="lazy"
-            >
-          </div>
-          <div class="flex items-center justify-between mb-3.5 text-xs text-neutral-500 font-medium">
-            <div class="badge-section">
-              <span class="badge-section-solid font-semibold">Web Design</span>
-            </div>
-            <span>Sep 6, 2026</span>
-          </div>
-          <h3 class="text-xl font-medium text-neutral-950 group-hover:text-emerald-brand transition-colors mb-2.5 leading-snug">
-            Custom Website vs WordPress Template
-          </h3>
-          <p class="text-sm text-neutral-600 leading-relaxed font-normal">
-            Templates cost less upfront but more long-term. Custom sites bring better ROI through speed and SEO.
-          </p>
-        </div>
-        <div class="pt-5 mt-5 border-t border-neutral-100 flex items-center justify-between text-xs text-neutral-500">
-          <span>by Kamil</span>
-          <span class="font-medium text-neutral-900 group-hover:text-emerald-brand transition-colors">Read Article &rarr;</span>
-        </div>
-      </a>
-
-      <!-- Article: Why Every Business Needs a Website -->
-      <a href="blog/why-every-business-needs-a-website.html" class="article-card group p-6 rounded-2xl bg-white border border-neutral-200 card-shadcn card-shadcn-hover flex flex-col justify-between cursor-pointer block text-inherit no-underline" data-category="Business Growth">
-        <div>
-          <div class="w-full h-48 rounded-xl overflow-hidden mb-5 bg-neutral-100 border border-neutral-100">
-            <img 
-              src="images/lJz1YNuOJsmllMOCqSPKGDQOtA.jpg" 
-              alt="Why Every Business Needs a Website" 
-              width="1000" 
-              height="667" 
-              decoding="async"
-              class="w-full h-full object-cover grayscale contrast-125 transition-all duration-300" 
-              loading="lazy"
-            >
-          </div>
-          <div class="flex items-center justify-between mb-3.5 text-xs text-neutral-500 font-medium">
-            <div class="badge-section">
-              <span class="badge-section-solid font-semibold">Business Growth</span>
-            </div>
-            <span>Jul 8, 2026</span>
-          </div>
-          <h3 class="text-xl font-medium text-neutral-950 group-hover:text-emerald-brand transition-colors mb-2.5 leading-snug">
-            Why Every Business Needs a Website
-          </h3>
-          <p class="text-sm text-neutral-600 leading-relaxed font-normal">
-            Why a professional website brings more customers and helps you beat competitors online.
-          </p>
-        </div>
-        <div class="pt-5 mt-5 border-t border-neutral-100 flex items-center justify-between text-xs text-neutral-500">
-          <span>by Kamil</span>
-          <span class="font-medium text-neutral-900 group-hover:text-emerald-brand transition-colors">Read Article &rarr;</span>
-        </div>
-      </a>
-
-      <!-- Article: SEO Basics Every Business Owner Should Know -->
-      <a href="blog/seo-basics-every-business-owner-should-know.html" class="article-card group p-6 rounded-2xl bg-white border border-neutral-200 card-shadcn card-shadcn-hover flex flex-col justify-between cursor-pointer block text-inherit no-underline" data-category="SEO">
-        <div>
-          <div class="w-full h-48 rounded-xl overflow-hidden mb-5 bg-neutral-100 border border-neutral-100">
-            <img 
-              src="images/JCCcDDTMhZn6T2xZAW5O8nRLM.jpg" 
-              alt="SEO Basics Every Business Owner Should Know" 
-              width="1000" 
-              height="667" 
-              decoding="async"
-              class="w-full h-full object-cover grayscale contrast-125 transition-all duration-300" 
-              loading="lazy"
-            >
-          </div>
-          <div class="flex items-center justify-between mb-3.5 text-xs text-neutral-500 font-medium">
-            <div class="badge-section">
-              <span class="badge-section-solid font-semibold">SEO</span>
-            </div>
-            <span>Feb 10, 2026</span>
-          </div>
-          <h3 class="text-xl font-medium text-neutral-950 group-hover:text-emerald-brand transition-colors mb-2.5 leading-snug">
-            SEO Basics Every Business Owner Should Know
-          </h3>
-          <p class="text-sm text-neutral-600 leading-relaxed font-normal">
-            Understanding basic SEO helps you rank higher in Google and get found by customers actively searching for what you offer.
-          </p>
-        </div>
-        <div class="pt-5 mt-5 border-t border-neutral-100 flex items-center justify-between text-xs text-neutral-500">
-          <span>by Kamil</span>
-          <span class="font-medium text-neutral-900 group-hover:text-emerald-brand transition-colors">Read Article &rarr;</span>
-        </div>
-      </a>
-    </div>
-  </section>
-
-  <!-- ==================== FINAL CTA BANNER ==================== -->
-  <section class="w-full bg-[#f9f9f9] border-t border-neutral-200/50 py-16 sm:py-24">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-      <div class="w-full rounded-2xl text-white p-8 sm:p-12 lg:p-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-8 relative overflow-hidden shadow-xl" style="background: linear-gradient(104deg, rgb(0, 71, 45) 0%, rgb(9, 128, 84) 100%); border-radius: 16px; color: #ffffff;">
-        <div class="max-w-2xl text-left text-white" style="color: #ffffff;">
-          <h2 class="text-3xl sm:text-4xl lg:text-[38px] font-semibold text-white mb-3.5 leading-tight tracking-tight">
-            Ready to Get More Customers?
-          </h2>
-          <p class="text-sm sm:text-base text-neutral-200 leading-relaxed font-normal max-w-xl">
-            Every day without a professional website, potential customers go somewhere else. Get found in Google, build trust instantly, and turn visitors into paying customers.
-          </p>
-        </div>
-        <div class="shrink-0 flex items-center justify-end text-white" style="color: #ffffff;">
-          <a href="index.html#contact" class="inline-flex items-center justify-center px-7 py-3.5 rounded-lg bg-white text-neutral-950 font-medium text-sm sm:text-base shadow-sm hover:bg-neutral-100 hover:shadow transition-all whitespace-nowrap" style="background-color: #ffffff; color: #09090b;">
-            Get Your Website
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  </main>
-
-  <!-- ==================== FOOTER ==================== -->
-  <footer class="w-full border-t border-neutral-200/70 py-12 text-xs text-neutral-500 bg-white">
-    <div class="max-w-7xl mx-auto px-6 sm:px-10 flex flex-col sm:flex-row items-center justify-between gap-6">
-      <div class="flex items-center gap-3">
-        <div class="flex items-center gap-2">
-          <img src="finalitie-logo.svg" alt="Finalitie - Web design and development studio" width="8" height="18" loading="lazy" class="h-4 w-auto">
-          <span class="font-bold text-xs tracking-[0.11em] text-neutral-950 uppercase">FINALITIE</span>
-        </div>
-        <span>&middot;</span>
-        <span>&copy; 2026 Finalitie. All rights reserved.</span>
-        <span>&middot;</span>
-        <a href="privacy-policy.html" class="hover:text-neutral-950 transition-colors">Privacy Policy</a>
-      </div>
-      <div class="flex items-center gap-6">
-        <a href="index.html#projects" class="hover:text-neutral-950 transition-colors">Projects</a>
-        <a href="index.html#pricing" class="hover:text-neutral-950 transition-colors">Pricing</a>
-        <a href="index.html#contact" class="hover:text-neutral-950 transition-colors">Contact</a>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Sanity CMS Client Integration -->
-  <script src="sanity-client.js"></script>
-  <script>
-    // Mobile Navigation Menu Toggle Handler
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const hamburgerIcon = document.getElementById('hamburger-icon');
-    const closeIcon = document.getElementById('close-icon');
-
-    if (mobileMenuBtn && mobileMenu) {
-      mobileMenuBtn.addEventListener('click', () => {
-        const isHidden = mobileMenu.classList.contains('hidden');
-        if (isHidden) {
-          mobileMenu.classList.remove('hidden');
-          hamburgerIcon.classList.add('hidden');
-          closeIcon.classList.remove('hidden');
-        } else {
-          mobileMenu.classList.add('hidden');
-          hamburgerIcon.classList.remove('hidden');
-          closeIcon.classList.add('hidden');
-        }
-      });
+      color: #09090b !important;
+      font-weight: 600 !important;
+      letter-spacing: -0.01em !important;
+      display: inline-block !important;
+      background: none !important;
+      -webkit-text-fill-color: #09090b !important;
+    });
 
       document.querySelectorAll('.mobile-nav-link').forEach((link) => {
         link.addEventListener('click', () => {

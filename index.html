@@ -217,7 +217,7 @@
       font-size: 0.9375rem;
     }
 
-    /* Framer Exact Section Badges - Czysty, jednolity ciemny grafit / zero glow na środku */
+    /* Framer Exact Section Badges - Unified Silver Metallic Capsule Aesthetic */
     .badge-section {
       display: inline-flex;
       align-items: center;
@@ -226,16 +226,19 @@
       border-radius: 9999px;
       font-size: 12px;
       line-height: 1.4;
+      font-weight: 600;
       letter-spacing: -0.01em;
-      background: #f4f4f5 !important;
-      border: 1px solid #e4e4e7 !important;
-      box-shadow: none !important;
+      background: linear-gradient(180deg, #ffffff 0%, #fafafa 45%, #f4f4f5 100%) !important;
+      border: 1px solid rgba(228, 228, 231, 0.95) !important;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), inset 0 1px 0 rgba(255, 255, 255, 1) !important;
+      color: #09090b !important;
       user-select: none;
-      transition: all 0.2s ease;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .badge-section:hover {
       border-color: #d4d4d8 !important;
-      background: #ebebef !important;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05), inset 0 1px 0 rgba(255, 255, 255, 1) !important;
+      background: linear-gradient(180deg, #ffffff 0%, #f4f4f5 45%, #ececee 100%) !important;
     }
     .badge-section-solid,
     .badge-section-gradient {
@@ -354,16 +357,16 @@
       box-shadow: 0 0 0 1px #09090b;
     }
 
-    /* Kontener sceny 3D Hero - Pełne schody (wszystkie stopnie nienaruszone) prosto na linii dividera */
+    /* Kontener sceny 3D Hero - Ściśle dopasowany do tekstu (32px odstępu, naturalny margines po prawej) */
     .hero-stairs-stage {
       position: relative;
       width: 100%;
       max-width: 580px;
-      aspect-ratio: 1 / 1;
+      aspect-ratio: 1200 / 974;
       background: transparent;
       display: flex;
       align-items: flex-end;
-      justify-content: center;
+      justify-content: flex-start;
       user-select: none;
       margin-bottom: 0 !important;
       padding-bottom: 0 !important;
@@ -373,21 +376,27 @@
       width: 100%;
       height: 100%;
       object-fit: contain;
-      object-position: bottom center;
+      object-position: bottom left;
       display: block;
       filter: brightness(1.025) contrast(1.025);
       mix-blend-mode: multiply;
       pointer-events: none;
-      /* Niwelacja pustego marginesu u dołu klatki wideo - podstawa schodków styka się prosto z dividerem (0px) */
-      transform: translateY(5.8%);
+      transform: none;
     }
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
       .hero-stairs-stage {
-        max-width: 440px;
+        max-width: 500px;
+        margin: 0 auto;
+        justify-content: center;
       }
       #hero-silver-video,
       #hero-fallback-img {
-        transform: translateY(3%);
+        object-position: bottom center;
+      }
+    }
+    @media (max-width: 768px) {
+      .hero-stairs-stage {
+        max-width: 420px;
       }
     }
   </style>
@@ -437,12 +446,12 @@
     <!-- Mobile Navigation Drawer -->
     <div id="mobile-menu" class="hidden md:hidden border-t border-neutral-200/80 bg-white/95 backdrop-blur-md px-6 py-5 shadow-lg">
       <nav class="flex flex-col space-y-3.5 text-base font-medium text-neutral-700">
-        <a href="#projects" class="mobile-nav-link hover:text-emerald-brand py-1 transition-colors">Projects</a>
-        <a href="#services" class="mobile-nav-link hover:text-emerald-brand py-1 transition-colors">Services</a>
-        <a href="#pricing" class="mobile-nav-link hover:text-emerald-brand py-1 transition-colors">Pricing</a>
-        <a href="blog.html" class="mobile-nav-link hover:text-emerald-brand py-1 transition-colors">Blog</a>
-        <a href="#faq" class="mobile-nav-link hover:text-emerald-brand py-1 transition-colors">FAQ</a>
-        <a href="#contact" class="mobile-nav-link hover:text-emerald-brand py-1 transition-colors">Contact</a>
+        <a href="#projects" class="mobile-nav-link hover:text-neutral-950 py-1 transition-colors">Projects</a>
+        <a href="#services" class="mobile-nav-link hover:text-neutral-950 py-1 transition-colors">Services</a>
+        <a href="#pricing" class="mobile-nav-link hover:text-neutral-950 py-1 transition-colors">Pricing</a>
+        <a href="blog.html" class="mobile-nav-link hover:text-neutral-950 py-1 transition-colors">Blog</a>
+        <a href="#faq" class="mobile-nav-link hover:text-neutral-950 py-1 transition-colors">FAQ</a>
+        <a href="#contact" class="mobile-nav-link hover:text-neutral-950 py-1 transition-colors">Contact</a>
         <div class="pt-2">
           <a href="#contact" class="mobile-nav-link btn-shadcn btn-primary btn-md w-full justify-center text-center">
             Free Consultation
@@ -455,84 +464,83 @@
   <!-- Main landmark for accessibility -->
   <main id="main-content">
 
-  <!-- ==================== 1. HERO SECTION ==================== -->
-  <section class="max-w-7xl mx-auto px-6 sm:px-10 w-full pt-8 pb-0 lg:pt-14 lg:pb-0">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-end w-full">
-      
-      <!-- Left Hero Content -->
-      <div class="lg:col-span-6 flex flex-col items-start text-left z-10 pb-12 lg:pb-24 pt-4">
+  <!-- ==================== 1. HERO SECTION (White Background - Zebra 1) ==================== -->
+  <section class="w-full bg-white pt-8 pb-0 lg:pt-14 lg:pb-0 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 sm:px-10">
+      <div class="flex flex-col lg:flex-row items-end justify-start relative w-full gap-8 lg:gap-8 xl:gap-12">
         
-        <!-- Announcement Pill (Clean Minimalist Silver / Graphite - No Glow) -->
-        <a href="#projects" class="inline-flex items-center gap-2.5 p-1 pr-3.5 rounded-full bg-white border border-neutral-200 hover:border-neutral-300 hover:bg-neutral-50 transition-all mb-7 group cursor-pointer shadow-[0_1px_2px_rgba(0,0,0,0.02)] no-underline">
-          <span class="px-2.5 py-0.5 rounded-full bg-zinc-900 text-white text-[11px] font-semibold tracking-wide select-none flex items-center justify-center leading-tight">
-            Check!
-          </span>
-          <span class="text-[12px] font-medium text-neutral-600 group-hover:text-neutral-950 transition-colors leading-none">
-            Latest Projects
-          </span>
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" class="text-neutral-400 group-hover:text-neutral-950 group-hover:translate-x-0.5 transition-all" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M2.5 6h7M6.5 2.5l3.5 3.5-3.5 3.5"/>
-          </svg>
-        </a>
-
-        <!-- Main Headline: 56px, Medium, -0.03em tracking -->
-        <h1 class="text-4xl sm:text-5xl lg:text-[56px] text-neutral-950 font-medium tracking-tight leading-[1.1] mb-6">
-          Web Design and Development
-        </h1>
-
-        <!-- Subtitle (1:1 from Framer) -->
-        <p class="text-base sm:text-lg text-neutral-600 font-normal leading-relaxed max-w-lg mb-8">
-          Websites built to grow your business. Stand out from competitors, rank higher in search, and convert visitors into paying customers.
-        </p>
-
-        <!-- CTA Buttons (Shadcn Style) -->
-        <div class="flex flex-wrap items-center gap-3">
-          <a href="#contact" class="btn-shadcn btn-primary btn-lg shadow-sm">
-            Free Consultation
-          </a>
-          <a href="#projects" class="btn-shadcn btn-outline btn-lg">
-            Projects
-          </a>
-        </div>
-
-      </div>
-
-      <!-- Right Column: 3D HERO SECTION (SILVER METALLIC STAIRS - 0px SPACE TO DIVIDER) -->
-      <div class="lg:col-span-6 flex items-end justify-center lg:justify-end relative w-full pointer-events-auto select-none mb-0 pb-0">
-        <!-- Kontener 3D Hero: pełne schody z wszystkimi stopniami, dotykające linii dividera (0px) -->
-        <div class="hero-stairs-stage relative w-full aspect-square max-w-[580px] flex items-end justify-center mb-0 pb-0" id="hero-stairs-container">
+        <!-- Left Hero Content: ściśle dopasowany do tekstu (max-w-[460px]), bez sztucznej 600px pustki -->
+        <div class="w-full lg:w-[460px] xl:w-[480px] flex-shrink-0 flex flex-col items-start text-left z-10 pb-12 lg:pb-24 pt-4">
           
-          <!-- Natychmiastowy lokalny podgląd statyczny klatki początkowej (Zero-void guarantee) -->
-          <img 
-            id="hero-fallback-img" 
-            src="images/hero-silver-stairs-initial.png" 
-            alt="Finalitie 3D silver metallic stairs architecture" 
-            width="2400" 
-            height="2400"
-            fetchpriority="high"
-            loading="eager"
-            decoding="async"
-            class="w-full h-full object-contain pointer-events-none transition-opacity duration-500 ease-out z-10"
-            onerror="this.src='images/hero-silver-stairs-unfolded.png'"
-          />
+          <!-- Announcement Pill (Unified Silver Metallic Badge Theme) -->
+          <a href="#projects" class="inline-flex items-center gap-2.5 p-1 pr-3.5 rounded-full bg-white border border-zinc-200/90 hover:border-zinc-300 hover:bg-zinc-50/50 transition-all mb-7 group cursor-pointer shadow-[0_1px_2px_rgba(0,0,0,0.03)] no-underline">
+            <span class="badge-section !py-0.5 !px-2.5 !text-[11px] !font-semibold !leading-tight">
+              Check!
+            </span>
+            <span class="text-[12px] font-medium text-neutral-600 group-hover:text-neutral-950 transition-colors leading-none">
+              Latest Projects
+            </span>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" class="text-neutral-400 group-hover:text-neutral-950 group-hover:translate-x-0.5 transition-all" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2.5 6h7M6.5 2.5l3.5 3.5-3.5 3.5"/>
+            </svg>
+          </a>
 
-          <!-- Wideo 3D: rozwija się 1 raz i zatrzymuje na finalnej klatce (brak loop) -->
-          <video 
-            id="hero-silver-video"
-            poster="images/hero-silver-stairs-initial.png"
-            autoplay 
-            muted 
-            playsinline 
-            preload="auto"
-            class="relative z-20 w-full h-full object-contain pointer-events-none transition-opacity duration-500 ease-out opacity-0"
-          >
-            <source src="images/hero-silver-stairs.mp4" type="video/mp4" media="(min-width: 768px)">
-            <source src="images/hero-silver-stairs-mobile.mp4" type="video/mp4">
-            <source src="images/hero-silver-stairs.mp4" type="video/mp4">
-          </video>
+          <!-- Main Headline: 56px, Medium, -0.03em tracking -->
+          <h1 class="text-4xl sm:text-5xl lg:text-[54px] xl:text-[56px] text-neutral-950 font-medium tracking-tight leading-[1.1] mb-6">
+            Web Design and Development
+          </h1>
+
+          <!-- Subtitle -->
+          <p class="text-base sm:text-lg text-neutral-600 font-normal leading-relaxed max-w-lg mb-8">
+            Websites built to grow your business. Stand out from competitors, rank higher in search, and convert visitors into paying customers.
+          </p>
+
+          <!-- CTA Buttons (Shadcn Style) -->
+          <div class="flex flex-wrap items-center gap-3">
+            <a href="#contact" class="btn-shadcn btn-primary btn-lg shadow-sm">
+              Free Consultation
+            </a>
+            <a href="#projects" class="btn-shadcn btn-outline btn-lg">
+              Projects
+            </a>
+          </div>
+
         </div>
-      </div>
 
+        <!-- Right Column: 3D HERO SECTION (zaraz obok tekstu, naturalny 180px margines z prawej strony) -->
+        <div class="flex-1 flex items-end justify-start relative pointer-events-auto select-none mb-0 pb-0">
+          <div class="hero-stairs-stage relative w-full aspect-[1200/974] max-w-[560px] xl:max-w-[580px] flex items-end justify-start mb-0 pb-0" id="hero-stairs-container">
+            
+            <!-- Natychmiastowy lokalny podgląd statyczny klatki początkowej (Zero-void guarantee) -->
+            <img 
+              id="hero-fallback-img" 
+              src="images/hero-silver-stairs-opt-initial.png?v=2" 
+              alt="Finalitie 3D silver metallic stairs architecture" 
+              width="1200" 
+              height="974"
+              fetchpriority="high"
+              loading="eager"
+              decoding="async"
+              class="w-full h-full object-contain pointer-events-none transition-opacity duration-500 ease-out z-10"
+              onerror="this.src='images/hero-silver-stairs-opt-unfolded.png?v=2'"
+            />
+
+            <!-- Zoptymalizowane wideo 3D: 146 KB (zamiast 3.8 MB), 0px marginesu, lita podstawa bez mgły -->
+            <video 
+              id="hero-silver-video"
+              poster="images/hero-silver-stairs-opt-initial.png?v=2"
+              autoplay 
+              muted 
+              playsinline 
+              preload="auto"
+              class="relative z-20 w-full h-full object-contain pointer-events-none transition-opacity duration-500 ease-out opacity-0"
+            >
+              <source src="images/hero-silver-stairs-optimized.mp4?v=2" type="video/mp4">
+            </video>
+          </div>
+        </div>
+
+      </div>
     </div>
   </section>
 
@@ -655,8 +663,9 @@
   </section>
 
   <!-- ==================== 3. FEATURE HIGHLIGHTS / 3D STACKING CARDS (1:1 from Framer) ==================== -->
-  <section class="max-w-7xl mx-auto px-6 sm:px-10 py-24 w-full relative">
-    <div class="space-y-16 lg:space-y-20 pb-12">
+  <section class="w-full bg-white py-24 relative">
+    <div class="max-w-7xl mx-auto px-6 sm:px-10">
+      <div class="space-y-16 lg:space-y-20 pb-12">
       
       <!-- Stacking Card 1: Unmatched Performance (Lightning) -->
       <div class="sticky top-20 lg:top-24 rounded-[32px] bg-white border border-neutral-200/90 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.08)] p-8 sm:p-12 lg:p-16 min-h-[460px] flex items-center overflow-hidden transition-all">
@@ -739,10 +748,12 @@
       </div>
 
     </div>
+    </div>
   </section>
 
-  <!-- ==================== 4. SERVICES ("WHAT DO I OFFER") ==================== -->
-  <section class="max-w-7xl mx-auto px-6 sm:px-10 py-20 w-full" id="services">
+  <!-- ==================== 4. SERVICES (Surface Background - Zebra 4) ==================== -->
+  <section class="w-full bg-surface-100 border-y border-neutral-200/70 py-24" id="services">
+    <div class="max-w-7xl mx-auto px-6 sm:px-10">
     <div class="max-w-2xl mb-16">
       <div class="badge-section mb-4">
         <span class="badge-section-gradient">Services</span>
@@ -828,11 +839,13 @@
           </p>
         </div>
       </div>    </div>
+    </div>
   </section>
 
-  <!-- ==================== 5. PERFORMANCE & STATS (1:1 from Framer) ==================== -->
-  <section class="max-w-7xl mx-auto px-6 sm:px-10 py-20 lg:py-24 w-full">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+<!-- ==================== 5. PERFORMANCE & STATS (White Background - Zebra 5) ==================== -->
+  <section class="w-full bg-white py-20 lg:py-24">
+    <div class="max-w-7xl mx-auto px-6 sm:px-10">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
       
       <!-- Left side: Content -->
       <div class="max-w-xl">
@@ -863,12 +876,14 @@
         >
       </div>
 
+      </div>
     </div>
   </section>
 
-  <!-- ==================== 6. PORTFOLIO / LATEST PROJECTS (1:1 from Framer) ==================== -->
-  <section class="max-w-7xl mx-auto px-6 sm:px-10 py-20 w-full" id="projects">
-    <div class="max-w-2xl mb-14">
+  <!-- ==================== 6. PORTFOLIO / LATEST PROJECTS (Surface Background - Zebra 6) ==================== -->
+  <section class="w-full bg-surface-100 border-y border-neutral-200/70 py-24" id="projects">
+    <div class="max-w-7xl mx-auto px-6 sm:px-10">
+      <div class="max-w-2xl mb-14">
       <div class="badge-section mb-4">
         <span class="badge-section-gradient">Portfolio</span>
       </div>
@@ -890,7 +905,7 @@
         </div>
         <div class="p-7 flex flex-col justify-between flex-grow">
           <div>
-            <h3 class="text-xl font-semibold text-neutral-950 group-hover:text-emerald-brand transition-colors">MWiktor</h3>
+            <h3 class="text-xl font-semibold text-neutral-950 group-hover:text-neutral-600 transition-colors">MWiktor</h3>
             <p class="text-sm text-neutral-600 mt-2 font-normal leading-relaxed">
               Professional dark mode website for graphic designer with smooth gradient accents and bold, modern typography.
             </p>
@@ -910,7 +925,7 @@
         </div>
         <div class="p-7 flex flex-col justify-between flex-grow">
           <div>
-            <h3 class="text-xl font-semibold text-neutral-950 group-hover:text-emerald-brand transition-colors">Fizjoeverest</h3>
+            <h3 class="text-xl font-semibold text-neutral-950 group-hover:text-neutral-600 transition-colors">Fizjoeverest</h3>
             <p class="text-sm text-neutral-600 mt-2 font-normal leading-relaxed">
               Professional site that attracts local patients through Google search and builds trust with clear service information.
             </p>
@@ -930,7 +945,7 @@
         </div>
         <div class="p-7 flex flex-col justify-between flex-grow">
           <div>
-            <h3 class="text-xl font-semibold text-neutral-950 group-hover:text-emerald-brand transition-colors">Anderive</h3>
+            <h3 class="text-xl font-semibold text-neutral-950 group-hover:text-neutral-600 transition-colors">Anderive</h3>
             <p class="text-sm text-neutral-600 mt-2 font-normal leading-relaxed">
               Portfolio website showcasing work and expertise, helping win higher-paying clients through professional presentation.
             </p>
@@ -950,7 +965,7 @@
         </div>
         <div class="p-7 flex flex-col justify-between flex-grow">
           <div>
-            <h3 class="text-xl font-semibold text-neutral-950 group-hover:text-emerald-brand transition-colors">KursyBarberskie</h3>
+            <h3 class="text-xl font-semibold text-neutral-950 group-hover:text-neutral-600 transition-colors">KursyBarberskie</h3>
             <p class="text-sm text-neutral-600 mt-2 font-normal leading-relaxed">
               Course platform that turns website visitors into enrolled students and brings in more revenue.
             </p>
@@ -963,11 +978,12 @@
         </div>
       </a>
 
+      </div>
     </div>
   </section>
 
   <!-- ==================== 7. TRANSPARENT PRICING (1:1 from Framer) ==================== -->
-  <section class="w-full bg-surface-100 border-t border-neutral-200/70 py-24" id="pricing">
+  <section class="w-full bg-white py-24" id="pricing">
     <div class="max-w-7xl mx-auto px-6 sm:px-10">
       
       <div class="max-w-2xl mb-16 text-left">
@@ -996,19 +1012,19 @@
             </div>
             <ul class="space-y-3.5 text-sm text-neutral-700 border-t border-neutral-100 pt-6">
               <li class="flex items-center gap-2.5 font-normal">
-                <span class="text-emerald-brand font-medium">✓</span> Mobile responsive
+                <span class="text-neutral-950 font-medium">✓</span> Mobile responsive
               </li>
               <li class="flex items-center gap-2.5 font-normal">
-                <span class="text-emerald-brand font-medium">✓</span> Basic SEO setup
+                <span class="text-neutral-950 font-medium">✓</span> Basic SEO setup
               </li>
               <li class="flex items-center gap-2.5 font-normal">
-                <span class="text-emerald-brand font-medium">✓</span> Contact form
+                <span class="text-neutral-950 font-medium">✓</span> Contact form
               </li>
               <li class="flex items-center gap-2.5 font-normal">
-                <span class="text-emerald-brand font-medium">✓</span> CMS for updates
+                <span class="text-neutral-950 font-medium">✓</span> CMS for updates
               </li>
               <li class="flex items-center gap-2.5 font-normal">
-                <span class="text-emerald-brand font-medium">✓</span> Blog functionality
+                <span class="text-neutral-950 font-medium">✓</span> Blog functionality
               </li>
             </ul>
           </div>
@@ -1017,49 +1033,50 @@
           </a>
         </div>
 
-        <!-- Advanced Tier (Highlighted with Green Gradient) -->
-        <div class="p-8 sm:p-9 rounded-2xl text-white border border-emerald-brand/30 flex flex-col justify-between shadow-xl relative card-shadcn card-shadcn-hover" style="background: linear-gradient(180deg, rgb(0, 71, 45) 0%, rgb(43, 181, 131) 100%);">
+        <!-- Advanced Tier (Highlighted with Silver Metallic Gradient) -->
+        <div class="p-8 sm:p-9 rounded-2xl text-neutral-950 flex flex-col justify-between relative card-shadcn card-shadcn-hover overflow-hidden" style="background: linear-gradient(180deg, #ffffff 0%, #f4f5f8 35%, #e5e7ec 70%, #d8dbe2 100%); box-shadow: 0 20px 45px -12px rgba(0,0,0,0.09), inset 0 1px 0 rgba(255,255,255,1); border: 1px solid #cbd0d8;">
           <div>
-            <div class="mb-4">
-              <span class="text-xl font-medium text-[#a7f3d0]">Advanced</span>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xl font-semibold text-neutral-950">Advanced</span>
+              <span class="badge-section !py-0.5 !px-2.5 !text-[11px] !font-semibold">Most Popular</span>
             </div>
             <div class="flex items-baseline gap-1 mb-6">
-              <span class="text-4xl sm:text-5xl font-medium text-white tracking-tight">$3500</span>
+              <span class="text-4xl sm:text-5xl font-medium text-neutral-950 tracking-tight">$3500</span>
             </div>
-            <ul class="space-y-3.5 text-sm text-white/95 border-t border-white/20 pt-6">
+            <ul class="space-y-3.5 text-sm text-neutral-700 border-t border-zinc-300/80 pt-6">
               <li class="flex items-center gap-2.5 font-normal">
-                <span class="text-white font-medium">✓</span> Mobile responsive
+                <span class="text-neutral-950 font-bold">✓</span> Mobile responsive
               </li>
               <li class="flex items-center gap-2.5 font-normal">
-                <span class="text-white font-medium">✓</span> Advanced SEO optimization
+                <span class="text-neutral-950 font-bold">✓</span> Advanced SEO optimization
               </li>
               <li class="flex items-center gap-2.5 font-normal">
-                <span class="text-white font-medium">✓</span> Contact form
+                <span class="text-neutral-950 font-bold">✓</span> Contact form
               </li>
               <li class="flex items-center gap-2.5 font-normal">
-                <span class="text-white font-medium">✓</span> CMS for updates
+                <span class="text-neutral-950 font-bold">✓</span> CMS for updates
               </li>
               <li class="flex items-center gap-2.5 font-normal">
-                <span class="text-white font-medium">✓</span> Form
+                <span class="text-neutral-950 font-bold">✓</span> Form
               </li>
               <li class="flex items-center gap-2.5 font-normal">
-                <span class="text-white font-medium">✓</span> Map
+                <span class="text-neutral-950 font-bold">✓</span> Map
               </li>
               <li class="flex items-center gap-2.5 font-normal">
-                <span class="text-white font-medium">✓</span> Blog functionality
+                <span class="text-neutral-950 font-bold">✓</span> Blog functionality
               </li>
               <li class="flex items-center gap-2.5 font-normal">
-                <span class="text-white font-medium">✓</span> Other functionalities
+                <span class="text-neutral-950 font-bold">✓</span> Other functionalities
               </li>
               <li class="flex items-center gap-2.5 font-normal">
-                <span class="text-white font-medium">✓</span> Animations
+                <span class="text-neutral-950 font-bold">✓</span> Animations
               </li>
               <li class="flex items-center gap-2.5 font-normal">
-                <span class="text-white font-medium">✓</span> More revisions
+                <span class="text-neutral-950 font-bold">✓</span> More revisions
               </li>
             </ul>
           </div>
-          <a href="#contact" class="w-full mt-8 py-3.5 px-6 rounded-xl bg-neutral-950 text-white font-medium text-sm text-center hover:bg-black transition-all block shadow-md">
+          <a href="#contact" class="w-full mt-8 py-3.5 px-6 rounded-xl bg-neutral-950 text-white font-medium text-sm text-center hover:bg-neutral-800 transition-all block shadow-sm">
             Get Your Website
           </a>
         </div>
@@ -1075,13 +1092,13 @@
             </div>
             <ul class="space-y-3.5 text-sm text-neutral-700 border-t border-neutral-100 pt-6">
               <li class="flex items-center gap-2.5 font-normal text-neutral-800">
-                <span class="text-emerald-brand font-medium">✓</span> Everything in Professional, plus:
+                <span class="text-neutral-950 font-medium">✓</span> Everything in Professional, plus:
               </li>
               <li class="flex items-center gap-2.5 font-normal">
-                <span class="text-emerald-brand font-medium">✓</span> Unlimited pages
+                <span class="text-neutral-950 font-medium">✓</span> Unlimited pages
               </li>
               <li class="flex items-center gap-2.5 font-normal">
-                <span class="text-emerald-brand font-medium">✓</span> 3D elements & complex animations
+                <span class="text-neutral-950 font-medium">✓</span> 3D elements & complex animations
               </li>
             </ul>
           </div>
@@ -1094,9 +1111,10 @@
     </div>
   </section>
 
-  <!-- ==================== 8. BLOG / LATEST ARTICLES (1:1 from Framer) ==================== -->
-  <section class="max-w-7xl mx-auto px-6 sm:px-10 py-24 w-full" id="blog">
-    <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-14 gap-6">
+  <!-- ==================== 8. BLOG / LATEST ARTICLES (Surface Background - Zebra 8) ==================== -->
+  <section class="w-full bg-surface-100 border-y border-neutral-200/70 py-24" id="blog">
+    <div class="max-w-7xl mx-auto px-6 sm:px-10">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-14 gap-6">
       <div class="max-w-2xl">
         <div class="badge-section mb-4">
           <span class="badge-section-gradient">Blog</span>
@@ -1137,7 +1155,7 @@
             </div>
             <span>Oct 30, 2026</span>
           </div>
-          <h3 class="text-xl font-medium text-neutral-950 group-hover:text-emerald-brand transition-colors mb-2.5 leading-snug">
+          <h3 class="text-xl font-medium text-neutral-950 group-hover:text-neutral-600 transition-colors mb-2.5 leading-snug">
             some new articale doesnt matter 
           </h3>
           <p class="text-sm text-neutral-600 leading-relaxed font-normal">
@@ -1146,7 +1164,7 @@
         </div>
         <div class="pt-5 mt-5 border-t border-neutral-100 flex items-center justify-between text-xs text-neutral-500">
           <span>by Kamil</span>
-          <span class="font-medium text-neutral-900 group-hover:text-emerald-brand transition-colors">Read Article &rarr;</span>
+          <span class="font-medium text-neutral-900 group-hover:text-neutral-600 transition-colors">Read Article &rarr;</span>
         </div>
       </a>
 
@@ -1170,7 +1188,7 @@
             </div>
             <span>Sep 6, 2026</span>
           </div>
-          <h3 class="text-xl font-medium text-neutral-950 group-hover:text-emerald-brand transition-colors mb-2.5 leading-snug">
+          <h3 class="text-xl font-medium text-neutral-950 group-hover:text-neutral-600 transition-colors mb-2.5 leading-snug">
             Custom Website vs WordPress Template
           </h3>
           <p class="text-sm text-neutral-600 leading-relaxed font-normal">
@@ -1179,7 +1197,7 @@
         </div>
         <div class="pt-5 mt-5 border-t border-neutral-100 flex items-center justify-between text-xs text-neutral-500">
           <span>by Kamil</span>
-          <span class="font-medium text-neutral-900 group-hover:text-emerald-brand transition-colors">Read Article &rarr;</span>
+          <span class="font-medium text-neutral-900 group-hover:text-neutral-600 transition-colors">Read Article &rarr;</span>
         </div>
       </a>
 
@@ -1203,7 +1221,7 @@
             </div>
             <span>Jul 8, 2026</span>
           </div>
-          <h3 class="text-xl font-medium text-neutral-950 group-hover:text-emerald-brand transition-colors mb-2.5 leading-snug">
+          <h3 class="text-xl font-medium text-neutral-950 group-hover:text-neutral-600 transition-colors mb-2.5 leading-snug">
             Why Every Business Needs a Website
           </h3>
           <p class="text-sm text-neutral-600 leading-relaxed font-normal">
@@ -1212,15 +1230,17 @@
         </div>
         <div class="pt-5 mt-5 border-t border-neutral-100 flex items-center justify-between text-xs text-neutral-500">
           <span>by Kamil</span>
-          <span class="font-medium text-neutral-900 group-hover:text-emerald-brand transition-colors">Read Article &rarr;</span>
+          <span class="font-medium text-neutral-900 group-hover:text-neutral-600 transition-colors">Read Article &rarr;</span>
         </div>
       </a>
+      </div>
     </div>
   </section>
 
-  <!-- ==================== 9. FAQ SECTION (1:1 from Framer) ==================== -->
-  <section class="max-w-3xl mx-auto px-6 sm:px-10 py-24 w-full" id="faq">
-    <div class="text-center mb-16">
+  <!-- ==================== 9. FAQ SECTION (White Background - Zebra 9) ==================== -->
+  <section class="w-full bg-white py-24" id="faq">
+    <div class="max-w-3xl mx-auto px-6 sm:px-10">
+      <div class="text-center mb-16">
       <div class="badge-section mb-4">
         <span class="badge-section-gradient">FAQ</span>
       </div>
@@ -1340,11 +1360,13 @@
       </a>
     </div>
 
+    </div>
   </section>
 
-  <!-- ==================== 10. CONTACT FORM SECTION (1:1 from Framer) ==================== -->
-  <section class="max-w-7xl mx-auto px-6 sm:px-10 py-20 w-full" id="contact">
-    <div class="max-w-2xl mb-12">
+  <!-- ==================== 10. CONTACT FORM SECTION (Surface Background - Zebra 10) ==================== -->
+  <section class="w-full bg-surface-100 border-y border-neutral-200/70 py-24" id="contact">
+    <div class="max-w-7xl mx-auto px-6 sm:px-10">
+      <div class="max-w-2xl mb-12">
       <div class="badge-section mb-4">
         <span class="badge-section-gradient">Contact</span>
       </div>
@@ -1360,14 +1382,14 @@
         
         <div class="p-6 rounded-2xl bg-white border border-neutral-200 card-shadcn">
           <span class="text-xs font-mono font-medium text-neutral-500 uppercase tracking-wider block mb-2">Chat</span>
-          <a href="mailto:kamilandreasik99@gmail.com" class="text-base font-medium text-neutral-950 hover:text-emerald-brand transition-colors break-all">
+          <a href="mailto:kamilandreasik99@gmail.com" class="text-base font-medium text-neutral-950 hover:text-neutral-950 transition-colors break-all">
             kamilandreasik99@gmail.com
           </a>
         </div>
 
         <div class="p-6 rounded-2xl bg-white border border-neutral-200 card-shadcn">
           <span class="text-xs font-mono font-medium text-neutral-500 uppercase tracking-wider block mb-2">Call</span>
-          <a href="tel:+48535070802" class="text-base font-medium text-neutral-950 hover:text-emerald-brand transition-colors">
+          <a href="tel:+48535070802" class="text-base font-medium text-neutral-950 hover:text-neutral-950 transition-colors">
             +48 535 070 802
           </a>
         </div>
@@ -1420,12 +1442,13 @@
       </div>
 
     </div>
+    </div>
   </section>
 
-  <!-- ==================== 11. FINAL CTA BANNER (1:1 from Framer) ==================== -->
-  <section class="w-full bg-[#f9f9f9] border-t border-neutral-200/50 py-16 sm:py-24">
+<!-- ==================== 11. FINAL CTA BANNER (1:1 from Framer) ==================== -->
+  <section class="w-full bg-white py-16 sm:py-24">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-      <div class="w-full rounded-2xl text-white p-8 sm:p-12 lg:p-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-8 relative overflow-hidden shadow-xl" style="background: linear-gradient(104deg, rgb(0, 71, 45) 0%, rgb(9, 128, 84) 100%); border-radius: 16px; color: #ffffff;">
+      <div class="w-full rounded-2xl text-white p-8 sm:p-12 lg:p-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-8 relative overflow-hidden shadow-xl" style="background: linear-gradient(104deg, #18181b 0%, #27272a 100%); border: 1px solid #3f3f46; border-radius: 16px; color: #ffffff;">
         <div class="max-w-2xl text-left text-white" style="color: #ffffff;">
           <h2 class="text-3xl sm:text-4xl lg:text-[38px] font-semibold text-white mb-3.5 leading-tight tracking-tight">
             Ready to Get More Customers?
@@ -1501,7 +1524,7 @@
         }).catch(() => {
           // Fallback z rozwiniętymi schodkami w razie blokady autoplay
           if (fallback) {
-            fallback.src = 'images/hero-silver-stairs-unfolded.png';
+            fallback.src = 'images/hero-silver-stairs-opt-unfolded.png';
           }
         });
       }
