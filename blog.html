@@ -74,35 +74,34 @@
     h2 { font-family: var(--font-geist); font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 500; letter-spacing: -0.025em; line-height: 1.2; }
     h3 { font-family: var(--font-geist); font-size: clamp(1.15rem, 2vw, 1.35rem); font-weight: 600; letter-spacing: -0.02em; line-height: 1.25; }
 
-    /* Framer Exact Section Badges (Refined Silver Metallic Pill Aesthetic) */
+    /* Framer Exact Section Badges (Clean Solid Graphite - Zero Glow / Light Center) */
     .badge-section {
       display: inline-flex;
       align-items: center;
       gap: 0.35rem;
-      padding: 4px 14px;
+      padding: 4px 13px;
       border-radius: 9999px;
       font-size: 12px;
       line-height: 1.4;
       letter-spacing: -0.01em;
-      background: linear-gradient(180deg, #ffffff 0%, #f4f4f6 100%);
-      border: 1px solid #e2e2e6;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03), inset 0 1px 0 rgba(255, 255, 255, 0.95);
+      background-color: #f4f4f5;
+      border: 1px solid #e4e4e7;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
       user-select: none;
-      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: all 0.2s ease;
     }
     .badge-section:hover {
-      border-color: #d1d1d6;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05), inset 0 1px 0 rgba(255, 255, 255, 1);
+      border-color: #d4d4d8;
+      background-color: #ebebef;
     }
     .badge-section-solid,
     .badge-section-gradient {
-      color: #27272a;
-      background: linear-gradient(135deg, #18181b 0%, #4b5563 35%, #94a3b8 65%, #18181b 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: #18181b;
       font-weight: 600;
       letter-spacing: -0.01em;
       display: inline-block;
+      background: none;
+      -webkit-text-fill-color: initial;
     }
 
     .card-shadcn { transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1); }
@@ -210,6 +209,39 @@
   <section class="max-w-7xl mx-auto px-6 sm:px-10 pb-24 w-full flex-1">
     <h2 class="sr-only">All Articles</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="articles-container">
+      <!-- Article: some new articale doesnt matter  -->
+      <a href="blog/some-new-articale-doesnt-matter.html" class="article-card group p-6 rounded-2xl bg-white border border-neutral-200 card-shadcn card-shadcn-hover flex flex-col justify-between cursor-pointer block text-inherit no-underline" data-category="Web Design">
+        <div>
+          <div class="w-full h-48 rounded-xl overflow-hidden mb-5 bg-neutral-100 border border-neutral-100">
+            <img 
+              src="images/hero-silver-stairs-blocks.png" 
+              alt="some new articale doesnt matter " 
+              width="1000" 
+              height="667" 
+              decoding="async"
+              class="w-full h-full object-cover grayscale contrast-125 transition-all duration-300" 
+              loading="lazy"
+            >
+          </div>
+          <div class="flex items-center justify-between mb-3.5 text-xs text-neutral-500 font-medium">
+            <div class="badge-section">
+              <span class="badge-section-solid font-semibold">Web Design</span>
+            </div>
+            <span>Oct 30, 2026</span>
+          </div>
+          <h3 class="text-xl font-medium text-neutral-950 group-hover:text-emerald-brand transition-colors mb-2.5 leading-snug">
+            some new articale doesnt matter 
+          </h3>
+          <p class="text-sm text-neutral-600 leading-relaxed font-normal">
+            asdasdasdasdasd
+          </p>
+        </div>
+        <div class="pt-5 mt-5 border-t border-neutral-100 flex items-center justify-between text-xs text-neutral-500">
+          <span>by Kamil</span>
+          <span class="font-medium text-neutral-900 group-hover:text-emerald-brand transition-colors">Read Article &rarr;</span>
+        </div>
+      </a>
+
       <!-- Article: Custom Website vs WordPress Template -->
       <a href="blog/custom-website-vs-wordpress-template.html" class="article-card group p-6 rounded-2xl bg-white border border-neutral-200 card-shadcn card-shadcn-hover flex flex-col justify-between cursor-pointer block text-inherit no-underline" data-category="Web Design">
         <div>

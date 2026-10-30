@@ -217,7 +217,7 @@
       font-size: 0.9375rem;
     }
 
-    /* Framer Exact Section Badges (Refined Silver Metallic Pill Aesthetic) */
+    /* Framer Exact Section Badges - Czysty, jednolity ciemny grafit / zero glow na środku */
     .badge-section {
       display: inline-flex;
       align-items: center;
@@ -227,25 +227,24 @@
       font-size: 12px;
       line-height: 1.4;
       letter-spacing: -0.01em;
-      background: linear-gradient(180deg, #ffffff 0%, #f4f4f6 100%);
-      border: 1px solid #e2e2e6;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03), inset 0 1px 0 rgba(255, 255, 255, 0.95);
+      background: #f4f4f5 !important;
+      border: 1px solid #e4e4e7 !important;
+      box-shadow: none !important;
       user-select: none;
-      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: all 0.2s ease;
     }
     .badge-section:hover {
-      border-color: #d1d1d6;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05), inset 0 1px 0 rgba(255, 255, 255, 1);
+      border-color: #d4d4d8 !important;
+      background: #ebebef !important;
     }
     .badge-section-solid,
     .badge-section-gradient {
-      color: #27272a;
-      background: linear-gradient(135deg, #18181b 0%, #4b5563 35%, #94a3b8 65%, #18181b 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-weight: 600;
-      letter-spacing: -0.01em;
-      display: inline-block;
+      color: #09090b !important;
+      font-weight: 600 !important;
+      letter-spacing: -0.01em !important;
+      display: inline-block !important;
+      background: none !important;
+      -webkit-text-fill-color: #09090b !important;
     }
 
     /* Shadcn Badges & Pills */
@@ -355,39 +354,40 @@
       box-shadow: 0 0 0 1px #09090b;
     }
 
-    /* Kontener sceny 3D Hero - Srebrne schody bez jakichkolwiek obramowań, idealnie na linii dividera */
+    /* Kontener sceny 3D Hero - Pełne schody (wszystkie stopnie nienaruszone) prosto na linii dividera */
     .hero-stairs-stage {
       position: relative;
       width: 100%;
+      max-width: 580px;
+      aspect-ratio: 1 / 1;
       background: transparent;
       display: flex;
       align-items: flex-end;
       justify-content: center;
-      overflow: visible;
       user-select: none;
+      margin-bottom: 0 !important;
+      padding-bottom: 0 !important;
     }
     #hero-silver-video,
     #hero-fallback-img {
       width: 100%;
       height: 100%;
-      max-width: 600px;
       object-fit: contain;
       object-position: bottom center;
       display: block;
-      /* Eliminacja obramowania / ramki / tła: tło #fafafa staje się czystym #ffffff i mnoży się z bielą */
       filter: brightness(1.025) contrast(1.025);
       mix-blend-mode: multiply;
       pointer-events: none;
-      /* Przesunięcie 4.6% niweluje dolny margines wewnątrz klatki 3D, kładąc schody bezpośrednio na linii dividera (0px) */
-      transform: translateY(4.6%);
-      -webkit-mask-image: radial-gradient(ellipse 94% 94% at 50% 50%, #000 78%, transparent 100%);
-      mask-image: radial-gradient(ellipse 94% 94% at 50% 50%, #000 78%, transparent 100%);
+      /* Niwelacja pustego marginesu u dołu klatki wideo - podstawa schodków styka się prosto z dividerem (0px) */
+      transform: translateY(5.8%);
     }
     @media (max-width: 768px) {
+      .hero-stairs-stage {
+        max-width: 440px;
+      }
       #hero-silver-video,
       #hero-fallback-img {
-        transform: translateY(2%);
-        max-width: 440px;
+        transform: translateY(3%);
       }
     }
   </style>
@@ -456,21 +456,21 @@
   <main id="main-content">
 
   <!-- ==================== 1. HERO SECTION ==================== -->
-  <section class="max-w-7xl mx-auto px-6 sm:px-10 w-full pt-8 pb-0 lg:pt-14 lg:pb-0 overflow-visible">
+  <section class="max-w-7xl mx-auto px-6 sm:px-10 w-full pt-8 pb-0 lg:pt-14 lg:pb-0">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-end w-full">
       
       <!-- Left Hero Content -->
       <div class="lg:col-span-6 flex flex-col items-start text-left z-10 pb-12 lg:pb-24 pt-4">
         
-        <!-- Announcement Pill (Silver Metallic Theme) -->
-        <a href="#projects" class="inline-flex items-center gap-2.5 p-1 pr-3.5 rounded-full bg-gradient-to-b from-white to-[#f8f8fa] border border-[#e2e2e5] hover:border-[#d1d1d6] hover:shadow-sm transition-all mb-7 group cursor-pointer shadow-[0_1px_2px_rgba(0,0,0,0.02)] no-underline">
-          <span class="px-2.5 py-0.5 rounded-full bg-gradient-to-r from-zinc-200 via-neutral-100 to-zinc-200 border border-zinc-300 text-[11px] font-semibold text-zinc-800 select-none flex items-center justify-center leading-tight shadow-[inset_0_1px_0_rgba(255,255,255,0.8)]">
-            <span class="bg-gradient-to-r from-zinc-900 via-zinc-600 to-zinc-900 bg-clip-text text-transparent">Check!</span>
+        <!-- Announcement Pill (Clean Minimalist Silver / Graphite - No Glow) -->
+        <a href="#projects" class="inline-flex items-center gap-2.5 p-1 pr-3.5 rounded-full bg-white border border-neutral-200 hover:border-neutral-300 hover:bg-neutral-50 transition-all mb-7 group cursor-pointer shadow-[0_1px_2px_rgba(0,0,0,0.02)] no-underline">
+          <span class="px-2.5 py-0.5 rounded-full bg-zinc-900 text-white text-[11px] font-semibold tracking-wide select-none flex items-center justify-center leading-tight">
+            Check!
           </span>
-          <span class="text-[12px] font-medium text-[#404040] group-hover:text-neutral-950 transition-colors leading-none">
+          <span class="text-[12px] font-medium text-neutral-600 group-hover:text-neutral-950 transition-colors leading-none">
             Latest Projects
           </span>
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" class="text-[#737373] group-hover:text-neutral-950 group-hover:translate-x-0.5 transition-all" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" class="text-neutral-400 group-hover:text-neutral-950 group-hover:translate-x-0.5 transition-all" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
             <path d="M2.5 6h7M6.5 2.5l3.5 3.5-3.5 3.5"/>
           </svg>
         </a>
@@ -498,9 +498,9 @@
       </div>
 
       <!-- Right Column: 3D HERO SECTION (SILVER METALLIC STAIRS - 0px SPACE TO DIVIDER) -->
-      <div class="lg:col-span-6 flex items-end justify-center lg:justify-end relative w-full overflow-visible pointer-events-auto select-none mb-0 pb-0">
-        <!-- Kontener 3D Hero bez obramowania, schodki rozwijają się raz i zostają -->
-        <div class="hero-stairs-stage relative w-full aspect-square max-w-[580px] flex items-end justify-center overflow-visible mb-0 pb-0" id="hero-stairs-container">
+      <div class="lg:col-span-6 flex items-end justify-center lg:justify-end relative w-full pointer-events-auto select-none mb-0 pb-0">
+        <!-- Kontener 3D Hero: pełne schody z wszystkimi stopniami, dotykające linii dividera (0px) -->
+        <div class="hero-stairs-stage relative w-full aspect-square max-w-[580px] flex items-end justify-center mb-0 pb-0" id="hero-stairs-container">
           
           <!-- Natychmiastowy lokalny podgląd statyczny klatki początkowej (Zero-void guarantee) -->
           <img 
@@ -512,7 +512,7 @@
             fetchpriority="high"
             loading="eager"
             decoding="async"
-            class="absolute inset-0 w-full h-full object-contain pointer-events-none transition-opacity duration-500 ease-out z-10"
+            class="w-full h-full object-contain pointer-events-none transition-opacity duration-500 ease-out z-10"
             onerror="this.src='images/hero-silver-stairs-unfolded.png'"
           />
 
@@ -553,16 +553,16 @@
         </p>
       </div>
 
-      <!-- 6 Benefits Cards Grid (1:1 from Framer) -->
+      <!-- 6 Benefits Cards Grid (Unified Silver-Polished Minimalist Icons) -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         
         <!-- Card 1 -->
-        <div class="p-8 rounded-2xl bg-white border border-neutral-200/80 card-shadcn card-shadcn-hover flex flex-col justify-between min-h-[250px]">
+        <div class="p-8 rounded-2xl bg-white border border-neutral-200/80 card-shadcn card-shadcn-hover flex flex-col justify-between min-h-[250px] group">
           <div>
-            <div class="w-6 h-6 mb-6 text-[#00472d] flex items-center justify-center">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00472d" stroke-width="1.5" stroke-miterlimit="10">
-                <circle cx="9.14" cy="9.14" r="7.64"/>
-                <line x1="22.5" y1="22.5" x2="14.39" y2="14.39"/>
+            <div class="w-11 h-11 mb-6 rounded-xl bg-gradient-to-b from-white via-zinc-50 to-zinc-100 border border-zinc-200/90 shadow-[0_1px_2px_rgba(0,0,0,0.04),inset_0_1px_0_rgba(255,255,255,1)] flex items-center justify-center text-zinc-900 group-hover:border-zinc-300 transition-all">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"/>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
               </svg>
             </div>
             <h3 class="text-xl font-semibold text-neutral-950 mb-2.5 tracking-tight">Get Found by More Customers</h3>
@@ -573,12 +573,12 @@
         </div>
 
         <!-- Card 2 -->
-        <div class="p-8 rounded-2xl bg-white border border-neutral-200/80 card-shadcn card-shadcn-hover flex flex-col justify-between min-h-[250px]">
+        <div class="p-8 rounded-2xl bg-white border border-neutral-200/80 card-shadcn card-shadcn-hover flex flex-col justify-between min-h-[250px] group">
           <div>
-            <div class="w-6 h-6 mb-6 text-[#00472d] flex items-center justify-center">
-              <svg width="24" height="24" viewBox="0 0 16 16" fill="#00472d">
-                <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z"/>
-                <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0"/>
+            <div class="w-11 h-11 mb-6 rounded-xl bg-gradient-to-b from-white via-zinc-50 to-zinc-100 border border-zinc-200/90 shadow-[0_1px_2px_rgba(0,0,0,0.04),inset_0_1px_0_rgba(255,255,255,1)] flex items-center justify-center text-zinc-900 group-hover:border-zinc-300 transition-all">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
               </svg>
             </div>
             <h3 class="text-xl font-semibold text-neutral-950 mb-2.5 tracking-tight">Work While You Sleep</h3>
@@ -589,11 +589,12 @@
         </div>
 
         <!-- Card 3 -->
-        <div class="p-8 rounded-2xl bg-white border border-neutral-200/80 card-shadcn card-shadcn-hover flex flex-col justify-between min-h-[250px]">
+        <div class="p-8 rounded-2xl bg-white border border-neutral-200/80 card-shadcn card-shadcn-hover flex flex-col justify-between min-h-[250px] group">
           <div>
-            <div class="w-6 h-6 mb-6 text-[#00472d] flex items-center justify-center">
-              <svg width="22" height="26" viewBox="0 0 22 26" fill="#00472d">
-                <path d="M 11 26 C 10.863 26 10.725 25.973 10.599 25.918 C 4.8 23.415 0 20.714 0 13 L 0 4.063 C 0 3.722 0.241 3.416 0.603 3.3 L 10.687 0.05 C 10.889 -0.017 11.111 -0.017 11.313 0.05 L 21.397 3.3 C 21.759 3.416 22 3.722 22 4.063 L 22 13 C 22 20.714 17.2 23.415 11.401 25.918 C 11.276 25.972 11.139 26 11 26 Z M 1.833 4.633 L 1.833 13 C 1.833 19.061 4.92 21.608 11 24.282 C 17.08 21.608 20.167 19.061 20.167 13 L 20.167 4.633 L 11 1.678 Z"/>
+            <div class="w-11 h-11 mb-6 rounded-xl bg-gradient-to-b from-white via-zinc-50 to-zinc-100 border border-zinc-200/90 shadow-[0_1px_2px_rgba(0,0,0,0.04),inset_0_1px_0_rgba(255,255,255,1)] flex items-center justify-center text-zinc-900 group-hover:border-zinc-300 transition-all">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                <polyline points="9 12 11 14 15 10"/>
               </svg>
             </div>
             <h3 class="text-xl font-semibold text-neutral-950 mb-2.5 tracking-tight">Build Trust Immediately</h3>
@@ -604,18 +605,12 @@
         </div>
 
         <!-- Card 4 -->
-        <div class="p-8 rounded-2xl bg-white border border-neutral-200/80 card-shadcn card-shadcn-hover flex flex-col justify-between min-h-[250px]">
+        <div class="p-8 rounded-2xl bg-white border border-neutral-200/80 card-shadcn card-shadcn-hover flex flex-col justify-between min-h-[250px] group">
           <div>
-            <div class="w-6 h-6 mb-6 text-[#00472d] flex items-center justify-center">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00472d" stroke-width="1.5" stroke-miterlimit="10">
-                <path d="M16.78,23.5a2.88,2.88,0,0,1,2.87-2.87h0a2.87,2.87,0,0,1,2.87,2.87"/>
-                <circle cx="19.65" cy="16.8" r="1.91"/>
-                <path d="M9.13,23.5A2.88,2.88,0,0,1,12,20.63h0a2.88,2.88,0,0,1,2.87,2.87"/>
-                <circle cx="12" cy="16.8" r="1.91"/>
-                <path d="M1.48,23.5a2.87,2.87,0,0,1,2.87-2.87h0A2.88,2.88,0,0,1,7.22,23.5"/>
-                <circle cx="4.35" cy="16.8" r="1.91"/>
-                <polyline points="4.35 11.06 10.09 5.33 12.96 8.2 19.65 1.5"/>
-                <polyline points="15.83 1.5 19.65 1.5 19.65 5.33"/>
+            <div class="w-11 h-11 mb-6 rounded-xl bg-gradient-to-b from-white via-zinc-50 to-zinc-100 border border-zinc-200/90 shadow-[0_1px_2px_rgba(0,0,0,0.04),inset_0_1px_0_rgba(255,255,255,1)] flex items-center justify-center text-zinc-900 group-hover:border-zinc-300 transition-all">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+                <polyline points="17 6 23 6 23 12"/>
               </svg>
             </div>
             <h3 class="text-xl font-semibold text-neutral-950 mb-2.5 tracking-tight">Stand Out From Competitors</h3>
@@ -626,14 +621,12 @@
         </div>
 
         <!-- Card 5 -->
-        <div class="p-8 rounded-2xl bg-white border border-neutral-200/80 card-shadcn card-shadcn-hover flex flex-col justify-between min-h-[250px]">
+        <div class="p-8 rounded-2xl bg-white border border-neutral-200/80 card-shadcn card-shadcn-hover flex flex-col justify-between min-h-[250px] group">
           <div>
-            <div class="w-6 h-6 mb-6 text-[#00472d] flex items-center justify-center">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00472d" stroke-width="1.5" stroke-miterlimit="10">
-                <rect x="5.32" y="10.09" width="13.36" height="12.41"/>
-                <path d="M12,1.5h0a4.77,4.77,0,0,1,4.77,4.77v3.82a0,0,0,0,1,0,0H7.23a0,0,0,0,1,0,0V6.27A4.77,4.77,0,0,1,12,1.5Z"/>
-                <circle cx="12" cy="14.86" r="0.95"/>
-                <line x1="12" y1="19.64" x2="12" y2="15.82"/>
+            <div class="w-11 h-11 mb-6 rounded-xl bg-gradient-to-b from-white via-zinc-50 to-zinc-100 border border-zinc-200/90 shadow-[0_1px_2px_rgba(0,0,0,0.04),inset_0_1px_0_rgba(255,255,255,1)] flex items-center justify-center text-zinc-900 group-hover:border-zinc-300 transition-all">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
               </svg>
             </div>
             <h3 class="text-xl font-semibold text-neutral-950 mb-2.5 tracking-tight">Own Your Online Presence</h3>
@@ -644,12 +637,12 @@
         </div>
 
         <!-- Card 6 -->
-        <div class="p-8 rounded-2xl bg-white border border-neutral-200/80 card-shadcn card-shadcn-hover flex flex-col justify-between min-h-[250px]">
+        <div class="p-8 rounded-2xl bg-white border border-neutral-200/80 card-shadcn card-shadcn-hover flex flex-col justify-between min-h-[250px] group">
           <div>
-            <div class="w-6 h-6 mb-6 text-[#00472d] flex items-center justify-center">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00472d" stroke-width="1.5" stroke-miterlimit="10">
-                <path d="M19.64,9.14C19.64,15.82,12,22.5,12,22.5S4.36,15.82,4.36,9.14a7.64,7.64,0,0,1,15.28,0Z"/>
-                <circle cx="12" cy="9.14" r="2.86"/>
+            <div class="w-11 h-11 mb-6 rounded-xl bg-gradient-to-b from-white via-zinc-50 to-zinc-100 border border-zinc-200/90 shadow-[0_1px_2px_rgba(0,0,0,0.04),inset_0_1px_0_rgba(255,255,255,1)] flex items-center justify-center text-zinc-900 group-hover:border-zinc-300 transition-all">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>
               </svg>
             </div>
             <h3 class="text-xl font-semibold text-neutral-950 mb-2.5 tracking-tight">Get Found Before Competitors</h3>
@@ -657,9 +650,7 @@
               Proper SEO means showing up first when customers search. The higher you rank in Google, the more business comes your way. Most people never scroll past the first few results.
             </p>
           </div>
-        </div>
-
-      </div>
+        </div>      </div>
     </div>
   </section>
 
@@ -764,14 +755,18 @@
       </p>
     </div>
 
-    <!-- 4 Services Grid (1:1 from Framer) -->
+    <!-- 4 Services Grid (Unified Silver-Polished Minimalist Icons) -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
       
-      <div class="p-8 rounded-2xl border border-neutral-200/80 bg-white card-shadcn card-shadcn-hover flex flex-col justify-between min-h-[270px]">
+      <!-- Service 1: Design -->
+      <div class="p-8 rounded-2xl border border-neutral-200/80 bg-white card-shadcn card-shadcn-hover flex flex-col justify-between min-h-[270px] group">
         <div>
-          <div class="w-7 h-7 mb-5 text-[#00472d] flex items-center justify-center">
-            <svg width="26" height="27" viewBox="0 0 26 26.813" fill="#00472d">
-              <path d="M 25.369 0.626 C 24.59 -0.15 23.343 -0.212 22.49 0.482 L 14.919 6.611 L 2.116 6.611 C 0.949 6.611 0 7.551 0 8.707 L 0 21.347 C 0 22.503 0.949 23.444 2.116 23.444 L 8.131 23.444 L 8.131 25.242 L 6.798 25.242 C 6.36 25.242 6.005 25.593 6.005 26.027 C 6.005 26.461 6.36 26.813 6.798 26.813 L 15.279 26.813 C 15.717 26.813 16.072 26.461 16.072 26.027 C 16.072 25.593 15.717 25.242 15.279 25.242 L 13.946 25.242 L 13.946 23.444 L 19.961 23.444 C 21.127 23.444 22.077 22.503 22.077 21.347 L 22.077 7.651 L 25.514 3.477 C 26.214 2.632 26.151 1.397 25.369 0.626 Z M 14.409 9.754 C 14.433 9.281 14.651 8.856 15.023 8.556 L 16.341 7.488 L 18.447 9.575 L 17.367 10.886 C 17.065 11.252 16.636 11.467 16.159 11.49 C 15.681 11.514 15.233 11.343 14.895 11.008 C 14.557 10.673 14.384 10.228 14.409 9.754 Z M 13.772 14.822 C 13.421 15.17 12.836 15.331 12.034 15.299 C 11.426 15.275 10.905 15.317 10.464 15.396 C 10.543 14.958 10.586 14.442 10.561 13.84 C 10.529 13.045 10.691 12.465 11.042 12.117 C 11.407 11.756 11.892 11.557 12.407 11.557 C 12.923 11.557 13.408 11.756 13.772 12.117 C 14.525 12.863 14.525 14.076 13.772 14.822 Z M 12.361 25.242 L 9.716 25.242 L 9.716 23.444 L 12.361 23.444 Z M 20.492 21.347 C 20.492 21.637 20.253 21.873 19.961 21.873 L 2.116 21.873 C 1.823 21.873 1.585 21.637 1.585 21.347 L 1.585 20.677 L 20.492 20.677 Z M 20.492 19.106 L 1.585 19.106 L 1.585 8.707 C 1.585 8.417 1.823 8.182 2.116 8.182 L 13.286 8.182 C 13.014 8.63 12.853 9.142 12.826 9.674 C 12.82 9.787 12.82 9.899 12.826 10.011 C 12.687 9.994 12.547 9.986 12.407 9.986 C 11.468 9.986 10.585 10.348 9.921 11.006 C 9.244 11.677 8.927 12.651 8.978 13.903 C 9.045 15.568 8.488 16.237 8.444 16.286 C 8.148 16.594 8.152 17.082 8.457 17.384 C 8.606 17.532 8.807 17.614 9.018 17.614 C 9.222 17.614 9.418 17.536 9.565 17.397 C 9.615 17.354 10.289 16.802 11.97 16.868 C 13.233 16.919 14.216 16.604 14.893 15.933 C 15.684 15.149 16.018 14.082 15.896 13.058 C 15.956 13.061 16.016 13.063 16.076 13.063 C 16.13 13.063 16.184 13.062 16.238 13.059 C 17.154 13.014 18.013 12.584 18.595 11.88 L 20.492 9.576 L 20.492 19.106 Z M 9.578 17.384 C 9.578 17.384 9.574 17.388 9.566 17.396 C 9.57 17.392 9.574 17.388 9.578 17.384 Z M 8.457 16.273 L 8.445 16.285 C 8.453 16.277 8.457 16.273 8.457 16.273 Z M 24.286 2.484 L 19.454 8.351 L 17.575 6.489 L 23.493 1.699 C 23.717 1.517 24.043 1.533 24.248 1.737 C 24.453 1.939 24.469 2.262 24.286 2.484 Z"/>
+          <div class="w-11 h-11 mb-5 rounded-xl bg-gradient-to-b from-white via-zinc-50 to-zinc-100 border border-zinc-200/90 shadow-[0_1px_2px_rgba(0,0,0,0.04),inset_0_1px_0_rgba(255,255,255,1)] flex items-center justify-center text-zinc-900 group-hover:border-zinc-300 transition-all">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 19l7-7 3 3-7 7-3-3z"/>
+              <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/>
+              <path d="M2 2l7.586 7.586"/>
+              <circle cx="11" cy="11" r="2"/>
             </svg>
           </div>
           <h3 class="text-xl font-semibold text-neutral-950 mb-2.5 tracking-tight">Design</h3>
@@ -781,11 +776,13 @@
         </div>
       </div>
 
-      <div class="p-8 rounded-2xl border border-neutral-200/80 bg-white card-shadcn card-shadcn-hover flex flex-col justify-between min-h-[270px]">
+      <!-- Service 2: Development -->
+      <div class="p-8 rounded-2xl border border-neutral-200/80 bg-white card-shadcn card-shadcn-hover flex flex-col justify-between min-h-[270px] group">
         <div>
-          <div class="w-7 h-7 mb-5 text-[#00472d] flex items-center justify-center">
-            <svg width="26" height="20" viewBox="0 0 26 19.5" fill="#00472d">
-              <path d="M 0.346 10.632 L 5.073 15.496 C 5.37 15.812 5.81 15.939 6.223 15.827 C 6.636 15.716 6.959 15.384 7.067 14.959 C 7.175 14.534 7.052 14.082 6.745 13.776 L 2.853 9.772 L 6.745 5.768 C 7.052 5.462 7.175 5.01 7.067 4.585 C 6.959 4.16 6.636 3.828 6.223 3.717 C 5.81 3.605 5.37 3.732 5.073 4.048 L 0.346 8.912 C -0.115 9.387 -0.115 10.157 0.346 10.632 Z M 20.927 4.048 C 20.63 3.732 20.19 3.605 19.777 3.717 C 19.364 3.828 19.041 4.16 18.933 4.585 C 18.825 5.01 18.948 5.462 19.255 5.768 L 23.147 9.772 L 19.255 13.776 C 18.948 14.082 18.825 14.534 18.933 14.959 C 19.041 15.384 19.364 15.716 19.777 15.827 C 20.19 15.939 20.63 15.812 20.927 15.496 L 25.654 10.632 C 26.115 10.157 26.115 9.387 25.654 8.912 Z M 14.228 0.927 L 9.501 17.951 C 9.321 18.596 9.684 19.269 10.311 19.454 C 10.417 19.484 10.526 19.499 10.636 19.5 C 11.164 19.5 11.627 19.139 11.772 18.617 L 16.499 1.593 C 16.634 1.17 16.532 0.705 16.235 0.381 C 15.938 0.057 15.492 -0.073 15.074 0.04 C 14.655 0.154 14.331 0.494 14.228 0.927 Z"/>
+          <div class="w-11 h-11 mb-5 rounded-xl bg-gradient-to-b from-white via-zinc-50 to-zinc-100 border border-zinc-200/90 shadow-[0_1px_2px_rgba(0,0,0,0.04),inset_0_1px_0_rgba(255,255,255,1)] flex items-center justify-center text-zinc-900 group-hover:border-zinc-300 transition-all">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="16 18 22 12 16 6"/>
+              <polyline points="8 6 2 12 8 18"/>
             </svg>
           </div>
           <h3 class="text-xl font-semibold text-neutral-950 mb-2.5 tracking-tight">Development</h3>
@@ -795,11 +792,15 @@
         </div>
       </div>
 
-      <div class="p-8 rounded-2xl border border-neutral-200/80 bg-white card-shadcn card-shadcn-hover flex flex-col justify-between min-h-[270px]">
+      <!-- Service 3: SEO -->
+      <div class="p-8 rounded-2xl border border-neutral-200/80 bg-white card-shadcn card-shadcn-hover flex flex-col justify-between min-h-[270px] group">
         <div>
-          <div class="w-7 h-7 mb-5 text-[#00472d] flex items-center justify-center">
-            <svg width="26" height="26" viewBox="0 0 26 26" fill="#00472d">
-              <path d="M 24.984 6.026 C 25.545 6.026 26 5.571 26 5.01 L 26 1.016 C 26 0.463 25.55 0 24.984 0 L 20.99 0 C 20.429 0 19.974 0.455 19.974 1.016 C 19.974 1.577 20.429 2.031 20.99 2.031 L 22.532 2.031 L 19.957 4.606 C 17.924 1.773 14.662 0 11.003 0 C 4.922 0 0 4.921 0 11.003 C 0 17.083 4.921 22.005 11.003 22.005 C 13.6 22.005 16.06 21.11 18.032 19.468 L 24.266 25.703 C 24.663 26.099 25.306 26.099 25.702 25.703 C 26.099 25.306 26.099 24.663 25.702 24.266 L 19.468 18.031 C 22.271 14.667 22.701 10.11 21.013 6.424 L 23.969 3.468 L 23.969 5.01 C 23.969 5.571 24.423 6.026 24.984 6.026 Z M 11.003 2.031 C 14.129 2.031 16.886 3.639 18.493 6.071 L 13 11.564 L 9.723 8.287 C 9.327 7.891 8.684 7.891 8.287 8.287 L 2.554 14.02 C 0.469 8.2 4.805 2.031 11.003 2.031 Z M 11.003 19.974 C 7.876 19.974 5.119 18.366 3.512 15.934 L 9.005 10.441 L 12.282 13.718 C 12.678 14.115 13.322 14.115 13.718 13.718 L 19.451 7.985 C 21.536 13.805 17.201 19.974 11.003 19.974 Z M 11.003 19.974"/>
+          <div class="w-11 h-11 mb-5 rounded-xl bg-gradient-to-b from-white via-zinc-50 to-zinc-100 border border-zinc-200/90 shadow-[0_1px_2px_rgba(0,0,0,0.04),inset_0_1px_0_rgba(255,255,255,1)] flex items-center justify-center text-zinc-900 group-hover:border-zinc-300 transition-all">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"/>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+              <line x1="11" y1="8" x2="11" y2="14"/>
+              <line x1="8" y1="11" x2="14" y2="11"/>
             </svg>
           </div>
           <h3 class="text-xl font-semibold text-neutral-950 mb-2.5 tracking-tight">SEO</h3>
@@ -809,11 +810,16 @@
         </div>
       </div>
 
-      <div class="p-8 rounded-2xl border border-neutral-200/80 bg-white card-shadcn card-shadcn-hover flex flex-col justify-between min-h-[270px]">
+      <!-- Service 4: Copywriting -->
+      <div class="p-8 rounded-2xl border border-neutral-200/80 bg-white card-shadcn card-shadcn-hover flex flex-col justify-between min-h-[270px] group">
         <div>
-          <div class="w-7 h-7 mb-5 text-[#00472d] flex items-center justify-center">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="#00472d">
-              <path d="M 14.531 24 L 5.625 24 C 2.523 24 0 21.477 0 18.375 L 0 5.625 C 0 2.523 2.523 0 5.625 0 L 18.375 0 C 21.477 0 24 2.523 24 5.625 L 24 14.602 C 24 15.119 23.58 15.539 23.063 15.539 C 22.545 15.539 22.125 15.119 22.125 14.602 L 22.125 5.625 C 22.125 3.557 20.443 1.875 18.375 1.875 L 5.625 1.875 C 3.557 1.875 1.875 3.557 1.875 5.625 L 1.875 18.375 C 1.875 20.443 3.557 22.125 5.625 22.125 L 14.531 22.125 C 15.049 22.125 15.469 22.545 15.469 23.062 C 15.469 23.58 15.049 24 14.531 24 Z M 19.313 5.906 C 19.313 5.388 18.893 4.969 18.375 4.969 L 9.797 4.969 C 9.279 4.969 8.859 5.388 8.859 5.906 C 8.859 6.424 9.279 6.844 9.797 6.844 L 18.375 6.844 C 18.893 6.844 19.313 6.424 19.313 5.906 Z M 19.313 9.656 C 19.313 9.138 18.893 8.719 18.375 8.719 L 5.625 8.719 C 5.107 8.719 4.688 9.138 4.688 9.656 C 4.688 10.174 5.107 10.594 5.625 10.594 L 18.375 10.594 C 18.893 10.594 19.313 10.174 19.313 9.656 Z M 9.938 13.406 C 9.938 12.888 9.518 12.469 9 12.469 L 5.625 12.469 C 5.107 12.469 4.688 12.888 4.688 13.406 C 4.688 13.924 5.107 14.344 5.625 14.344 L 9 14.344 C 9.518 14.344 9.938 13.924 9.938 13.406 Z M 4.688 5.812 C 4.688 6.46 5.212 6.984 5.859 6.984 C 6.507 6.984 7.031 6.46 7.031 5.812 C 7.031 5.165 6.507 4.641 5.859 4.641 C 5.212 4.641 4.688 5.165 4.688 5.812 Z M 22.998 22.998 C 24.332 21.664 24.332 19.493 22.998 18.158 L 19.711 14.872 C 18.762 13.922 17.563 13.281 16.246 13.018 L 13.59 12.487 C 13.283 12.425 12.965 12.522 12.743 12.743 C 12.522 12.965 12.426 13.283 12.487 13.59 L 13.018 16.246 C 13.281 17.563 13.922 18.762 14.872 19.711 L 18.158 22.998 C 18.805 23.644 19.664 24 20.578 24 C 21.492 24 22.351 23.644 22.998 22.998 Z M 15.879 14.856 C 16.832 15.047 17.698 15.511 18.386 16.198 L 21.672 19.484 C 22.275 20.087 22.275 21.069 21.672 21.672 C 21.38 21.964 20.991 22.125 20.578 22.125 C 20.165 22.125 19.776 21.964 19.484 21.672 L 16.198 18.386 C 15.511 17.698 15.047 16.832 14.857 15.879 L 14.601 14.601 Z"/>
+          <div class="w-11 h-11 mb-5 rounded-xl bg-gradient-to-b from-white via-zinc-50 to-zinc-100 border border-zinc-200/90 shadow-[0_1px_2px_rgba(0,0,0,0.04),inset_0_1px_0_rgba(255,255,255,1)] flex items-center justify-center text-zinc-900 group-hover:border-zinc-300 transition-all">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+              <polyline points="10 9 9 9 8 9"/>
             </svg>
           </div>
           <h3 class="text-xl font-semibold text-neutral-950 mb-2.5 tracking-tight">Copywriting</h3>
@@ -821,9 +827,7 @@
             Messages that speak directly to your audience and drive sales, growing your business.
           </p>
         </div>
-      </div>
-
-    </div>
+      </div>    </div>
   </section>
 
   <!-- ==================== 5. PERFORMANCE & STATS (1:1 from Framer) ==================== -->
@@ -1113,6 +1117,39 @@
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="homepage-articles-container">
+      <!-- Article: some new articale doesnt matter  -->
+      <a href="blog/some-new-articale-doesnt-matter.html" class="group p-6 rounded-2xl bg-white border border-neutral-200 card-shadcn card-shadcn-hover flex flex-col justify-between cursor-pointer block text-inherit no-underline">
+        <div>
+          <div class="w-full h-48 rounded-xl overflow-hidden mb-5 bg-neutral-100 border border-neutral-100">
+            <img 
+              src="images/hero-silver-stairs-blocks.png" 
+              alt="some new articale doesnt matter " 
+              width="1000" 
+              height="667" 
+              decoding="async"
+              class="w-full h-full object-cover grayscale contrast-125 transition-all duration-300" 
+              loading="lazy"
+            >
+          </div>
+          <div class="flex items-center justify-between mb-3.5 text-xs text-neutral-500 font-medium">
+            <div class="badge-section">
+              <span class="badge-section-solid font-semibold">Web Design</span>
+            </div>
+            <span>Oct 30, 2026</span>
+          </div>
+          <h3 class="text-xl font-medium text-neutral-950 group-hover:text-emerald-brand transition-colors mb-2.5 leading-snug">
+            some new articale doesnt matter 
+          </h3>
+          <p class="text-sm text-neutral-600 leading-relaxed font-normal">
+            asdasdasdasdasd
+          </p>
+        </div>
+        <div class="pt-5 mt-5 border-t border-neutral-100 flex items-center justify-between text-xs text-neutral-500">
+          <span>by Kamil</span>
+          <span class="font-medium text-neutral-900 group-hover:text-emerald-brand transition-colors">Read Article &rarr;</span>
+        </div>
+      </a>
+
       <!-- Article: Custom Website vs WordPress Template -->
       <a href="blog/custom-website-vs-wordpress-template.html" class="group p-6 rounded-2xl bg-white border border-neutral-200 card-shadcn card-shadcn-hover flex flex-col justify-between cursor-pointer block text-inherit no-underline">
         <div>
@@ -1171,39 +1208,6 @@
           </h3>
           <p class="text-sm text-neutral-600 leading-relaxed font-normal">
             Why a professional website brings more customers and helps you beat competitors online.
-          </p>
-        </div>
-        <div class="pt-5 mt-5 border-t border-neutral-100 flex items-center justify-between text-xs text-neutral-500">
-          <span>by Kamil</span>
-          <span class="font-medium text-neutral-900 group-hover:text-emerald-brand transition-colors">Read Article &rarr;</span>
-        </div>
-      </a>
-
-      <!-- Article: SEO Basics Every Business Owner Should Know -->
-      <a href="blog/seo-basics-every-business-owner-should-know.html" class="group p-6 rounded-2xl bg-white border border-neutral-200 card-shadcn card-shadcn-hover flex flex-col justify-between cursor-pointer block text-inherit no-underline">
-        <div>
-          <div class="w-full h-48 rounded-xl overflow-hidden mb-5 bg-neutral-100 border border-neutral-100">
-            <img 
-              src="images/JCCcDDTMhZn6T2xZAW5O8nRLM.jpg" 
-              alt="SEO Basics Every Business Owner Should Know" 
-              width="1000" 
-              height="667" 
-              decoding="async"
-              class="w-full h-full object-cover grayscale contrast-125 transition-all duration-300" 
-              loading="lazy"
-            >
-          </div>
-          <div class="flex items-center justify-between mb-3.5 text-xs text-neutral-500 font-medium">
-            <div class="badge-section">
-              <span class="badge-section-solid font-semibold">SEO</span>
-            </div>
-            <span>Feb 10, 2026</span>
-          </div>
-          <h3 class="text-xl font-medium text-neutral-950 group-hover:text-emerald-brand transition-colors mb-2.5 leading-snug">
-            SEO Basics Every Business Owner Should Know
-          </h3>
-          <p class="text-sm text-neutral-600 leading-relaxed font-normal">
-            Understanding basic SEO helps you rank higher in Google and get found by customers actively searching for what you offer.
           </p>
         </div>
         <div class="pt-5 mt-5 border-t border-neutral-100 flex items-center justify-between text-xs text-neutral-500">

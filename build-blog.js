@@ -144,17 +144,26 @@ function build() {
     const { frontmatter, body } = parseFrontmatter(content);
     const slug = frontmatter.slug || path.basename(file, '.md');
     
+    const pubDate = frontmatter.pubDate || new Date().toISOString().split('T')[0];
     posts.push({
       ...frontmatter,
+      pubDate,
       slug,
       filename: file,
       rawBody: body,
-      formattedDate: formatDate(frontmatter.pubDate)
+      formattedDate: formatDate(pubDate)
     });
   }
 
-  // Sortuj od najnowszego
-  posts.sort((a, b) => new Date(b.pubDate || 0) - new Date(a.pubDate || 0));
+  // Sortuj od najnowszego - jesli brak lub takie same daty, sortuj po mtime pliku
+  posts.sort((a, b) => {
+    const timeA = new Date(a.pubDate).getTime() || 0;
+    const timeB = new Date(b.pubDate).getTime() || 0;
+    if (timeB !== timeA) return timeB - timeA;
+    const statA = fs.statSync(path.join(CONTENT_DIR, a.filename));
+    const statB = fs.statSync(path.join(CONTENT_DIR, b.filename));
+    return statB.mtimeMs - statA.mtimeMs;
+  });
   console.log(`Znaleziono ${posts.length} artykułów.`);
 
   // 1. Wygeneruj podstronę każdego artykułu w blog/<slug>.html
