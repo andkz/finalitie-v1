@@ -364,15 +364,14 @@
       max-width: 580px;
       aspect-ratio: 1200 / 974;
       background: transparent;
-      display: flex;
-      align-items: flex-end;
-      justify-content: flex-start;
       user-select: none;
       margin-bottom: 0 !important;
       padding-bottom: 0 !important;
     }
     #hero-silver-video,
     #hero-fallback-img {
+      position: absolute;
+      inset: 0;
       width: 100%;
       height: 100%;
       object-fit: contain;
@@ -387,7 +386,6 @@
       .hero-stairs-stage {
         max-width: 500px;
         margin: 0 auto;
-        justify-content: center;
       }
       #hero-silver-video,
       #hero-fallback-img {
@@ -467,7 +465,7 @@
   <!-- ==================== 1. HERO SECTION (White Background - Zebra 1) ==================== -->
   <section class="w-full bg-white pt-8 pb-0 lg:pt-14 lg:pb-0 overflow-hidden">
     <div class="max-w-7xl mx-auto px-6 sm:px-10">
-      <div class="flex flex-col lg:flex-row items-end justify-start relative w-full gap-8 lg:gap-8 xl:gap-12">
+      <div class="flex flex-col lg:flex-row items-end justify-start relative w-full gap-8 lg:gap-8 xl:gap-10">
         
         <!-- Left Hero Content: ściśle dopasowany do tekstu (max-w-[460px]), bez sztucznej 600px pustki -->
         <div class="w-full lg:w-[460px] xl:w-[480px] flex-shrink-0 flex flex-col items-start text-left z-10 pb-12 lg:pb-24 pt-4">
@@ -507,9 +505,9 @@
 
         </div>
 
-        <!-- Right Column: 3D HERO SECTION (zaraz obok tekstu, naturalny 180px margines z prawej strony) -->
-        <div class="flex-1 flex items-end justify-start relative pointer-events-auto select-none mb-0 pb-0">
-          <div class="hero-stairs-stage relative w-full aspect-[1200/974] max-w-[560px] xl:max-w-[580px] flex items-end justify-start mb-0 pb-0" id="hero-stairs-container">
+        <!-- Right Column: 3D HERO SECTION (dokładnie obok tekstu, naturalny margines z prawej strony) -->
+        <div class="w-full lg:max-w-[580px] xl:max-w-[620px] flex-shrink-0 flex items-end justify-start relative pointer-events-auto select-none mb-0 pb-0">
+          <div class="hero-stairs-stage relative w-full aspect-[1200/974] mb-0 pb-0" id="hero-stairs-container">
             
             <!-- Natychmiastowy lokalny podgląd statyczny klatki początkowej (Zero-void guarantee) -->
             <img 
@@ -521,7 +519,7 @@
               fetchpriority="high"
               loading="eager"
               decoding="async"
-              class="w-full h-full object-contain pointer-events-none transition-opacity duration-500 ease-out z-10"
+              class="absolute inset-0 w-full h-full object-contain pointer-events-none transition-opacity duration-500 ease-out z-10"
               onerror="this.src='images/hero-silver-stairs-opt-unfolded.png?v=2'"
             />
 
@@ -533,7 +531,7 @@
               muted 
               playsinline 
               preload="auto"
-              class="relative z-20 w-full h-full object-contain pointer-events-none transition-opacity duration-500 ease-out opacity-0"
+              class="absolute inset-0 z-20 w-full h-full object-contain pointer-events-none transition-opacity duration-500 ease-out opacity-0"
             >
               <source src="images/hero-silver-stairs-optimized.mp4?v=2" type="video/mp4">
             </video>
