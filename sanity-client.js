@@ -10,7 +10,7 @@ const SANITY_CONFIG = {
   projectId: 'ljymyve8',
   dataset: 'production',
   apiVersion: '2023-05-03',
-  useCdn: true,
+  useCdn: false,
 };
 
 // Fallback articles with 100% local assets
