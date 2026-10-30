@@ -1,312 +1,247 @@
-<!doctype html>
-<html lang="pl">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CMS Panel · Finalitie</title>
-  <link rel="icon" type="image/png" href="/images/tGUOcqDgP6XO7Dpi82pGrgbkQg.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    body {
-      font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background-color: #030303;
-      color: #fafafa;
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
-    #auth-screen {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-      background: radial-gradient(circle at 50% 20%, rgba(43, 181, 131, 0.12) 0%, transparent 60%), #030303;
-      position: relative;
-    }
-    .auth-card {
-      width: 100%;
-      max-width: 420px;
-      background: rgba(18, 18, 20, 0.85);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 20px;
-      padding: 38px 32px;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
-      text-align: center;
-      position: relative;
-      z-index: 10;
-    }
-    .brand-header {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 8px;
-    }
-    .brand-logo-svg {
-      height: 22px;
-      width: auto;
-      filter: invert(1);
-    }
-    .brand-name {
-      font-size: 15px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      color: #ffffff;
-      text-transform: uppercase;
-    }
-    .auth-subtitle {
-      font-size: 13px;
-      color: #a1a1aa;
-      margin-bottom: 28px;
-      font-weight: 400;
-    }
-    .input-group {
-      text-align: left;
-      margin-bottom: 20px;
-    }
-    .input-label {
-      display: block;
-      font-size: 12px;
-      font-weight: 500;
-      color: #d4d4d8;
-      margin-bottom: 8px;
-      letter-spacing: -0.01em;
-    }
-    .input-field {
-      width: 100%;
-      padding: 12px 16px;
-      font-size: 14px;
-      background: #09090b;
-      color: #ffffff;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 12px;
-      outline: none;
-      font-family: 'Geist', sans-serif;
-      transition: all 0.2s ease;
-    }
-    .input-field:focus {
-      border-color: #2bb583;
-      box-shadow: 0 0 0 3px rgba(43, 181, 131, 0.2);
-    }
-    .auth-btn {
-      width: 100%;
-      padding: 13px 20px;
-      font-size: 14px;
-      font-weight: 500;
-      color: #030303;
-      background-color: #2bb583;
-      border: none;
-      border-radius: 12px;
-      cursor: pointer;
-      font-family: 'Geist', sans-serif;
-      transition: all 0.2s ease;
-    }
-    .auth-btn:hover {
-      background-color: #34d399;
-      transform: translateY(-1px);
-      box-shadow: 0 6px 20px rgba(43, 181, 131, 0.35);
-    }
-    .auth-btn:active {
-      transform: translateY(0);
-    }
-    .auth-btn:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
-    .error-msg {
-      margin-top: 16px;
-      padding: 10px 14px;
-      background-color: rgba(239, 68, 68, 0.12);
-      border: 1px solid rgba(239, 68, 68, 0.3);
-      color: #fca5a5;
-      border-radius: 10px;
-      font-size: 13px;
-      display: none;
-      text-align: left;
-    }
-    .back-link {
-      display: inline-block;
-      margin-top: 24px;
-      font-size: 12px;
-      color: #71717a;
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .back-link:hover {
-      color: #2bb583;
-      text-decoration: underline;
-    }
-    #logout-btn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 999999;
-      background: #18181b;
-      color: #d4d4d8;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 10px;
-      padding: 8px 14px;
-      font-size: 12px;
-      font-weight: 500;
-      cursor: pointer;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-      transition: all 0.2s ease;
-      display: none;
-    }
-    #logout-btn:hover {
-      background: #27272a;
-      color: #f87171;
-      border-color: rgba(239, 68, 68, 0.3);
-    }
-  </style>
-</head>
-<body>
-
-  <!-- Ekran logowania hasłem -->
-  <div id="auth-screen">
-    <div class="auth-card">
-      <div class="brand-header">
-        <svg class="brand-logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 7.584 16.997">
-          <path d="M 7.57 0 C 7.572 0.317 7.574 0.635 7.575 0.952 L 7.575 1.087 C 7.575 1.208 7.576 1.329 7.577 1.45 C 7.578 1.574 7.578 1.698 7.579 1.822 C 7.583 2.485 7.583 2.485 7.561 2.512 C 7.489 2.564 7.419 2.616 7.289 2.712 C 7.145 2.821 7.059 2.885 6.829 3.057 C 6.599 3.23 6.369 3.402 6.139 3.575 C 5.906 3.75 5.629 3.958 5.329 4.184 C 5.098 4.357 4.868 4.529 4.638 4.702 C 4.408 4.874 4.178 5.047 3.948 5.219 C 3.6 5.481 3.276 5.725 3.046 5.898 C 2.816 6.07 2.586 6.243 2.356 6.415 C 2.126 6.588 1.909 6.75 1.545 7.025 C 1.315 7.197 1.085 7.37 0.855 7.542 C 0.625 7.715 0.407 7.879 0.176 8.053 C 0.083 8.122 0.047 8.15 0.014 8.165 C 0.01 7.53 0.008 7.101 0.006 6.716 C 0.004 6.344 0.003 6.115 0.001 5.867 C 0.038 5.632 0.111 5.589 0.184 5.537 C 0.313 5.441 0.543 5.269 0.759 5.106 C 1.123 4.832 1.353 4.659 1.583 4.487 C 1.813 4.314 2.043 4.142 2.276 3.967 C 2.624 3.706 2.923 3.48 3.153 3.308 C 3.383 3.135 3.613 2.963 3.843 2.79 C 4.073 2.618 4.29 2.455 4.534 2.271 L 4.693 2.152 C 4.915 1.984 5.275 1.715 5.505 1.543 C 5.735 1.37 5.965 1.198 6.195 1.025 C 6.532 0.771 6.899 0.495 7.259 0.226 C 7.415 0.108 7.519 0.031 7.57 0 Z" fill="#2bb583"></path>
-          <path d="M 7.57 4.5 C 7.574 5.135 7.577 5.828 7.58 6.321 C 7.583 6.798 7.546 7.033 7.473 7.076 C 7.272 7.224 7.042 7.396 6.812 7.569 C 6.489 7.812 6.139 8.075 5.808 8.324 C 5.449 8.592 5.219 8.765 4.989 8.937 C 4.612 9.221 4.333 9.431 4.1 9.606 C 3.741 9.875 3.511 10.047 3.281 10.22 C 3.051 10.392 2.724 10.638 2.37 10.905 C 2.011 11.174 1.781 11.347 1.551 11.519 C 1.321 11.692 1.087 11.867 0.801 12.082 C 0.593 12.239 0.464 12.336 0.247 12.498 C 0.099 12.61 0.046 12.65 0.014 12.665 C 0.008 11.601 0.005 11.092 0.001 10.367 C 0.038 10.132 0.161 10.054 0.366 9.901 C 0.64 9.694 0.87 9.521 1.1 9.349 C 1.33 9.176 1.56 9.004 1.79 8.831 C 2.146 8.564 2.45 8.335 2.68 8.163 C 2.91 7.99 3.14 7.818 3.37 7.645 C 3.6 7.473 3.845 7.289 4.151 7.058 C 4.503 6.794 4.861 6.526 5.091 6.353 C 5.321 6.181 5.551 6.008 5.769 5.844 C 6.108 5.588 6.339 5.416 6.569 5.243 C 6.799 5.071 7.029 4.898 7.259 4.726 C 7.415 4.608 7.519 4.531 7.57 4.5 Z" fill="#2bb583"></path>
-          <path d="M 3.345 12 C 3.348 12.636 3.35 13.451 3.352 14.053 C 3.353 14.302 3.332 14.518 3.231 14.591 C 3.112 14.68 2.882 14.852 2.652 15.025 C 2.407 15.209 2.189 15.372 1.843 15.633 C 1.612 15.806 1.382 15.979 1.152 16.152 C 0.922 16.324 0.658 16.522 0.396 16.719 C 0.19 16.874 0.098 16.943 0.016 16.997 C 0.009 15.933 0.005 15.177 0.002 14.7 C 0.042 14.462 0.191 14.363 0.306 14.277 C 0.536 14.105 0.766 13.932 0.996 13.759 C 1.242 13.575 1.538 13.352 1.775 13.175 C 2.005 13.002 2.235 12.83 2.465 12.657 C 2.695 12.485 2.925 12.312 3.142 12.149 C 3.264 12.056 3.335 12 3.345 12 Z" fill="#2bb583"></path>
-        </svg>
-        <span class="brand-name">FINALITIE</span>
-      </div>
-      <p class="auth-subtitle">Panel Zarządzania Artykułami Bloga</p>
-
-      <form id="auth-form">
-        <div class="input-group">
-          <label class="input-label" for="password">Hasło administratora:</label>
-          <input
-            type="password"
-            id="password"
-            class="input-field"
-            placeholder="Wpisz hasło..."
-            required
-            autofocus
-          />
-        </div>
-
-        <button type="submit" id="submit-btn" class="auth-btn">
-          Zaloguj do panelu &rarr;
-        </button>
-
-        <div id="error-box" class="error-msg"></div>
-      </form>
-
-      <a href="/" class="back-link">&larr; Wróć do strony głównej</a>
-    </div>
-  </div>
-
-  <!-- Przycisk wylogowania widoczny w CMS -->
-  <button id="logout-btn" title="Wyloguj z panelu">
-    Wyloguj z CMS
-  </button>
-
-  <script>
-    const authScreen = document.getElementById('auth-screen');
-    const authForm = document.getElementById('auth-form');
-    const passwordInput = document.getElementById('password');
-    const submitBtn = document.getElementById('submit-btn');
-    const errorBox = document.getElementById('error-box');
-    const logoutBtn = document.getElementById('logout-btn');
-
-    function saveUserSession(token) {
-      const sessionData = JSON.stringify({
-        backendName: 'github',
-        token: token
-      });
-      localStorage.setItem('decap-cms-user', sessionData);
-      localStorage.setItem('netlify-cms-user', sessionData);
-    }
-
-    function clearUserSession() {
-      localStorage.removeItem('decap-cms-user');
-      localStorage.removeItem('netlify-cms-user');
-    }
-
-    // Sprawdź czy użytkownik ma aktywny token w sesji
-    function checkAuth() {
-      try {
-        const stored = localStorage.getItem('decap-cms-user') || localStorage.getItem('netlify-cms-user');
-        if (stored) {
-          const parsed = JSON.parse(stored);
-          if (parsed && parsed.token) {
-            saveUserSession(parsed.token);
-            authScreen.style.display = 'none';
-            logoutBtn.style.display = 'block';
-            loadDecapCMS();
-            return true;
-          }
-        }
-      } catch (e) {
-        clearUserSession();
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover"/><meta name="robots" content="noindex"/><meta name="referrer" content="same-origin"/><link rel="icon" href="/static/favicon.ico" sizes="any"/><link rel="icon" href="/static/favicon.svg" type="image/svg+xml"/><link rel="apple-touch-icon" href="/static/apple-touch-icon.png"/><link rel="manifest" href="/static/manifest.webmanifest"/><title>Sanity Studio</title><script>
+;(function () {
+  // The error channel is provided so that error handling can be delegated to a view component.
+  // If there is a subscriber to the error channel at the time the error happens, the error will be pushed to the subscriber instead of handled here.
+  var errorChannel = (function () {
+    var subscribers = Object.create(null)
+    var nextId = 0
+    function subscribe(subscriber) {
+      var id = nextId++
+      subscribers[id] = subscriber
+      return function unsubscribe() {
+        delete subscribers[id]
       }
-      return false;
     }
 
-    // Załaduj skrypt Decap CMS
-    function loadDecapCMS() {
-      if (window.CMS_LOADED) return;
-      window.CMS_LOADED = true;
-      const script = document.createElement('script');
-      script.src = 'https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js';
-      document.body.appendChild(script);
-    }
-
-    // Obsługa formularza logowania
-    authForm.addEventListener('submit', async function(e) {
-      e.preventDefault();
-      const password = passwordInput.value.trim();
-      if (!password) return;
-
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Weryfikacja...';
-      errorBox.style.display = 'none';
-
-      try {
-        const res = await fetch('/.netlify/functions/auth', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ password: password })
-        });
-
-        const data = await res.json();
-
-        if (res.ok && data.token) {
-          saveUserSession(data.token);
-          window.location.reload();
-        } else {
-          errorBox.textContent = data.error || 'Nieprawidłowe hasło.';
-          errorBox.style.display = 'block';
-          submitBtn.disabled = false;
-          submitBtn.textContent = 'Zaloguj do panelu →';
+    function publish(event) {
+      for (var id in subscribers) {
+        if (Object.hasOwn(subscribers, id)) {
+          subscribers[id](event)
         }
-      } catch (err) {
-        errorBox.textContent = 'Błąd połączenia z serwerem. Spróbuj ponownie.';
-        errorBox.style.display = 'block';
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Zaloguj do panelu →';
       }
-    });
+    }
+    return {
+      subscribers,
+      publish,
+      subscribe
+    }
+  })()
 
-    // Obsługa wylogowania
-    logoutBtn.addEventListener('click', function() {
-      clearUserSession();
-      window.location.reload();
-    });
+  // NOTE: Store the error channel instance in the global scope so that the Studio application can
+  // access it and subscribe to errors.
+  window.__sanityErrorChannel = {
+    subscribe: errorChannel.subscribe
+  }
 
-    // Uruchom sprawdzenie przy starcie
-    checkAuth();
-  </script>
-</body>
-</html>
+  function _handleError(event) {
+    // If there are error channel subscribers, then we assume they will own error rendering,
+    // and we defer to them (no console error).
+    if (Object.keys(errorChannel.subscribers).length > 0) {
+      errorChannel.publish(event)
+    } else {
+      _renderErrorOverlay(event)
+    }
+  }
+
+  var ERROR_BOX_STYLE = [
+    'background: #fff',
+    'border-radius: 6px',
+    'box-sizing: border-box',
+    'color: #121923',
+    'flex: 1',
+    "font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue','Liberation Sans',Helvetica,Arial,system-ui,sans-serif",
+    'font-size: 16px',
+    'line-height: 21px',
+    'margin: 0 auto',
+    'max-width: 960px',
+    'overflow: auto',
+    'padding: 20px',
+    'width: 100%',
+  ].join(';')
+
+  var ERROR_CODE_STYLE = [
+    'color: #972E2A',
+    "font-family: -apple-system-ui-monospace, 'SF Mono', Menlo, Monaco, Consolas, monospace",
+    'font-size: 13px',
+    'line-height: 17px',
+    'margin: 0',
+  ].join(';')
+
+  function _renderErrorOverlay(event) {
+    var errorElement = document.querySelector('#__sanityError') || document.createElement('div')
+    var error = event.error
+    var colno = event.colno
+    var lineno = event.lineno
+    var filename = event.filename
+
+    errorElement.id = '__sanityError'
+    errorElement.innerHTML = [
+      '<div style="' + ERROR_BOX_STYLE + '">',
+      '<div style="font-weight: 700;">Uncaught error: ' + error.message + '</div>',
+      '<div style="color: #515E72; font-size: 13px; line-height: 17px; margin: 10px 0;">' +
+        filename +
+        ':' +
+        lineno +
+        ':' +
+        colno +
+        '</div>',
+      '<pre style="' + ERROR_CODE_STYLE + '">' + error.stack + '</pre>',
+      '</div>',
+    ].join('')
+
+    errorElement.style.position = 'fixed'
+    errorElement.style.zIndex = 1000000
+    errorElement.style.top = 0
+    errorElement.style.left = 0
+    errorElement.style.right = 0
+    errorElement.style.bottom = 0
+    errorElement.style.padding = '20px'
+    errorElement.style.background = 'rgba(16,17,18,0.66)'
+    errorElement.style.display = 'flex'
+    errorElement.style.alignItems = 'center'
+    errorElement.style.justifyContent = 'center'
+
+    document.body.appendChild(errorElement)
+  }
+
+  // Error listener
+  window.addEventListener('error', (event) => {
+    _handleError({
+      type: 'error',
+      error: event.error,
+      lineno: event.lineno,
+      colno: event.colno,
+      filename: event.filename
+    })
+  })
+
+  // Error listener
+  window.addEventListener('unhandledrejection', (event) => {
+    _handleError({
+      type: 'rejection',
+      error: event.reason
+    })
+  })
+})()
+</script><style>
+  @font-face {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("https://studio-static.sanity.io/Inter-Regular.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: Inter;
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url("https://studio-static.sanity.io/Inter-Italic.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url("https://studio-static.sanity.io/Inter-Medium.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: Inter;
+    font-style: italic;
+    font-weight: 500;
+    font-display: swap;
+    src: url("https://studio-static.sanity.io/Inter-MediumItalic.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url("https://studio-static.sanity.io/Inter-SemiBold.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: Inter;
+    font-style: italic;
+    font-weight: 600;
+    font-display: swap;
+    src: url("https://studio-static.sanity.io/Inter-SemiBoldItalic.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url("https://studio-static.sanity.io/Inter-Bold.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: Inter;
+    font-style: italic;
+    font-weight: 700;
+    font-display: swap;
+    src: url("https://studio-static.sanity.io/Inter-BoldItalic.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 800;
+    font-display: swap;
+    src: url("https://studio-static.sanity.io/Inter-ExtraBold.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: Inter;
+    font-style: italic;
+    font-weight: 800;
+    font-display: swap;
+    src: url("https://studio-static.sanity.io/Inter-ExtraBoldItalic.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 900;
+    font-display: swap;
+    src: url("https://studio-static.sanity.io/Inter-Black.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: Inter;
+    font-style: italic;
+    font-weight: 900;
+    font-display: swap;
+    src: url("https://studio-static.sanity.io/Inter-BlackItalic.woff2") format("woff2");
+  }
+  html {
+    @media (prefers-color-scheme: dark) {
+      background-color: #13141b;
+    }
+    @media (prefers-color-scheme: light) {
+      background-color: #ffffff;
+    }
+  }
+  html,
+  body,
+  #sanity {
+    height: 100%;
+  }
+  body {
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+</style><script src="https://core.sanity-cdn.com/bridge.js" async type="module" data-sanity-core></script>
+</head><body><div id="sanity"></div><script type="module" src="/admin/static/sanity-DPFiSaVr.js"></script><noscript><div class="sanity-app-no-js__root"><div class="sanity-app-no-js__content"><style type="text/css">
+.sanity-app-no-js__root {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: #fff;
+}
+
+.sanity-app-no-js__content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-family: helvetica, arial, sans-serif;
+}
+</style><h1>JavaScript disabled</h1><p>Please <a href="https://www.enable-javascript.com/">enable JavaScript</a> in your browser and reload the page to proceed.</p></div></div></noscript></body></html>

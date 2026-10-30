@@ -1,9 +1,5 @@
 [build]
-  command = "npm run build"
   publish = "."
-
-[functions]
-  directory = "netlify/functions"
 
 [[headers]]
   for = "/*"
@@ -12,3 +8,8 @@
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[redirects]]
+  from = "/admin/*"
+  to = "/admin/index.html"
+  status = 200

@@ -23,3 +23,8 @@ live_finalitie.html
 
 # Local Netlify folder
 .netlify
+
+# Sanity Studio node modules
+sanity/node_modules/
+sanity/.sanity/
+node_modules/

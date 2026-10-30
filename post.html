@@ -373,7 +373,16 @@
       imgEl.style.display = 'block';
 
       const bodyEl = document.getElementById('post-body');
-      if (post.body) {
+      if (post.content) {
+        const paragraphs = post.content.split(/\n\s*\n/).map(p => {
+          const trimmed = p.trim();
+          if (trimmed.startsWith('### ')) return `<h3>${sanitize(trimmed.slice(4))}</h3>`;
+          if (trimmed.startsWith('## ')) return `<h2>${sanitize(trimmed.slice(3))}</h2>`;
+          if (trimmed.startsWith('# ')) return `<h1>${sanitize(trimmed.slice(2))}</h1>`;
+          return `<p>${sanitize(trimmed)}</p>`;
+        }).join('');
+        bodyEl.innerHTML = paragraphs;
+      } else if (post.body) {
         bodyEl.innerHTML = renderPortableText(post.body);
       } else {
         // Fallback demo body

@@ -161,7 +161,8 @@ class SanityClient {
       author,
       excerpt,
       "imageUrl": mainImage.asset->url,
-      body
+      body,
+      content
     }`;
     const result = await this.fetch(query);
     if (result) return result;
