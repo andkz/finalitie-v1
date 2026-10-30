@@ -28,7 +28,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdn.tailwindcss.com">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -39,7 +39,7 @@
           fontFamily: {
             sans: ['Geist', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
             heading: ['Geist', 'sans-serif'],
-            mono: ['"Geist Mono"', 'Geist', 'monospace']
+            mono: ['Geist', '-apple-system', 'sans-serif']
           },
           letterSpacing: {
             tighter: '-0.04em',
@@ -71,7 +71,7 @@
     /* ==================== SHADCN / GEIST DESIGN SYSTEM ==================== */
     :root {
       --font-geist: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      --font-mono: 'Geist Mono', monospace;
+      --font-mono: var(--font-geist);
     }
 
     * {
@@ -320,6 +320,7 @@
 
     /* Shadcn Inputs */
     .input-shadcn {
+      font-family: var(--font-geist) !important;
       width: 100%;
       height: 2.5rem;
       border-radius: 0.5rem;
@@ -340,6 +341,7 @@
     }
 
     .textarea-shadcn {
+      font-family: var(--font-geist) !important;
       width: 100%;
       min-height: 6.5rem;
       border-radius: 0.5rem;
@@ -768,75 +770,68 @@
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
       
       <!-- Service 1: Design -->
-      <div class="p-8 rounded-2xl border border-neutral-200/80 bg-white card-shadcn card-shadcn-hover flex flex-col justify-between min-h-[270px] group">
-        <div>
-          <div class="w-11 h-11 mb-5 rounded-xl bg-gradient-to-b from-white via-zinc-50 to-zinc-100 border border-zinc-200/90 shadow-[0_1px_2px_rgba(0,0,0,0.04),inset_0_1px_0_rgba(255,255,255,1)] flex items-center justify-center text-zinc-900 group-hover:border-zinc-300 transition-all">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 19l7-7 3 3-7 7-3-3z"/>
-              <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/>
-              <path d="M2 2l7.586 7.586"/>
-              <circle cx="11" cy="11" r="2"/>
-            </svg>
-          </div>
-          <h3 class="text-xl font-semibold text-neutral-950 mb-2.5 tracking-tight">Design</h3>
-          <p class="text-sm text-neutral-600 leading-relaxed font-normal">
-            Stand out from everyone else. Custom design built specifically for your business
-          </p>
+      <div class="p-8 rounded-2xl border border-neutral-200/80 bg-white card-shadcn card-shadcn-hover flex flex-col group">
+        <div class="w-11 h-11 mb-5 rounded-xl bg-gradient-to-b from-white via-zinc-50 to-zinc-100 border border-zinc-200/90 shadow-[0_1px_2px_rgba(0,0,0,0.04),inset_0_1px_0_rgba(255,255,255,1)] flex items-center justify-center text-zinc-900 group-hover:border-zinc-300 transition-all">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 19l7-7 3 3-7 7-3-3z"/>
+            <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/>
+            <path d="M2 2l7.586 7.586"/>
+            <circle cx="11" cy="11" r="2"/>
+          </svg>
         </div>
+        <h3 class="text-xl font-semibold text-neutral-950 mb-2.5 tracking-tight">Design</h3>
+        <p class="text-sm text-neutral-600 leading-relaxed font-normal">
+          Stand out from everyone else. Custom design built specifically for your business.
+        </p>
       </div>
 
       <!-- Service 2: Development -->
-      <div class="p-8 rounded-2xl border border-neutral-200/80 bg-white card-shadcn card-shadcn-hover flex flex-col justify-between min-h-[270px] group">
-        <div>
-          <div class="w-11 h-11 mb-5 rounded-xl bg-gradient-to-b from-white via-zinc-50 to-zinc-100 border border-zinc-200/90 shadow-[0_1px_2px_rgba(0,0,0,0.04),inset_0_1px_0_rgba(255,255,255,1)] flex items-center justify-center text-zinc-900 group-hover:border-zinc-300 transition-all">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="16 18 22 12 16 6"/>
-              <polyline points="8 6 2 12 8 18"/>
-            </svg>
-          </div>
-          <h3 class="text-xl font-semibold text-neutral-950 mb-2.5 tracking-tight">Development</h3>
-          <p class="text-sm text-neutral-600 leading-relaxed font-normal">
-            Custom Development. A website that grows with your business and handles anything
-          </p>
+      <div class="p-8 rounded-2xl border border-neutral-200/80 bg-white card-shadcn card-shadcn-hover flex flex-col group">
+        <div class="w-11 h-11 mb-5 rounded-xl bg-gradient-to-b from-white via-zinc-50 to-zinc-100 border border-zinc-200/90 shadow-[0_1px_2px_rgba(0,0,0,0.04),inset_0_1px_0_rgba(255,255,255,1)] flex items-center justify-center text-zinc-900 group-hover:border-zinc-300 transition-all">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="16 18 22 12 16 6"/>
+            <polyline points="8 6 2 12 8 18"/>
+          </svg>
         </div>
+        <h3 class="text-xl font-semibold text-neutral-950 mb-2.5 tracking-tight">Development</h3>
+        <p class="text-sm text-neutral-600 leading-relaxed font-normal">
+          Custom Development. A website that grows with your business and handles anything.
+        </p>
       </div>
 
       <!-- Service 3: SEO -->
-      <div class="p-8 rounded-2xl border border-neutral-200/80 bg-white card-shadcn card-shadcn-hover flex flex-col justify-between min-h-[270px] group">
-        <div>
-          <div class="w-11 h-11 mb-5 rounded-xl bg-gradient-to-b from-white via-zinc-50 to-zinc-100 border border-zinc-200/90 shadow-[0_1px_2px_rgba(0,0,0,0.04),inset_0_1px_0_rgba(255,255,255,1)] flex items-center justify-center text-zinc-900 group-hover:border-zinc-300 transition-all">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="11" cy="11" r="8"/>
-              <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-              <line x1="11" y1="8" x2="11" y2="14"/>
-              <line x1="8" y1="11" x2="14" y2="11"/>
-            </svg>
-          </div>
-          <h3 class="text-xl font-semibold text-neutral-950 mb-2.5 tracking-tight">SEO</h3>
-          <p class="text-sm text-neutral-600 leading-relaxed font-normal">
-            Help people find you on Google when they search for what you sell. Stay visible.
-          </p>
+      <div class="p-8 rounded-2xl border border-neutral-200/80 bg-white card-shadcn card-shadcn-hover flex flex-col group">
+        <div class="w-11 h-11 mb-5 rounded-xl bg-gradient-to-b from-white via-zinc-50 to-zinc-100 border border-zinc-200/90 shadow-[0_1px_2px_rgba(0,0,0,0.04),inset_0_1px_0_rgba(255,255,255,1)] flex items-center justify-center text-zinc-900 group-hover:border-zinc-300 transition-all">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            <line x1="11" y1="8" x2="11" y2="14"/>
+            <line x1="8" y1="11" x2="14" y2="11"/>
+          </svg>
         </div>
+        <h3 class="text-xl font-semibold text-neutral-950 mb-2.5 tracking-tight">SEO</h3>
+        <p class="text-sm text-neutral-600 leading-relaxed font-normal">
+          Help people find you on Google when they search for what you sell. Stay visible.
+        </p>
       </div>
 
       <!-- Service 4: Copywriting -->
-      <div class="p-8 rounded-2xl border border-neutral-200/80 bg-white card-shadcn card-shadcn-hover flex flex-col justify-between min-h-[270px] group">
-        <div>
-          <div class="w-11 h-11 mb-5 rounded-xl bg-gradient-to-b from-white via-zinc-50 to-zinc-100 border border-zinc-200/90 shadow-[0_1px_2px_rgba(0,0,0,0.04),inset_0_1px_0_rgba(255,255,255,1)] flex items-center justify-center text-zinc-900 group-hover:border-zinc-300 transition-all">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-              <polyline points="14 2 14 8 20 8"/>
-              <line x1="16" y1="13" x2="8" y2="13"/>
-              <line x1="16" y1="17" x2="8" y2="17"/>
-              <polyline points="10 9 9 9 8 9"/>
-            </svg>
-          </div>
-          <h3 class="text-xl font-semibold text-neutral-950 mb-2.5 tracking-tight">Copywriting</h3>
-          <p class="text-sm text-neutral-600 leading-relaxed font-normal">
-            Messages that speak directly to your audience and drive sales, growing your business.
-          </p>
+      <div class="p-8 rounded-2xl border border-neutral-200/80 bg-white card-shadcn card-shadcn-hover flex flex-col group">
+        <div class="w-11 h-11 mb-5 rounded-xl bg-gradient-to-b from-white via-zinc-50 to-zinc-100 border border-zinc-200/90 shadow-[0_1px_2px_rgba(0,0,0,0.04),inset_0_1px_0_rgba(255,255,255,1)] flex items-center justify-center text-zinc-900 group-hover:border-zinc-300 transition-all">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/>
+            <polyline points="10 9 9 9 8 9"/>
+          </svg>
         </div>
-      </div>    </div>
+        <h3 class="text-xl font-semibold text-neutral-950 mb-2.5 tracking-tight">Copywriting</h3>
+        <p class="text-sm text-neutral-600 leading-relaxed font-normal">
+          Messages that speak directly to your audience and drive sales, growing your business.
+        </p>
+      </div>
+    </div>
     </div>
   </section>
 
@@ -851,12 +846,12 @@
           <span class="badge-section-gradient">Performance & Stats</span>
         </div>
         
-        <h2 class="text-4xl sm:text-5xl lg:text-[56px] font-medium text-neutral-950 mb-6 tracking-tight leading-[1.1]">
-          Get The Most from your<br>website
+        <h2 class="text-3xl sm:text-4xl lg:text-[42px] xl:text-[46px] font-medium text-neutral-950 mb-6 tracking-tight leading-[1.15]">
+          Get The Most from<br class="hidden sm:inline"> your website
         </h2>
         
-        <p class="text-lg sm:text-xl text-neutral-600 leading-relaxed font-normal">
-          Every site scores 100/100 in Google PageSpeed Insights.<br>
+        <p class="text-base sm:text-lg text-neutral-600 leading-relaxed font-normal">
+          Every site scores 100/100 in Google PageSpeed Insights.<br class="hidden sm:inline">
           Faster loading, better rankings, more clients.
         </p>
       </div>
@@ -1379,14 +1374,14 @@
       <div class="lg:col-span-4 space-y-4">
         
         <div class="p-6 rounded-2xl bg-white border border-neutral-200 card-shadcn">
-          <span class="text-xs font-mono font-medium text-neutral-500 uppercase tracking-wider block mb-2">Chat</span>
+          <span class="text-xs font-medium text-neutral-500 uppercase tracking-wider block mb-2">Chat</span>
           <a href="mailto:kamilandreasik99@gmail.com" class="text-base font-medium text-neutral-950 hover:text-neutral-950 transition-colors break-all">
             kamilandreasik99@gmail.com
           </a>
         </div>
 
         <div class="p-6 rounded-2xl bg-white border border-neutral-200 card-shadcn">
-          <span class="text-xs font-mono font-medium text-neutral-500 uppercase tracking-wider block mb-2">Call</span>
+          <span class="text-xs font-medium text-neutral-500 uppercase tracking-wider block mb-2">Call</span>
           <a href="tel:+48535070802" class="text-base font-medium text-neutral-950 hover:text-neutral-950 transition-colors">
             +48 535 070 802
           </a>
@@ -1424,7 +1419,7 @@
           <div>
             <div class="flex items-center justify-between mb-1.5">
               <label for="message" class="block text-xs font-medium text-neutral-700">Message <span class="text-emerald-brand">*</span></label>
-              <span id="char-count" class="text-[11px] text-neutral-400 font-mono" aria-live="polite">0 / 5000</span>
+              <span id="char-count" class="text-[11px] text-neutral-400 font-normal" aria-live="polite">0 / 5000</span>
             </div>
             <textarea id="message" name="message" required maxlength="5000" rows="4" placeholder="Tell us about your project, goals, or timeline..." aria-label="Message details" aria-required="true" enterkeyhint="send" class="textarea-shadcn"></textarea>
             <span id="message-error" class="hidden text-xs text-red-600 mt-1 font-medium" role="alert">Please provide details about your project.</span>
