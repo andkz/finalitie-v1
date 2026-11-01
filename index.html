@@ -1441,19 +1441,38 @@
 <!-- ==================== 11. FINAL CTA BANNER (1:1 from Framer) ==================== -->
   <section class="w-full bg-white py-16 sm:py-24">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-      <div class="w-full rounded-2xl text-white p-8 sm:p-12 lg:p-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-8 relative overflow-hidden shadow-xl" style="background: linear-gradient(104deg, #18181b 0%, #27272a 100%); border: 1px solid #3f3f46; border-radius: 16px; color: #ffffff;">
-        <div class="max-w-2xl text-left text-white" style="color: #ffffff;">
-          <h2 class="text-3xl sm:text-4xl lg:text-[38px] font-semibold text-white mb-3.5 leading-tight tracking-tight">
-            Ready to Get More Customers?
-          </h2>
-          <p class="text-sm sm:text-base text-neutral-200 leading-relaxed font-normal max-w-xl">
-            Every day without a professional website, potential customers go somewhere else. Get found in Google, build trust instantly, and turn visitors into paying customers.
-          </p>
-        </div>
-        <div class="shrink-0 flex items-center justify-end text-white" style="color: #ffffff;">
-          <a href="#contact" class="inline-flex items-center justify-center px-7 py-3.5 rounded-lg bg-white text-neutral-950 font-medium text-sm sm:text-base shadow-sm hover:bg-neutral-100 hover:shadow transition-all whitespace-nowrap" style="background-color: #ffffff; color: #09090b;">
-            Get Your Website
-          </a>
+      <div class="w-full rounded-2xl text-white p-8 sm:p-12 lg:p-14 relative overflow-hidden shadow-2xl" style="background: linear-gradient(104deg, #18181b 0%, #27272a 100%); border: 1px solid #3f3f46; border-radius: 16px; color: #ffffff;">
+        <!-- Ambient subtle glow behind 3D sculpture -->
+        <div class="absolute -right-10 -bottom-10 w-80 h-80 bg-zinc-600/15 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center relative z-10 w-full">
+          <!-- Text and CTA Button Column -->
+          <div class="md:col-span-8 flex flex-col items-start text-left">
+            <h2 class="text-3xl sm:text-4xl lg:text-[40px] font-semibold text-white mb-3.5 leading-tight tracking-tight">
+              Ready to Get More Customers?
+            </h2>
+            <p class="text-sm sm:text-base text-neutral-200 leading-relaxed font-normal max-w-xl mb-7">
+              Every day without a professional website, potential customers go somewhere else. Get found in Google, build trust instantly, and turn visitors into paying customers.
+            </p>
+            <div class="flex items-center">
+              <a href="#contact" class="inline-flex items-center justify-center px-7 py-3.5 rounded-lg bg-white text-neutral-950 font-medium text-sm sm:text-base shadow-sm hover:bg-neutral-100 hover:shadow transition-all whitespace-nowrap" style="background-color: #ffffff; color: #09090b;">
+                Get Your Website
+              </a>
+            </div>
+          </div>
+
+          <!-- 3D Silver Metallic Blocks Totem Asset -->
+          <div class="md:col-span-4 flex items-center justify-center md:justify-end">
+            <img 
+              src="images/blocks-silver-3d.png" 
+              alt="Finalitie Scalable Architecture" 
+              width="552" 
+              height="670" 
+              decoding="async" 
+              loading="lazy"
+              class="w-40 sm:w-52 md:w-56 lg:w-64 h-auto object-contain select-none pointer-events-none animate-float-2 drop-shadow-[0_20px_40px_rgba(0,0,0,0.65)] drop-shadow-[0_0_30px_rgba(255,255,255,0.08)]"
+            />
+          </div>
         </div>
       </div>
     </div>
